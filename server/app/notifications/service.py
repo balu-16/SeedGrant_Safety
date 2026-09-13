@@ -130,14 +130,6 @@ class NotificationService:
             data={"kind": "emergency-updated", "emergency_id": emergency_id, "status": status},
         )
 
-    async def notify_device_status(self, *, user_id: str, device_id: str, state: str) -> NotificationResult:
-        return await self._deliver(
-            audience_user_ids=[str(user_id)],
-            title="Tag status",
-            body=f"Device {device_id}: {state}",
-            data={"kind": "device-status-updated", "device_id": device_id, "state": state},
-        )
-
 
 def build_notifications(settings: Settings) -> NotificationService:
     """Select the push provider from settings; fall back to mock on any misconfig."""

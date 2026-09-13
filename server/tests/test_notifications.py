@@ -3,6 +3,7 @@
 import json
 
 from app.core.config import Settings
+from app.core.security import hash_token_value
 from app.notifications.fcm import FcmV1Provider
 from app.notifications.service import (
     MockNotificationProvider,
@@ -144,6 +145,24 @@ async def test_invalid_tokens_are_pruned(tmp_path):
     assert await push.tokens_for_users([owner]) == []  # dead token pruned
     remaining = await push.tokens_for_users([guardian])
     assert [r["token"] for r in remaining] == ["fcm-guard"]
+
+
+async def test_payload_level_invalid_argument_does_not_prune(tmp_path):
+    """A payload-level INVALID_ARGUMENT must never delete a valid token."""
+    push = FakePushTokens()
+    await push.upsert(user_id="u1", token_hash=hash_token_value("tok-x"), platform="android", token="tok-x")
+    http = FakeHttpClient(
+        {"tok-x": FakeResponse(400, {"error": {"status": "INVALID_ARGUMENT", "message": "data payload too large"}})}
+    )
+    provider = FcmV1Provider(
+        credentials_path=_creds_file(tmp_path),
+        project_id="seedgrant-naveen",
+        http_client=http,  # type: ignore[arg-type]
+    )
+    svc = NotificationService(provider).bind(push_tokens=push)  # type: ignore[arg-type]
+    await svc.notify_emergency_created(protected_user_id="u1", emergency_id="e3", trigger_type="sos")
+    remaining = await push.tokens_for_users(["u1"])
+    assert [r["token"] for r in remaining] == ["tok-x"]  # NOT pruned
 
 
 async def test_fcm_payload_shape_and_dry_run(tmp_path):

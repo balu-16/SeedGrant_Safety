@@ -2,9 +2,12 @@
 
 from datetime import UTC, datetime, timedelta
 
+import asyncpg
+
 from app.auth.repository import RefreshTokensRepository
 from app.core.config import Settings
 from app.core.exceptions import ConflictError, UnauthorizedError
+from app.core.logging import get_logger
 from app.core.security import (
     create_access_token,
     create_refresh_token,
@@ -13,7 +16,10 @@ from app.core.security import (
     hash_token_value,
     verify_password,
 )
+from app.guardians.repository import GuardiansRepository
 from app.users.repository import UsersRepository
+
+log = get_logger(__name__)
 
 
 def _normalize_email(email: str) -> str:
@@ -26,22 +32,37 @@ class AuthService:
         users: UsersRepository,
         refresh_tokens: RefreshTokensRepository,
         settings: Settings,
+        guardians: GuardiansRepository | None = None,
     ) -> None:
         self._users = users
         self._refresh = refresh_tokens
         self._settings = settings
+        self._guardians = guardians
 
     async def register(self, *, name: str, email: str, phone: str, password: str) -> dict:
         email = _normalize_email(email)
         existing = await self._users.get_by_email(email)
         if existing:
             raise ConflictError("Email already registered")
-        user = await self._users.create(
-            email=email,
-            name=name.strip(),
-            phone=phone.strip(),
-            password_hash=hash_password(password),
-        )
+        try:
+            user = await self._users.create(
+                email=email,
+                name=name.strip(),
+                phone=phone.strip(),
+                password_hash=hash_password(password),
+            )
+        except asyncpg.UniqueViolationError:
+            # Two concurrent registrations raced past the pre-check above.
+            raise ConflictError("Email already registered") from None
+        # Pending invites sent to this email before the account existed can
+        # now be linked so the guardian can actually accept them.
+        if self._guardians is not None:
+            try:
+                linked = await self._guardians.link_pending_for_email(email, str(user["id"]))
+                if linked:
+                    log.info("Linked %d pending guardian invite(s) to new user %s", linked, user["id"])
+            except Exception as e:
+                log.warning("Pending guardian invite link failed for %s: %s", email, e)
         return user
 
     async def _issue_pair(self, user_id: str) -> dict:
@@ -92,8 +113,11 @@ class AuthService:
             expires_at = expires_at.replace(tzinfo=UTC)
         if expires_at < datetime.now(UTC):
             raise UnauthorizedError("Refresh token expired")
-        # Rotate: revoke old, issue new pair
-        await self._refresh.revoke_by_jti_hash(hash_token_value(jti))
+        # Rotate atomically: revoke returns False when a concurrent refresh
+        # already consumed this token, so only the first use mints a new pair.
+        revoked = await self._refresh.revoke_by_jti_hash(hash_token_value(jti))
+        if not revoked:
+            raise UnauthorizedError("Refresh token revoked")
         pair = await self._issue_pair(str(payload["sub"]))
         return pair
 

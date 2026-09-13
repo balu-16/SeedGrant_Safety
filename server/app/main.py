@@ -61,7 +61,7 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
         app.state.emit = emit_to_users
     yield
     pool = getattr(app.state, "pool", None)
-    if pool is not None and not getattr(pool, "_is_fake", False):
+    if pool is not None:
         try:
             await pool.close()
         except Exception:
@@ -72,6 +72,11 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     settings = settings or get_settings()
     setup_logging(settings.log_level)
     if not settings.testing and settings.jwt_secret.startswith("change-me"):
+        if settings.is_production:
+            raise RuntimeError(
+                "Refusing to start: JWT_SECRET is still the insecure default. "
+                "Set a strong secret (min 32 chars) via the environment before deploying."
+            )
         log.warning("JWT_SECRET is still the insecure default — set a strong secret in .env")
     app = FastAPI(
         title=settings.app_name,
@@ -85,10 +90,15 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.state.notifications = build_notifications(settings)
     app.state.emit = emit_to_users
 
+    wildcard = "*" in settings.cors_origins
+    if wildcard and not settings.testing:
+        log.warning("CORS_ORIGINS is '*' — set explicit origins before exposing this API publicly")
     app.add_middleware(
         CORSMiddleware,
         allow_origins=settings.cors_origins,
-        allow_credentials=True,
+        # Bearer-header auth needs no credentialed CORS; credentials stay off
+        # for wildcard origins so responses can never mirror arbitrary origins.
+        allow_credentials=not wildcard,
         allow_methods=["*"],
         allow_headers=["*"],
     )

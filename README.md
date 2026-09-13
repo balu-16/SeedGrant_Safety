@@ -4,20 +4,14 @@ Personal-safety project: Expo / React Native client + FastAPI + PostgreSQL (Supa
 
 ## Layout
 
-- `client/` — Expo / React Native app. See `client/README.md` for setup and checks.
 - `server/` — FastAPI + PostgreSQL (Supabase) backend. See `server/README.md` for setup, migrations, and the API surface.
 - `reference/` — original design reference images (unchanged).
-- `artifacts/` — browser-test screenshots (generated, ignored by git).
+
+The Expo / React Native client lives in its own repo: **SmartSafetyTag-Client**.
+Browser-test output (screenshots, traces) is generated under that repo's
+`test-results/` directory and is git-ignored.
 
 ## Quick start
-
-Frontend:
-
-```sh
-cd client
-npm install
-npx expo start
-```
 
 Backend:
 

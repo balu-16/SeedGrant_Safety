@@ -1,10 +1,10 @@
 """Location schemas with strict lat/lon validation."""
 
 import uuid
-from datetime import datetime
+from datetime import UTC, datetime, timedelta
 from enum import StrEnum
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 
 class LocationSource(StrEnum):
@@ -22,6 +22,19 @@ class LocationCreate(BaseModel):
     source: LocationSource = LocationSource.PHONE_GPS
     device_id: uuid.UUID | None = None
     recorded_at: datetime | None = None
+
+    @field_validator("recorded_at")
+    @classmethod
+    def _bound_recorded_at(cls, value: datetime | None) -> datetime | None:
+        # A far-future client timestamp would permanently win the
+        # ORDER BY recorded_at DESC "latest location" query.
+        if value is None:
+            return value
+        if value.tzinfo is None:
+            value = value.replace(tzinfo=UTC)
+        if value > datetime.now(UTC) + timedelta(minutes=5):
+            raise ValueError("recorded_at cannot be in the future")
+        return value
 
 
 class LocationPublic(BaseModel):

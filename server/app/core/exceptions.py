@@ -1,5 +1,6 @@
 """Typed domain exceptions with centralized FastAPI handlers."""
 
+from collections.abc import Sequence
 from typing import Any
 
 from fastapi import FastAPI, Request
@@ -43,6 +44,11 @@ class ValidationAppError(AppError):
     code = "validation_error"
 
 
+class RateLimitError(AppError):
+    status_code = status.HTTP_429_TOO_MANY_REQUESTS
+    code = "rate_limited"
+
+
 class DatabaseError(AppError):
     status_code = status.HTTP_503_SERVICE_UNAVAILABLE
     code = "database_error"
@@ -62,10 +68,29 @@ async def app_error_handler(_: Request, exc: AppError) -> JSONResponse:
     )
 
 
+def _jsonable_errors(errors: Sequence[Any]) -> list[Any]:
+    """Pydantic error contexts may hold exception objects (custom validators);
+    stringify anything JSON cannot represent."""
+    out: list = []
+    for err in errors:
+        if isinstance(err, dict):
+            cleaned = dict(err)
+            ctx = cleaned.get("ctx")
+            if isinstance(ctx, dict):
+                cleaned["ctx"] = {
+                    key: (value if isinstance(value, (str, int, float, bool, type(None))) else str(value))
+                    for key, value in ctx.items()
+                }
+            out.append(cleaned)
+        else:
+            out.append(err)
+    return out
+
+
 async def validation_error_handler(_: Request, exc: RequestValidationError) -> JSONResponse:
     return JSONResponse(
         status_code=getattr(status, "HTTP_422_UNPROCESSABLE_CONTENT", 422),
-        content=_error_payload("validation_error", "Invalid request", exc.errors()),
+        content=_error_payload("validation_error", "Invalid request", _jsonable_errors(exc.errors())),
     )
 
 

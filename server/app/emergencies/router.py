@@ -2,9 +2,10 @@
 
 from uuid import UUID
 
-from fastapi import APIRouter, Depends, Query, Request, status
+from fastapi import APIRouter, BackgroundTasks, Depends, Query, Request, status
 
 from app.core.deps import Repos, get_current_user, get_repos
+from app.core.ratelimit import rate_limit
 from app.emergencies.schemas import (
     EmergencyCreate,
     EmergencyListResponse,
@@ -17,7 +18,7 @@ from app.emergencies.service import EmergenciesService
 router = APIRouter(prefix="/emergencies", tags=["emergencies"])
 
 
-def _svc(request: Request) -> EmergenciesService:
+def _svc(request: Request, background: BackgroundTasks | None = None) -> EmergenciesService:
     repos: Repos = get_repos(request)
     notifications = request.app.state.notifications
     emit = request.app.state.emit
@@ -28,6 +29,7 @@ def _svc(request: Request) -> EmergenciesService:
         notifications,
         emit=emit,
         pool=repos.pool,
+        background=background,
     )
 
 
@@ -36,9 +38,15 @@ def _svc(request: Request) -> EmergenciesService:
     response_model=EmergencyPublic,
     status_code=status.HTTP_201_CREATED,
     summary="Create SOS incident",
+    dependencies=[Depends(rate_limit(max_requests=10, window_seconds=60, scope="emergencies:create"))],
 )
-async def create_emergency(body: EmergencyCreate, request: Request, user: dict = Depends(get_current_user)):
-    svc = _svc(request)
+async def create_emergency(
+    body: EmergencyCreate,
+    request: Request,
+    background_tasks: BackgroundTasks,
+    user: dict = Depends(get_current_user),
+):
+    svc = _svc(request, background_tasks)
     return await svc.create(
         str(user["id"]),
         trigger_type=body.trigger_type,
@@ -81,19 +89,24 @@ async def update_status(
     emergency_id: UUID,
     body: EmergencyStatusUpdate,
     request: Request,
+    background_tasks: BackgroundTasks,
     user: dict = Depends(get_current_user),
 ):
-    svc = _svc(request)
+    svc = _svc(request, background_tasks)
     return await svc.update_status(str(user["id"]), str(emergency_id), body.status.value)
 
 
 @router.post("/{emergency_id}/resolve", response_model=EmergencyPublic, summary="Resolve incident")
-async def resolve(emergency_id: UUID, request: Request, user: dict = Depends(get_current_user)):
-    svc = _svc(request)
+async def resolve(
+    emergency_id: UUID, request: Request, background_tasks: BackgroundTasks, user: dict = Depends(get_current_user)
+):
+    svc = _svc(request, background_tasks)
     return await svc.update_status(str(user["id"]), str(emergency_id), EmergencyStatus.RESOLVED.value)
 
 
 @router.post("/{emergency_id}/cancel", response_model=EmergencyPublic, summary="Cancel incident")
-async def cancel(emergency_id: UUID, request: Request, user: dict = Depends(get_current_user)):
-    svc = _svc(request)
+async def cancel(
+    emergency_id: UUID, request: Request, background_tasks: BackgroundTasks, user: dict = Depends(get_current_user)
+):
+    svc = _svc(request, background_tasks)
     return await svc.update_status(str(user["id"]), str(emergency_id), EmergencyStatus.CANCELLED.value)

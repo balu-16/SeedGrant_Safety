@@ -1,6 +1,6 @@
 """Devices service — ownership validation lives here, never in routers."""
 
-from app.core.exceptions import ForbiddenError, NotFoundError, UnauthorizedError
+from app.core.exceptions import ForbiddenError, NotFoundError
 from app.core.security import hash_password as hash_secret
 from app.core.security import verify_password
 from app.devices.repository import DevicesRepository
@@ -38,12 +38,12 @@ class DevicesService:
         connection_state: str | None,
     ) -> dict:
         await self._get_owned(user_id, device_id)
+        # A profile edit is not a liveness signal — only pair() stamps last_seen.
         updated = await self._devices.update(
             device_id,
             name=name,
             battery_pct=battery_pct,
             connection_state=connection_state,
-            last_seen=True,
         )
         if not updated:
             raise NotFoundError("Device not found")
@@ -54,7 +54,8 @@ class DevicesService:
         stored = await self._devices.get_secret_hash(device_id)
         if stored:
             if not device_secret or not verify_password(device_secret, stored):
-                raise UnauthorizedError("Invalid device secret")
+                # The user is authenticated; only the device credential failed.
+                raise ForbiddenError("Invalid device secret")
         updated = await self._devices.update(device_id, connection_state="online", last_seen=True)
         return updated or device
 

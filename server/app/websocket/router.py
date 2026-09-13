@@ -17,7 +17,13 @@ async def ws_endpoint(websocket: WebSocket, token: str = Query(...)):
     try:
         user = await authenticate_ws_token(token, repos)
     except Exception:
-        await websocket.close(code=4401)
+        # Accept before closing so the client actually receives the 4401
+        # close code instead of a bare HTTP 403 handshake rejection.
+        try:
+            await websocket.accept()
+            await websocket.close(code=4401)
+        except Exception:
+            pass
         return
     user_id = str(user["id"])
     await manager.connect(user_id, websocket)

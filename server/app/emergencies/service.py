@@ -2,12 +2,17 @@
 
 from collections.abc import Awaitable, Callable
 
+from fastapi import BackgroundTasks
+
 from app.core.exceptions import ForbiddenError, NotFoundError, ValidationAppError
+from app.core.logging import get_logger
 from app.devices.repository import DevicesRepository
 from app.emergencies.repository import EmergenciesRepository
 from app.emergencies.schemas import EmergencyStatus, TriggerType
 from app.guardians.repository import GuardiansRepository
 from app.notifications.service import NotificationService
+
+log = get_logger(__name__)
 
 _ALLOWED: dict[str, set[str]] = {
     EmergencyStatus.ACTIVE.value: {
@@ -34,6 +39,7 @@ class EmergenciesService:
         *,
         emit: Callable[[list[str], dict], Awaitable[None]] | None = None,
         pool: object | None = None,
+        background: BackgroundTasks | None = None,
     ) -> None:
         self._emergencies = emergencies
         self._guardians = guardians
@@ -41,6 +47,7 @@ class EmergenciesService:
         self._notifications = notifications
         self._emit = emit
         self._pool = pool
+        self._background = background
 
     async def _assert_can_read(self, reader_id: str, protected_id: str) -> None:
         if str(reader_id) == str(protected_id):
@@ -105,15 +112,10 @@ class EmergenciesService:
                 to_status="active",
             )
 
-        # Best-effort side effects: never fail the persisted emergency.
-        try:
-            await self._notifications.notify_emergency_created(
-                protected_user_id=str(emergency["protected_user_id"]),
-                emergency_id=str(emergency["id"]),
-                trigger_type=str(emergency["trigger_type"]),
-            )
-        except Exception:
-            pass
+        # Push fan-out is slow (sequential FCM HTTP calls, seconds per token),
+        # so it runs after the response; the WS emit stays inline because it is
+        # local and tests assert on it synchronously.
+        await self._dispatch_delivery(self._deliver_created(emergency))
         if self._emit is not None:
             try:
                 await self._emit(
@@ -123,6 +125,29 @@ class EmergenciesService:
             except Exception:
                 pass
         return emergency
+
+    async def _dispatch_delivery(self, coro: Awaitable[None]) -> None:
+        if self._background is not None:
+            self._background.add_task(self._await_delivery, coro)
+        else:
+            await self._await_delivery(coro)
+
+    @staticmethod
+    async def _await_delivery(coro: Awaitable[None]) -> None:
+        try:
+            await coro
+        except Exception as e:
+            log.warning("Emergency delivery task failed: %s", e)
+
+    async def _deliver_created(self, emergency: dict) -> None:
+        try:
+            await self._notifications.notify_emergency_created(
+                protected_user_id=str(emergency["protected_user_id"]),
+                emergency_id=str(emergency["id"]),
+                trigger_type=str(emergency["trigger_type"]),
+            )
+        except Exception as e:
+            log.warning("Emergency push delivery failed: %s", e)
 
     async def get(self, reader_id: str, emergency_id: str) -> dict:
         emergency = await self._emergencies.get_by_id(emergency_id)
@@ -149,23 +174,32 @@ class EmergenciesService:
             return emergency
         if status not in _ALLOWED.get(current, set()):
             raise ValidationAppError(f"Cannot move emergency from {current} to {status}")
-        updated = await self._emergencies.update_status(emergency_id, status)
-        if not updated:
-            raise NotFoundError("Emergency not found")
-        await self._emergencies.create_event(
-            emergency_id=emergency_id,
-            actor_user_id=actor_id,
-            from_status=current,
-            to_status=status,
-        )
-        try:
-            await self._notifications.notify_emergency_updated(
-                protected_user_id=str(updated["protected_user_id"]),
-                emergency_id=str(updated["id"]),
-                status=status,
+        # Status change and its audit event commit together, mirroring create.
+        pool = self._pool
+        if pool is not None and hasattr(pool, "acquire"):
+            async with pool.acquire() as conn:  # type: ignore[attr-defined]
+                async with conn.transaction():
+                    updated = await self._emergencies.update_status(emergency_id, status, conn=conn)
+                    if not updated:
+                        raise NotFoundError("Emergency not found")
+                    await self._emergencies.create_event(
+                        emergency_id=emergency_id,
+                        actor_user_id=actor_id,
+                        from_status=current,
+                        to_status=status,
+                        conn=conn,
+                    )
+        else:
+            updated = await self._emergencies.update_status(emergency_id, status)
+            if not updated:
+                raise NotFoundError("Emergency not found")
+            await self._emergencies.create_event(
+                emergency_id=emergency_id,
+                actor_user_id=actor_id,
+                from_status=current,
+                to_status=status,
             )
-        except Exception:
-            pass
+        await self._dispatch_delivery(self._deliver_updated(updated, status))
         if self._emit is not None:
             try:
                 await self._emit(
@@ -175,6 +209,16 @@ class EmergenciesService:
             except Exception:
                 pass
         return updated
+
+    async def _deliver_updated(self, updated: dict, status: str) -> None:
+        try:
+            await self._notifications.notify_emergency_updated(
+                protected_user_id=str(updated["protected_user_id"]),
+                emergency_id=str(updated["id"]),
+                status=status,
+            )
+        except Exception as e:
+            log.warning("Emergency update push delivery failed: %s", e)
 
 
 def _jsonable(emergency: dict) -> dict:

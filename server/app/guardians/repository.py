@@ -58,26 +58,33 @@ class GuardiansRepository:
         )
         return _row_to_dict(row) if row else None
 
-    async def list_for_protected(self, protected_user_id: str, *, include_removed: bool = False) -> list[dict]:
-        if include_removed:
-            rows = await self._db.fetch(
-                f"SELECT {_COLUMNS} FROM guardians WHERE protected_user_id = $1 ORDER BY created_at",
-                protected_user_id,
-            )
-        else:
-            rows = await self._db.fetch(
-                f"SELECT {_COLUMNS} FROM guardians WHERE protected_user_id = $1 "
-                "AND status <> 'removed' ORDER BY created_at",
-                protected_user_id,
-            )
+    async def list_for_protected(self, protected_user_id: str) -> list[dict]:
+        rows = await self._db.fetch(
+            f"SELECT {_COLUMNS} FROM guardians WHERE protected_user_id = $1 "
+            "AND status <> 'removed' ORDER BY created_at",
+            protected_user_id,
+        )
         return [_row_to_dict(r) for r in rows]
 
-    async def list_for_guardian_user(self, guardian_user_id: str) -> list[dict]:
+    async def list_for_guardian_user(self, guardian_user_id: str, *, include_pending: bool = False) -> list[dict]:
+        status_filter = "IN ('accepted', 'pending')" if include_pending else "= 'accepted'"
         rows = await self._db.fetch(
-            f"SELECT {_COLUMNS} FROM guardians WHERE guardian_user_id = $1 AND status = 'accepted' ORDER BY created_at",
+            f"SELECT {_COLUMNS} FROM guardians WHERE guardian_user_id = $1 AND status {status_filter} "
+            "ORDER BY created_at",
             guardian_user_id,
         )
         return [_row_to_dict(r) for r in rows]
+
+    async def link_pending_for_email(self, email: str, guardian_user_id: str) -> int:
+        """Link a freshly-registered account to pending invites sent to that email."""
+        rows = await self._db.fetch(
+            "UPDATE guardians SET guardian_user_id = $2, updated_at = now() "
+            "WHERE guardian_email = $1 AND status = 'pending' AND guardian_user_id IS NULL "
+            "RETURNING id",
+            email.strip().lower(),
+            guardian_user_id,
+        )
+        return len(rows)
 
     async def is_accepted_guardian(self, protected_user_id: str, guardian_user_id: str) -> bool:
         row = await self._db.fetchrow(

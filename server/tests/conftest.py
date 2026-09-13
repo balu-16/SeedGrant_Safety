@@ -53,9 +53,6 @@ class FakeUsers:
     async def get_by_email(self, email: str) -> dict | None:
         return self.by_email.get(email.strip().lower())
 
-    async def get_auth_record(self, user_id: str) -> dict | None:
-        return self.by_id.get(str(user_id))
-
     async def update(self, user_id: str, *, name: str | None, phone: str | None) -> dict | None:
         rec = self.by_id.get(str(user_id))
         if not rec:
@@ -246,23 +243,35 @@ class FakeGuardians:
                 return dict(rec)
         return None
 
-    async def list_for_protected(self, protected_user_id: str, *, include_removed: bool = False) -> list[dict]:
+    async def list_for_protected(self, protected_user_id: str) -> list[dict]:
         out = [
             dict(r)
             for r in self.by_id.values()
-            if str(r["protected_user_id"]) == str(protected_user_id) and (include_removed or r["status"] != "removed")
+            if str(r["protected_user_id"]) == str(protected_user_id) and r["status"] != "removed"
         ]
         out.sort(key=lambda r: r["created_at"])
         return out
 
-    async def list_for_guardian_user(self, guardian_user_id: str) -> list[dict]:
+    async def list_for_guardian_user(self, guardian_user_id: str, *, include_pending: bool = False) -> list[dict]:
+        wanted = {"accepted", "pending"} if include_pending else {"accepted"}
         return [
             dict(r)
             for r in self.by_id.values()
-            if r["guardian_user_id"]
-            and str(r["guardian_user_id"]) == str(guardian_user_id)
-            and r["status"] == "accepted"
+            if r["guardian_user_id"] and str(r["guardian_user_id"]) == str(guardian_user_id) and r["status"] in wanted
         ]
+
+    async def link_pending_for_email(self, email: str, guardian_user_id: str) -> int:
+        linked = 0
+        for rec in self.by_id.values():
+            if (
+                rec["guardian_email"] == email.strip().lower()
+                and rec["status"] == "pending"
+                and not rec["guardian_user_id"]
+            ):
+                rec["guardian_user_id"] = str(guardian_user_id)
+                rec["updated_at"] = _now()
+                linked += 1
+        return linked
 
     async def is_accepted_guardian(self, protected_user_id: str, guardian_user_id: str) -> bool:
         return any(
@@ -477,7 +486,9 @@ def build_test_repos(settings: Settings) -> Repos:
 
 @pytest.fixture
 def settings() -> Settings:
+    # _env_file=None keeps the developer's real .env out of test settings.
     return Settings(
+        _env_file=None,
         env="test",
         database_url="",
         jwt_secret="test-secret-that-is-long-enough-for-tests-123",

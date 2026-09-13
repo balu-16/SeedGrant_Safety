@@ -20,7 +20,7 @@ class ConnectionManager:
         await websocket.accept()
         async with self._lock:
             self._connections.setdefault(user_id, set()).add(websocket)
-        log.info("WS connect user=%s total=%d", user_id, await self.count())
+        log.info("WS connect user=%s", user_id)
 
     async def disconnect(self, user_id: str, websocket: WebSocket) -> None:
         async with self._lock:
@@ -31,10 +31,6 @@ class ConnectionManager:
                     self._connections.pop(user_id, None)
         log.info("WS disconnect user=%s", user_id)
 
-    async def count(self) -> int:
-        async with self._lock:
-            return sum(len(s) for s in self._connections.values())
-
     async def send_to_user(self, user_id: str, message: dict) -> int:
         delivered = 0
         async with self._lock:
@@ -42,7 +38,9 @@ class ConnectionManager:
         dead: list[WebSocket] = []
         for ws in sockets:
             try:
-                await ws.send_json(message)
+                # A stalled client must not delay delivery to the user's other
+                # sockets or block the caller (e.g. the SOS request path).
+                await asyncio.wait_for(ws.send_json(message), timeout=5.0)
                 delivered += 1
             except Exception:
                 dead.append(ws)

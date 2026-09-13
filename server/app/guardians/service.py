@@ -53,22 +53,33 @@ class GuardiansService:
     async def list_mine(self, user_id: str) -> list[dict]:
         return await self._guardians.list_for_protected(user_id)
 
-    async def list_protecting_me(self, guardian_user_id: str) -> list[dict]:
-        return await self._guardians.list_for_guardian_user(guardian_user_id)
+    async def list_protecting_me(self, guardian_user_id: str, *, include_pending: bool = False) -> list[dict]:
+        rels = await self._guardians.list_for_guardian_user(guardian_user_id, include_pending=include_pending)
+        # Attach inviter names so the guardian can decide whether to accept.
+        inviter_names: dict[str, str | None] = {}
+        out: list[dict] = []
+        for rel in rels:
+            protected_id = str(rel["protected_user_id"])
+            if protected_id not in inviter_names:
+                inviter = await self._users.get_by_id(protected_id)
+                inviter_names[protected_id] = str(inviter["name"]) if inviter else None
+            out.append({**rel, "protected_user_name": inviter_names[protected_id]})
+        return out
 
-    async def _get_owned(self, protected_user_id: str, guardian_id: str) -> dict:
+    async def update_status(self, user_id: str, guardian_id: str, status: str) -> dict:
         rel = await self._guardians.get_by_id(guardian_id)
         if not rel:
             raise NotFoundError("Guardian not found")
-        if str(rel["protected_user_id"]) != str(protected_user_id):
-            # Allow the linked guardian user to accept their own invite
-            if rel.get("guardian_user_id") and str(rel["guardian_user_id"]) == str(protected_user_id):
-                return rel
+        is_owner = str(rel["protected_user_id"]) == str(user_id)
+        is_linked_guardian = bool(rel.get("guardian_user_id")) and str(rel["guardian_user_id"]) == str(user_id)
+        if not is_owner and not is_linked_guardian:
             raise ForbiddenError("Not your guardian relationship")
-        return rel
-
-    async def update_status(self, user_id: str, guardian_id: str, status: str) -> dict:
-        rel = await self._get_owned(user_id, guardian_id)
+        # Consent rule: only the invited guardian may accept their invite, and
+        # only the protected user may reject it. Either side may remove.
+        if status == "accepted" and not is_linked_guardian:
+            raise ForbiddenError("Only the invited guardian can accept this invite")
+        if status == "rejected" and not is_owner:
+            raise ForbiddenError("Only the protected user can reject this invite")
         current = str(rel["status"])
         if status not in _ALLOWED_TRANSITIONS.get(current, set()):
             raise ValidationAppError(f"Cannot move guardian from {current} to {status}")

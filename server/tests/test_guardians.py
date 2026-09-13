@@ -7,6 +7,7 @@ async def test_guardian_invite_accept_flow(client, repos):
     await register_user(client, email="prot@example.com")
     await register_user(client, name="G", email="guard@example.com", phone="+919000000009")
     hp = await auth_headers_for(client, "prot@example.com")
+    hg = await auth_headers_for(client, "guard@example.com")
 
     r = await client.post(
         "/api/guardians/invite",
@@ -20,11 +21,21 @@ async def test_guardian_invite_accept_flow(client, repos):
     # Guardian user record should be linked automatically
     assert r.json()["guardian_user_id"] is not None
 
+    # Consent: the protected user cannot accept on the guardian's behalf
     r = await client.patch(f"/api/guardians/{gid}/status", json={"status": "accepted"}, headers=hp)
+    assert r.status_code == 403
+
+    # The invited guardian discovers the pending invite and accepts it
+    r = await client.get("/api/guardians/protecting", params={"include_pending": "true"}, headers=hg)
+    assert r.status_code == 200
+    pending = [g for g in r.json() if g["id"] == gid]
+    assert pending and pending[0]["status"] == "pending" and pending[0]["protected_user_name"] == "Asha"
+
+    r = await client.patch(f"/api/guardians/{gid}/status", json={"status": "accepted"}, headers=hg)
     assert r.status_code == 200 and r.json()["status"] == "accepted"
 
     # Invalid transition: accepted -> pending
-    r = await client.patch(f"/api/guardians/{gid}/status", json={"status": "pending"}, headers=hp)
+    r = await client.patch(f"/api/guardians/{gid}/status", json={"status": "pending"}, headers=hg)
     assert r.status_code == 422
 
     r = await client.delete(f"/api/guardians/{gid}", headers=hp)
@@ -71,10 +82,10 @@ async def test_guardian_can_read_location_and_emergency(client):
     r = await client.get(f"/api/emergencies/{eid}", headers=hg)
     assert r.status_code == 403
 
-    # Invite + accept, then guardian can read
+    # Invite + guardian-side accept, then guardian can read
     r = await client.post("/api/guardians/invite", json={"guardian_email": "g2@example.com"}, headers=hp)
     gid = r.json()["id"]
-    r = await client.patch(f"/api/guardians/{gid}/status", json={"status": "accepted"}, headers=hp)
+    r = await client.patch(f"/api/guardians/{gid}/status", json={"status": "accepted"}, headers=hg)
     assert r.status_code == 200
     r = await client.get("/api/locations/latest", params={"user_id": me["id"]}, headers=hg)
     assert r.status_code == 200 and r.json() is not None

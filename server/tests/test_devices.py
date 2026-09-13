@@ -39,9 +39,9 @@ async def test_device_secret_enforced(client):
     r = await client.post("/api/devices", json={"name": "Secret Tag", "device_secret": "supersecret1"}, headers=h)
     assert r.status_code == 201
     did = r.json()["id"]
-    # Wrong secret rejected
+    # Wrong secret rejected (user is authenticated; the credential itself failed)
     r = await client.post(f"/api/devices/{did}/pair", json={"device_secret": "nope"}, headers=h)
-    assert r.status_code == 401
+    assert r.status_code == 403
     # Right secret works
     r = await client.post(f"/api/devices/{did}/pair", json={"device_secret": "supersecret1"}, headers=h)
     assert r.status_code == 200

@@ -8,11 +8,11 @@ from app.auth.schemas import (
     RefreshRequest,
     RefreshResponse,
     RegisterRequest,
-    TokenResponse,
 )
 from app.auth.service import AuthService
 from app.core.config import Settings
 from app.core.deps import get_current_user, get_repos, get_settings_dep
+from app.core.ratelimit import rate_limit
 from app.users.schemas import UserPublic
 
 router = APIRouter(prefix="/auth", tags=["auth"])
@@ -20,7 +20,7 @@ router = APIRouter(prefix="/auth", tags=["auth"])
 
 def _service(request: Request, settings: Settings) -> AuthService:
     repos = get_repos(request)
-    return AuthService(repos.users, repos.refresh_tokens, settings)
+    return AuthService(repos.users, repos.refresh_tokens, settings, guardians=repos.guardians)
 
 
 @router.post(
@@ -28,13 +28,19 @@ def _service(request: Request, settings: Settings) -> AuthService:
     response_model=UserPublic,
     status_code=status.HTTP_201_CREATED,
     summary="Register a new user",
+    dependencies=[Depends(rate_limit(max_requests=5, window_seconds=60, scope="auth:register"))],
 )
 async def register(body: RegisterRequest, request: Request, settings: Settings = Depends(get_settings_dep)):
     svc = _service(request, settings)
     return await svc.register(name=body.name, email=str(body.email), phone=body.phone, password=body.password)
 
 
-@router.post("/login", status_code=status.HTTP_200_OK, summary="Login with email + password")
+@router.post(
+    "/login",
+    status_code=status.HTTP_200_OK,
+    summary="Login with email + password",
+    dependencies=[Depends(rate_limit(max_requests=10, window_seconds=60, scope="auth:login"))],
+)
 async def login(body: LoginRequest, request: Request, settings: Settings = Depends(get_settings_dep)):
     svc = _service(request, settings)
     result = await svc.login(email=str(body.email), password=body.password)
@@ -48,7 +54,12 @@ async def login(body: LoginRequest, request: Request, settings: Settings = Depen
     }
 
 
-@router.post("/refresh", response_model=RefreshResponse, summary="Rotate refresh token")
+@router.post(
+    "/refresh",
+    response_model=RefreshResponse,
+    summary="Rotate refresh token",
+    dependencies=[Depends(rate_limit(max_requests=60, window_seconds=60, scope="auth:refresh"))],
+)
 async def refresh(body: RefreshRequest, request: Request, settings: Settings = Depends(get_settings_dep)):
     svc = _service(request, settings)
     pair = await svc.refresh(refresh_token=body.refresh_token)
@@ -65,10 +76,6 @@ async def logout(body: LogoutRequest, request: Request, settings: Settings = Dep
 @router.post("/logout-all", status_code=status.HTTP_200_OK, summary="Revoke all refresh tokens")
 async def logout_all(request: Request, user: dict = Depends(get_current_user)):
     repos = get_repos(request)
-    svc = AuthService(repos.users, repos.refresh_tokens, repos.settings)
+    svc = AuthService(repos.users, repos.refresh_tokens, repos.settings, guardians=repos.guardians)
     count = await svc.logout_all(user_id=str(user["id"]))
     return {"revoked": count}
-
-
-# Keep TokenResponse exported for OpenAPI docs completeness
-__all__ = ["router", "TokenResponse"]

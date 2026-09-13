@@ -21,16 +21,22 @@ class Settings(BaseSettings):
     access_token_expire_minutes: int = Field(default=15)
     refresh_token_expire_days: int = Field(default=7)
 
+    @field_validator("jwt_algorithm")
+    @classmethod
+    def _symmetric_algorithm_only(cls, value: str) -> str:
+        # jwt_secret is a symmetric key; asymmetric algorithms would be misused here.
+        allowed = {"HS256", "HS384", "HS512"}
+        if value not in allowed:
+            raise ValueError(f"jwt_algorithm must be one of {sorted(allowed)}")
+        return value
+
+    @property
+    def is_production(self) -> bool:
+        return self.env.strip().lower() in {"production", "prod", "staging"}
+
     cors_origins: list[str] = Field(default_factory=lambda: ["*"])
     log_level: str = Field(default="INFO")
     testing: bool = Field(default=False)
-
-    # Supabase API access (URL + keys). The asyncpg data layer keeps using
-    # DATABASE_URL (privileged, server-side only); these are for Supabase-API
-    # calls (REST/auth-admin/storage) where key-based access applies.
-    supabase_url: str = Field(default="")
-    supabase_anon_key: str = Field(default="")
-    supabase_service_role_key: str = Field(default="")
 
     push_provider: str = Field(default="mock")
     fcm_project_id: str = Field(default="")

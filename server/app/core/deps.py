@@ -44,7 +44,7 @@ def get_repos(request: Request) -> Repos:
             raise DatabaseError("Database not configured")
         return repos
     # Fallback: build from pool (should not happen; app factory always sets Repos)
-    raise RuntimeError("Repositories not initialized")
+    raise DatabaseError("Repositories not initialized")
 
 
 async def get_current_user(

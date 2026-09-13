@@ -38,8 +38,3 @@ async def create_pool(settings: Settings) -> asyncpg.Pool:
     if pool is None:
         raise RuntimeError("Failed to create asyncpg pool")
     return pool
-
-
-async def check_pool(pool: asyncpg.Pool) -> None:
-    async with pool.acquire() as conn:
-        await conn.fetchval("SELECT 1")

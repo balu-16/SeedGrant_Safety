@@ -2,7 +2,7 @@
 
 from uuid import UUID
 
-from fastapi import APIRouter, Depends, Request, status
+from fastapi import APIRouter, Depends, Query, Request, status
 
 from app.core.deps import Repos, get_current_user, get_repos
 from app.guardians.schemas import GuardianInviteRequest, GuardianPublic, GuardianStatusUpdate
@@ -39,10 +39,18 @@ async def list_mine(request: Request, user: dict = Depends(get_current_user)):
     return await svc.list_mine(str(user["id"]))
 
 
-@router.get("/protecting", response_model=list[GuardianPublic], summary="Users I protect")
-async def list_protecting(request: Request, user: dict = Depends(get_current_user)):
+@router.get(
+    "/protecting",
+    response_model=list[GuardianPublic],
+    summary="Users I protect (optionally including pending invites to accept)",
+)
+async def list_protecting(
+    request: Request,
+    user: dict = Depends(get_current_user),
+    include_pending: bool = Query(default=False, description="Include pending invites awaiting my consent"),
+):
     svc = _svc(request)
-    return await svc.list_protecting_me(str(user["id"]))
+    return await svc.list_protecting_me(str(user["id"]), include_pending=include_pending)
 
 
 @router.patch("/{guardian_id}/status", response_model=GuardianPublic, summary="Accept/reject/remove")

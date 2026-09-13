@@ -3,7 +3,7 @@
 import uuid
 from datetime import datetime
 
-from pydantic import BaseModel, EmailStr, Field
+from pydantic import BaseModel, EmailStr, Field, field_validator
 
 
 class UserPublic(BaseModel):
@@ -18,3 +18,13 @@ class UserPublic(BaseModel):
 class UserUpdate(BaseModel):
     name: str | None = Field(default=None, min_length=1, max_length=120)
     phone: str | None = Field(default=None, min_length=7, max_length=32)
+
+    @field_validator("name", "phone")
+    @classmethod
+    def _reject_blank(cls, value: str | None) -> str | None:
+        if value is None:
+            return value
+        value = value.strip()
+        if not value:
+            raise ValueError("must not be blank")
+        return value

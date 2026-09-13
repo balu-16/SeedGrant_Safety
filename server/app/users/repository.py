@@ -41,13 +41,6 @@ class UsersRepository:
         )
         return _row_to_dict(row) if row else None
 
-    async def get_auth_record(self, user_id: str) -> dict | None:
-        row = await self._db.fetchrow(
-            "SELECT id, email, password_hash FROM users WHERE id = $1",
-            user_id,
-        )
-        return _row_to_dict(row) if row else None
-
     async def update(self, user_id: str, *, name: str | None, phone: str | None) -> dict | None:
         row = await self._db.fetchrow(
             """

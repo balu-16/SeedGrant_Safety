@@ -28,6 +28,7 @@ class GuardianStatusUpdate(BaseModel):
 class GuardianPublic(BaseModel):
     id: uuid.UUID
     protected_user_id: uuid.UUID
+    protected_user_name: str | None = None
     guardian_user_id: uuid.UUID | None
     guardian_email: str
     guardian_name: str

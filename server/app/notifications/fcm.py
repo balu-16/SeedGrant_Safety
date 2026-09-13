@@ -21,7 +21,25 @@ _FCM_ENDPOINT = "https://fcm.googleapis.com/v1/projects/{project_id}/messages:se
 # Must match the Android notification channel created by the client.
 SOS_CHANNEL_ID = "sos"
 
-_UNREGISTERED_CODES = {"UNREGISTERED", "INVALID_ARGUMENT"}
+_UNREGISTERED_CODE = "UNREGISTERED"
+
+
+def _is_dead_token(code: str, details: list) -> bool:
+    """Only token-scoped FCM errors may prune; payload-level errors must not.
+
+    A bare INVALID_ARGUMENT is frequently payload-level (oversized message,
+    bad data field) and says nothing about the token's health.
+    """
+    if code == _UNREGISTERED_CODE:
+        return True
+    if code == "INVALID_ARGUMENT":
+        return any(
+            isinstance(violation, dict) and "token" in str(violation.get("field", ""))
+            for detail in details
+            if isinstance(detail, dict)
+            for violation in (detail.get("fieldViolations") or [])
+        )
+    return False
 
 
 class FcmV1Provider:
@@ -134,15 +152,18 @@ class FcmV1Provider:
                     report.delivered.append(token)
                     continue
                 code = ""
+                details: list = []
                 try:
                     err = resp.json().get("error", {})
                     code = str(err.get("status", ""))
-                    details = err.get("details", [])
-                    if details and isinstance(details, list):
-                        code = str(details[0].get("errorCode", code))
+                    raw_details = err.get("details", [])
+                    if isinstance(raw_details, list):
+                        details = raw_details
+                        if details and isinstance(details[0], dict):
+                            code = str(details[0].get("errorCode", code))
                 except Exception:
                     pass
-                if code in _UNREGISTERED_CODES:
+                if _is_dead_token(code, details):
                     log.info("FCM pruning dead token ending ...%s (%s)", token[-6:], code)
                     report.invalid.append(token)
                 else:
