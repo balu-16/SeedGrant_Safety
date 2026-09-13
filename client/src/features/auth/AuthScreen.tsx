@@ -22,6 +22,7 @@ import {
   s,
 } from "../../components/ui";
 import { C } from "../../constants/theme";
+import { ApiError } from "../../services/api";
 import { useAuth } from "../../hooks/useServices";
 import {
   validateLogin,
@@ -64,8 +65,15 @@ export default function AuthScreen({ signup = false }: { signup?: boolean }) {
       else if (signup) await auth.signup(form);
       else await auth.login(form.email, form.password);
       router.replace("/home");
-    } catch {
-      setErrors({ general: "Unable to sign in. Please try again." });
+    } catch (e) {
+      // Surface the server's reason (duplicate email, wrong password, 422
+      // field messages) instead of one generic string for every failure.
+      setErrors({
+        general:
+          e instanceof ApiError
+            ? e.message
+            : "Unable to sign in. Please try again.",
+      });
     } finally {
       setPending(false);
     }
@@ -336,9 +344,16 @@ export default function AuthScreen({ signup = false }: { signup?: boolean }) {
                     return;
                   }
                   setPending(true);
+                  setResetError("");
                   try {
                     await auth.reset(resetEmail);
                     setResetSent(true);
+                  } catch (e) {
+                    setResetError(
+                      e instanceof Error && e.message
+                        ? e.message
+                        : "Could not send the reset link. Please try again."
+                    );
                   } finally {
                     setPending(false);
                   }

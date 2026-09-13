@@ -44,7 +44,7 @@ const actions: { title: string; icon: IconName; color: string; bg: string }[] =
   ];
 export default function HomeScreen() {
   const { state, dispatch } = useApp();
-  const { pending, trigger } = useEmergency();
+  const { pending, error: sosError, trigger } = useEmergency();
   const [dialog, setDialog] = useState("");
   const [success, setSuccess] = useState(false);
   const [holding, setHolding] = useState(false);
@@ -253,6 +253,7 @@ export default function HomeScreen() {
                   Your safety circle is empty. You can still try the simulation.
                 </Txt>
               )}
+              {!!sosError && <Txt style={s.error}>{sosError}</Txt>}
               <Button
                 title="Send demo SOS"
                 danger

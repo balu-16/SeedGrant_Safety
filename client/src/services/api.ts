@@ -15,6 +15,26 @@ export function getAccessToken(): string | null {
   return accessToken;
 }
 
+export type SessionEvent = "restored" | "lost";
+
+const sessionListeners = new Set<(event: SessionEvent) => void>();
+
+/** Subscribe to background session changes (token refresh / forced logout). */
+export function onSessionEvent(fn: (event: SessionEvent) => void): () => void {
+  sessionListeners.add(fn);
+  return () => sessionListeners.delete(fn);
+}
+
+function emitSession(event: SessionEvent) {
+  sessionListeners.forEach((fn) => {
+    try {
+      fn(event);
+    } catch {
+      // a broken listener must not break the refresh path
+    }
+  });
+}
+
 export class ApiError extends Error {
   status: number;
   constructor(status: number, message: string) {
@@ -56,6 +76,8 @@ export async function apiFetch<T>(
   return await parseResponse<T>(res);
 }
 
+const REQUEST_TIMEOUT_MS = 15000;
+
 async function rawFetch(
   base: string,
   path: string,
@@ -63,6 +85,8 @@ async function rawFetch(
   body: unknown,
   token: string | null
 ): Promise<Response> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
   try {
     return await fetch(`${base}${path}`, {
       method,
@@ -71,9 +95,12 @@ async function rawFetch(
         ...(token ? { Authorization: `Bearer ${token}` } : {}),
       },
       body: body !== undefined ? JSON.stringify(body) : undefined,
+      signal: controller.signal,
     });
   } catch {
     throw new ApiError(0, "Could not reach the safety service. Check your connection.");
+  } finally {
+    clearTimeout(timer);
   }
 }
 
@@ -87,12 +114,16 @@ async function refreshAccessToken(base: string): Promise<string | null> {
         if (!refreshToken) return null;
         const res = await rawFetch(base, "/api/auth/refresh", "POST", { refresh_token: refreshToken }, null);
         if (!res.ok) {
+          // The server rejected the refresh token — the session is gone for
+          // good, so tell the app to drop the signed-in UI state.
           await clearSession();
+          emitSession("lost");
           return null;
         }
         const pair = (await res.json()) as { access_token: string; refresh_token: string };
         setAccessToken(pair.access_token);
         await saveRefreshToken(pair.refresh_token);
+        emitSession("restored");
         return pair.access_token;
       } catch {
         return null;

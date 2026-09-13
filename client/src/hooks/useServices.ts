@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { useApp } from "../store/AppStore";
 import { Device, LocationPoint, SignupInput } from "../types";
-import { getAccessToken } from "../services/api";
-import { getServices, isBackendMode } from "../services/index";
+import { ApiError, getAccessToken, onSessionEvent } from "../services/api";
+import { getAuthServices, getServices, isBackendMode } from "../services/index";
 import { remoteLogout } from "../services/remote/auth";
 import { mapEmergency } from "../services/remote/services";
 import {
@@ -10,29 +10,35 @@ import {
   disconnectRealtime,
   subscribeRealtime,
 } from "../services/realtime";
-import { getLastRawPushToken, unregisterPushToken } from "../services/notifications";
+import {
+  getDevicePushToken,
+  getLastRawPushToken,
+  unregisterPushToken,
+} from "../services/notifications";
 
 export function useAuth() {
   const { state, dispatch } = useApp();
-  const services = getServices(state.user?.id ?? null);
+  const { auth } = getAuthServices();
   return {
     async login(email: string, password: string) {
       dispatch({
         type: "login",
-        user: await services.auth.login(email, password),
+        user: await auth.login(email, password),
       });
     },
     async signup(input: SignupInput) {
-      dispatch({ type: "login", user: await services.auth.signup(input) });
+      dispatch({ type: "login", user: await auth.signup(input) });
     },
     async google() {
-      dispatch({ type: "login", user: await services.auth.google() });
+      dispatch({ type: "login", user: await auth.google() });
     },
-    reset: services.auth.resetPassword,
+    reset: auth.resetPassword,
     async logout() {
       if (isBackendMode(state.user?.id ?? null)) {
         const token = getAccessToken();
-        const rawPush = getLastRawPushToken();
+        // The in-memory raw token is lost on restart; re-derive it so the
+        // server does not keep pushing to a now-logged-out user.
+        const rawPush = getLastRawPushToken() ?? (await getDevicePushToken())?.token ?? null;
         if (token && rawPush) {
           await unregisterPushToken(token, rawPush);
         }
@@ -97,16 +103,24 @@ export function useEmergency() {
   const services = getServices(state.user?.id ?? null);
   const busy = useRef(false);
   const [pending, setPending] = useState(false);
+  const [error, setError] = useState("");
   return {
     pending,
+    error,
     async trigger() {
-      if (busy.current) return;
+      if (busy.current) return undefined;
       busy.current = true;
       setPending(true);
+      setError("");
       try {
         const alert = await services.emergency.trigger(state.guardians.length);
         dispatch({ type: "alert", alert });
         return alert;
+      } catch (e) {
+        setError(
+          e instanceof ApiError ? e.message : "Could not send the alert. Please try again."
+        );
+        return undefined;
       } finally {
         busy.current = false;
         setPending(false);
@@ -139,6 +153,14 @@ export function useGuardiansSync() {
 export function useRealtime() {
   const { state, dispatch } = useApp();
   const userId = state.user?.id ?? null;
+  // Re-run when a background refresh restores the access token (e.g. right
+  // after app restart, before the first token existed at mount time).
+  const [sessionTick, setSessionTick] = useState(0);
+  useEffect(() => onSessionEvent(() => setSessionTick((t) => t + 1)), []);
+  const guardiansCount = useRef(state.guardians.length);
+  useEffect(() => {
+    guardiansCount.current = state.guardians.length;
+  }, [state.guardians.length]);
   useEffect(() => {
     const token = getAccessToken();
     if (!isBackendMode(userId) || !token) {
@@ -162,12 +184,12 @@ export function useRealtime() {
                 status: String(emergency.status ?? "active"),
                 created_at: String(emergency.created_at ?? new Date().toISOString()),
               },
-              state.guardians.length
+              guardiansCount.current
             ),
           });
         }
       }
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [userId]);
+  }, [userId, sessionTick]);
 }

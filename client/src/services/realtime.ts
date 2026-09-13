@@ -1,4 +1,4 @@
-import { apiBaseUrl } from "./api";
+import { apiBaseUrl, getAccessToken } from "./api";
 
 export interface RealtimeEvent {
   type: string;
@@ -11,6 +11,10 @@ const listeners = new Set<Listener>();
 let socket: WebSocket | null = null;
 let wanted = false;
 let retryTimer: ReturnType<typeof setTimeout> | null = null;
+
+// Auth rejections are terminal: retrying with the same dead token would loop
+// forever. The session-restored flow reconnects with a fresh token instead.
+const AUTH_CLOSE_CODES = new Set<number>([1002, 1008, 4401]);
 
 export function subscribeRealtime(fn: Listener): () => void {
   listeners.add(fn);
@@ -32,23 +36,29 @@ function wsUrl(base: string, token: string): string {
   return `${wsBase}/api/ws?token=${encodeURIComponent(token)}`;
 }
 
-function scheduleReconnect(token: string) {
+function scheduleReconnect() {
   if (!wanted || retryTimer) return;
   retryTimer = setTimeout(() => {
     retryTimer = null;
-    if (wanted) connectRealtime(token);
+    if (!wanted) return;
+    // Re-read the token on every attempt: the access token may have been
+    // rotated by a background refresh since the original connect.
+    const token = getAccessToken();
+    if (token) connectRealtime(token);
   }, 3000);
 }
 
-export function connectRealtime(token: string): void {
+export function connectRealtime(token?: string): void {
   const base = apiBaseUrl();
   if (!base || typeof WebSocket === "undefined") return;
+  const authToken = token ?? getAccessToken();
+  if (!authToken) return;
   if (socket && (socket.readyState === WebSocket.OPEN || socket.readyState === WebSocket.CONNECTING)) {
     return;
   }
   wanted = true;
   try {
-    const ws = new WebSocket(wsUrl(base, token));
+    const ws = new WebSocket(wsUrl(base, authToken));
     socket = ws;
     ws.onmessage = (msg) => {
       try {
@@ -57,9 +67,13 @@ export function connectRealtime(token: string): void {
         // ignore malformed frames
       }
     };
-    ws.onclose = () => {
+    ws.onclose = (event) => {
       if (socket === ws) socket = null;
-      scheduleReconnect(token);
+      if (AUTH_CLOSE_CODES.has(event.code)) {
+        wanted = false;
+        return;
+      }
+      scheduleReconnect();
     };
     ws.onerror = () => {
       try {
@@ -70,7 +84,7 @@ export function connectRealtime(token: string): void {
     };
   } catch (e) {
     console.warn("Realtime connect failed", e);
-    scheduleReconnect(token);
+    scheduleReconnect();
   }
 }
 

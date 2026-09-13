@@ -8,6 +8,7 @@ import React, {
   useState,
 } from "react";
 import { AppState } from "../types";
+import { onSessionEvent } from "../services/api";
 import { Action, initialState, parseStored, reducer } from "./reducer";
 const KEY = "smart-safety:v1";
 const Context = createContext<{
@@ -28,6 +29,13 @@ export function AppProvider({ children }: React.PropsWithChildren) {
         );
         dispatch({ type: "hydrate", payload: {} });
       });
+  }, []);
+  useEffect(() => {
+    // A rejected background refresh cleared the tokens — drop the signed-in
+    // UI state too, so navigation guards send the user back to login.
+    return onSessionEvent((event) => {
+      if (event === "lost") dispatch({ type: "logout" });
+    });
   }, []);
   useEffect(() => {
     if (!state.hydrated) return;

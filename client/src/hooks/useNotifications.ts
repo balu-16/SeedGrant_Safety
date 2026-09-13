@@ -1,7 +1,7 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "expo-router";
 import { useApp } from "../store/AppStore";
-import { apiBaseUrl, getAccessToken } from "../services/api";
+import { apiBaseUrl, getAccessToken, onSessionEvent } from "../services/api";
 import {
   addPushReceivedListener,
   addPushResponseListener,
@@ -19,6 +19,10 @@ export function useNotifications() {
   const { state } = useApp();
   const router = useRouter();
   const registeredFor = useRef<string | null>(null);
+  // Re-run when a background refresh restores the access token (e.g. right
+  // after app restart, when registration was skipped for lack of a token).
+  const [sessionTick, setSessionTick] = useState(0);
+  useEffect(() => onSessionEvent(() => setSessionTick((t) => t + 1)), []);
 
   useEffect(() => {
     configureNotifications().catch((e) => console.warn("Notification setup failed", e));
@@ -45,7 +49,7 @@ export function useNotifications() {
     if (registeredFor.current === user.id) return;
     const base = apiBaseUrl();
     const session = getAccessToken();
-    if (!base || !session) return; // mock mode: nothing to register against
+    if (!base || !session) return; // mock mode / token not restored yet
     let cancelled = false;
     (async () => {
       try {
@@ -60,5 +64,5 @@ export function useNotifications() {
     return () => {
       cancelled = true;
     };
-  }, [state.user, state.preferences.notifications]);
+  }, [state.user, state.preferences.notifications, sessionTick]);
 }

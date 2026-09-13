@@ -17,7 +17,7 @@ Open the project in an Expo Go version compatible with SDK 57, or press `a` with
 npm run web
 ```
 
-The development preview runs at `http://localhost:8081`. No API keys, backend, map service, or external accounts are needed.
+The development preview runs at `http://localhost:8081`. With no configuration the app runs fully offline as a demo (no API keys, backend, or external accounts needed). Set `EXPO_PUBLIC_API_URL` (e.g. in a `.env` file or an EAS secret) to connect to the Smart Safety Tag server: auth, guardians, SOS, push and realtime events then go through the API, while the demo flows stay available as fallbacks.
 
 ## Try the demo
 
@@ -25,7 +25,7 @@ The development preview runs at `http://localhost:8081`. No API keys, backend, m
 2. Sign in using any valid email and a password of at least eight characters, or use the mock Google button. Sign Up validates name, email, phone, matching passwords and terms acceptance.
 3. On Home, tap SOS or hold it for three seconds, then confirm or cancel. Confirmation adds one simulated alert to Recent Alerts. No real messages or calls are sent.
 4. In Track, switch Live / History, recenter the illustrated map, and pause or resume sharing. Guardian counts update across Home, Track and Profile.
-5. Add, edit, designate a primary, or remove a guardian. Changes are stored locally. No invitations are sent.
+5. Add, edit, designate a primary, or remove a guardian. Demo mode stores changes locally; backend mode records the invite on the server (guardians identify themselves by email and accept from their own Guardian tab).
 6. Edit your profile and preferences. Sign Out clears your profile, custom guardians, preferences, and session alerts, while retaining onboarding completion.
 
 Mock locations, BLE/device connection, sharing, permissions, emergency delivery, voice help, and notifications are demonstrations. The app never reads real GPS, contacts or microphone data. Notification and permission switches save demo preferences without requesting OS access.
@@ -55,8 +55,8 @@ The raster artwork was generated with the built-in image tool. Exact prompts and
 - `src/features/`: screen compositions grouped by feature.
 - `src/components/`: shared UI primitives, header and device card.
 - `src/constants/`: theme and illustration references.
-- `src/services/`: typed AuthService, LocationService, EmergencyService and DeviceService contracts with asynchronous mocks.
-- `src/hooks/`: screen-facing service hooks; replace the mock implementations here when integrating real services.
+- `src/services/`: typed service contracts with `mock.ts` implementations, `remote/` API-backed implementations, and the mock/remote selector in `index.ts` (auth always goes remote when `EXPO_PUBLIC_API_URL` is set).
+- `src/hooks/`: screen-facing service hooks (auth, data, realtime, push) built on top of the service layer.
 - `src/store/`: Context/reducer and versioned AsyncStorage persistence.
 - `src/types/` and `src/utils/`: shared models and validation.
 - `tests/`: state/validation tests and Playwright interaction tests.

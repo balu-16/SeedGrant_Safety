@@ -10,6 +10,9 @@ export interface Guardian {
   relation: string;
   phone: string;
   primary: boolean;
+  /** Server identity + relationship state — present in backend mode. */
+  email?: string;
+  status?: string;
 }
 export interface LocationPoint {
   id: string;

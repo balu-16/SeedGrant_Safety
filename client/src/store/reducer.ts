@@ -1,10 +1,16 @@
 import { AppState, Emergency, Guardian, Preferences, User } from "../types";
 import { seedGuardians } from "../services/mock";
+import { apiBaseUrl } from "../services/api";
+
+// Fake demo people only make sense in demo mode; a backend-mode user starts
+// with an empty circle that the server list replaces on sign-in.
+const startingGuardians: Guardian[] = apiBaseUrl() === null ? seedGuardians : [];
+
 export const initialState: AppState = {
   hydrated: false,
   onboarding: false,
   user: null,
-  guardians: seedGuardians,
+  guardians: startingGuardians,
   sharing: true,
   preferences: {
     notifications: true,
@@ -110,7 +116,7 @@ export function parseStored(raw: string | null): Partial<AppState> {
       parsed &&
       parsed.every((guardian): guardian is Guardian => guardian !== null)
         ? parsed
-        : seedGuardians;
+        : startingGuardians;
     const preferences = record(value.preferences)
       ? Object.fromEntries(
           Object.entries(value.preferences).filter(
@@ -123,7 +129,7 @@ export function parseStored(raw: string | null): Partial<AppState> {
     return {
       onboarding: value.onboarding,
       user,
-      guardians: user ? guardians : seedGuardians,
+      guardians: user ? guardians : startingGuardians,
       preferences: { ...initialState.preferences, ...preferences },
     };
   } catch {

@@ -104,6 +104,8 @@ export function mapGuardian(g: GuardianResponse): Guardian {
     relation: g.relation || g.status,
     phone: "",
     primary: g.is_primary,
+    email: g.guardian_email,
+    status: g.status,
   };
 }
 

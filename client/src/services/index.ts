@@ -30,6 +30,15 @@ export function isBackendMode(userId: string | null): boolean {
   return !!userId && apiBaseUrl() !== null;
 }
 
+/**
+ * Auth targets the real API whenever one is configured — including the
+ * pre-login screens, where no user exists yet. Data services still need a
+ * signed-in user.
+ */
+export function getAuthServices(): Pick<ServiceSet, "auth"> {
+  return { auth: apiBaseUrl() !== null ? remoteAuth : mockAuth };
+}
+
 export function getServices(userId: string | null): ServiceSet {
   if (!isBackendMode(userId)) {
     return {

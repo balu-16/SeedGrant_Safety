@@ -62,6 +62,7 @@ export default function ProfileScreen() {
   const { state, dispatch } = useApp();
   const auth = useAuth();
   const [dialog, setDialog] = useState("");
+  const [signingOut, setSigningOut] = useState(false);
   const [profile, setProfile] = useState({ name: "", email: "", phone: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
   function open(title: string) {
@@ -255,10 +256,17 @@ export default function ProfileScreen() {
             <Button
               title="Confirm sign out"
               danger
-              onPress={() => {
-                setDialog("");
-                auth.logout();
-                router.replace("/login");
+              loading={signingOut}
+              onPress={async () => {
+                setSigningOut(true);
+                try {
+                  // Await teardown (push unregister, server logout) BEFORE
+                  // navigating, so the auth guard never sees a protected route.
+                  await auth.logout();
+                } finally {
+                  setSigningOut(false);
+                  router.replace("/login");
+                }
               }}
             />
             <Button
