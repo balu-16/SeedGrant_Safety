@@ -1,16 +1,23 @@
-# Smart Safety Tag — Server
+# Smart Safety Tag
 
-Backend for the Smart Safety Tag personal-safety project (FastAPI + PostgreSQL on Supabase).
-
-The Expo / React Native client lives in a separate repo: **SmartSafetyTag-Client**.
+Personal-safety project: Expo / React Native client + FastAPI + PostgreSQL (Supabase) backend.
 
 ## Layout
 
+- `client/` — Expo / React Native app. See `client/README.md` for setup and checks.
 - `server/` — FastAPI + PostgreSQL (Supabase) backend. See `server/README.md` for setup, migrations, and the API surface.
 - `reference/` — original design reference images (unchanged).
 - `artifacts/` — browser-test screenshots (generated, ignored by git).
 
 ## Quick start
+
+Frontend:
+
+```sh
+cd client
+npm install
+npx expo start
+```
 
 Backend:
 

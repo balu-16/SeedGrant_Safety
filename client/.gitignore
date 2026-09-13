@@ -1,0 +1,48 @@
+# dependencies
+node_modules/
+
+# Expo
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+
+# Firebase / push credentials — never commit, use EAS file secrets instead
+google-services.json
+GoogleService-Info.plist
+*-firebase-adminsdk-*.json
+fcm-service-account.json
+
+# Native keystores / credentials
+*.jks
+*.p8
+*.p12
+*.key
+*.pem
+*.mobileprovision
+
+# Generated native folders
+/ios
+/android
+
+# local env files
+.env*.local
+
+# Metro
+.metro-health-check*
+
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# macOS
+.DS_Store
+
+# typescript
+*.tsbuildinfo
+
+# Browser test output
+/test-results/
+/playwright-report/
+/artifacts/
