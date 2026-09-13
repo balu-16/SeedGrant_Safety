@@ -3,38 +3,7 @@
 # dependencies
 node_modules/
 
-# Expo
-.expo/
-dist/
-web-build/
-expo-env.d.ts
-
-# Native
-.kotlin/
-*.orig.*
-*.jks
-*.p8
-*.p12
-*.key
-*.mobileprovision
-
-# Metro
-.metro-health-check*
-
-# debug
-npm-debug.*
-yarn-debug.*
-yarn-error.*
-
-# macOS
-.DS_Store
-*.pem
-
-# local env files
-.env*.local
-
 # secrets — never commit Firebase keys
-/client/google-services.json
 /google-services.json
 *-firebase-adminsdk-*.json
 fcm-service-account.json
@@ -44,16 +13,7 @@ fcm-service-account.json
 
 example
 
-# generated native folders
-/ios
-/android
-/client/ios
-/client/android
-
 # Browser test output
 /test-results/
 /playwright-report/
 /artifacts/
-/client/test-results/
-/client/playwright-report/
-/client/artifacts/

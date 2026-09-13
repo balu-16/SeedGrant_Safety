@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1047796665586",
+    "project_id": "seedgrant-naveen",
+    "storage_bucket": "seedgrant-naveen.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1047796665586:android:5324bbefea8dba0619546b",
+        "android_client_info": {
+          "package_name": "com.smartsafetytag.demo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaJa8Y168RVIZ-TtYByWX2EZyznvxrEvQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
