@@ -17,3 +17,9 @@ example
 /test-results/
 /playwright-report/
 /artifacts/
+
+# client moved to standalone repo SmartSafetyTag-Client — ignore local checkout
+/client/
+
+# local agent workspace
+/.zcode/
