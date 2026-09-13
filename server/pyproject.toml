@@ -1,0 +1,41 @@
+[project]
+name = "smart-safety-tag-server"
+version = "0.1.0"
+description = "Smart Safety Tag V0 backend — FastAPI + asyncpg + PostgreSQL (Supabase)"
+requires-python = ">=3.12"
+dependencies = [
+    "asyncpg>=0.31.0",
+    "cryptography>=50.0.1",
+    "email-validator>=2.3.0",
+    "fastapi>=0.141.1",
+    "httpx>=0.28.1",
+    "pwdlib[argon2]>=0.3.1",
+    "pydantic-settings>=2.15.0",
+    "pyjwt>=2.14.0",
+    "python-multipart>=0.0.32",
+    "uvicorn[standard]>=0.52.4",
+]
+
+[dependency-groups]
+dev = [
+    "mypy>=2.3.1",
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+    "ruff>=0.16.7",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["B008"]
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true
