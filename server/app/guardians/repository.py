@@ -119,3 +119,40 @@ class GuardiansRepository:
             guardian_user_id,
         )
         return _row_to_dict(row) if row else None
+
+    async def delete(self, guardian_id: str) -> bool:
+        result = await self._db.execute("DELETE FROM guardians WHERE id = $1", guardian_id)
+        return result != "DELETE 0"
+
+    async def list_all_admin(
+        self,
+        *,
+        status: str | None = None,
+        limit: int = 50,
+        offset: int = 0,
+    ) -> tuple[list[dict], int]:
+        clauses = []
+        args: list[Any] = []
+        if status:
+            args.append(status)
+            clauses.append(f"g.status = ${len(args)}")
+        where = f"WHERE {' AND '.join(clauses)}" if clauses else ""
+
+        total_row = await self._db.fetchrow(f"SELECT COUNT(*) AS c FROM guardians g {where}", *args)
+        total = int(total_row["c"]) if total_row else 0
+        args.extend([limit, offset])
+        rows = await self._db.fetch(
+            f"""
+            SELECT g.id, g.protected_user_id, g.guardian_user_id, g.guardian_email, g.guardian_name,
+                   g.relation, g.status, g.is_primary, g.created_at, g.updated_at,
+                   up.email AS protected_email, up.name AS protected_name,
+                   ug.email AS guardian_account_email
+            FROM guardians g
+            JOIN users up ON up.id = g.protected_user_id
+            LEFT JOIN users ug ON ug.id = g.guardian_user_id
+            {where}
+            ORDER BY g.created_at DESC LIMIT ${len(args) - 1} OFFSET ${len(args)}
+            """,
+            *args,
+        )
+        return ([_row_to_dict(r) for r in rows], total)

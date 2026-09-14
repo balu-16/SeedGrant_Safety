@@ -21,13 +21,13 @@ router = APIRouter(prefix="/emergencies", tags=["emergencies"])
 def _svc(request: Request, background: BackgroundTasks | None = None) -> EmergenciesService:
     repos: Repos = get_repos(request)
     notifications = request.app.state.notifications
-    emit = request.app.state.emit
     return EmergenciesService(
         repos.emergencies,
         repos.guardians,
         repos.devices,
         notifications,
-        emit=emit,
+        emit=request.app.state.emit,
+        emit_admins=getattr(request.app.state, "emit_admins", None),
         pool=repos.pool,
         background=background,
     )

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Image, View } from "react-native";
 import { Header } from "../../components/Header";
 import {
@@ -33,6 +33,36 @@ export default function GuardiansScreen() {
   const [dialog, setDialog] = useState("");
   const [confirmRemove, setConfirmRemove] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [invites, setInvites] = useState<Guardian[]>([]);
+  useEffect(() => {
+    if (!backend) return;
+    let active = true;
+    const remote = getServices(userId).guardians;
+    remote
+      ?.protecting(true)
+      .then((list) => {
+        if (active) setInvites(list.filter((g) => g.status === "pending"));
+      })
+      .catch(() => {});
+    return () => {
+      active = false;
+    };
+  }, [backend, userId, state.guardians.length]);
+  async function respondInvite(id: string, status: "accepted" | "rejected") {
+    if (saving) return;
+    setSaving(true);
+    try {
+      const remote = getServices(userId).guardians;
+      if (!remote) return;
+      await remote.respond(id, status);
+      const list = await remote.protecting(true);
+      setInvites(list.filter((g) => g.status === "pending"));
+    } catch (e) {
+      setErrors({ general: errorMessage(e, "Could not update the invite. Please try again.") });
+    } finally {
+      setSaving(false);
+    }
+  }
   function edit(guardian: Guardian) {
     setEditing({ ...guardian, email: guardian.email ?? "" });
     setErrors({});
@@ -91,6 +121,7 @@ export default function GuardiansScreen() {
       } else {
         const saved = {
           ...editing,
+          // eslint-disable-next-line react-hooks/purity -- event handler, not render
           id: editing.id || `guardian-${Date.now()}`,
           name: editing.name.trim(),
           relation: editing.relation.trim(),
@@ -210,6 +241,15 @@ export default function GuardiansScreen() {
         color="#ED6178"
         onPress={() => setDialog("Emergency Alert Preferences")}
       />
+      {backend && invites.length > 0 && (
+        <Row
+          title={`${invites.length} guardian ${invites.length === 1 ? "invite" : "invites"} waiting`}
+          subtitle="People asking you to be their guardian"
+          icon="mail"
+          color={C.blue}
+          onPress={() => setDialog("Guardian Invites")}
+        />
+      )}
       <Sheet
         title={editing?.id ? "Edit Guardian" : "Add Guardian"}
         visible={!!editing}
@@ -220,7 +260,7 @@ export default function GuardiansScreen() {
             <>
               <Txt>Remove {editing.name} from your safety circle?</Txt>
               <Txt style={s.muted}>
-                They will no longer be included in simulated sharing and alerts.
+                They will no longer be included in {backend ? "sharing and alerts" : "simulated sharing and alerts"}.
               </Txt>
               <Button
                 title="Remove guardian"
@@ -316,9 +356,37 @@ export default function GuardiansScreen() {
               }
             />
             <Txt style={s.muted}>
-              Preferences apply to this demo. No calls or push notifications are
-              sent.
+              Preferences apply to {backend ? "real SOS delivery" : "this demo"}.{" "}
+              {backend ? "" : "No calls or push notifications are sent."}
             </Txt>
+          </>
+        ) : dialog === "Guardian Invites" ? (
+          <>
+            {invites.length === 0 ? (
+              <Txt>No pending invites.</Txt>
+            ) : (
+              invites.map((g) => (
+                <Card key={g.id} style={{ gap: 8 }}>
+                  <Txt style={s.bold}>{g.name}</Txt>
+                  <Txt style={s.muted}>
+                    {g.relation}
+                    {g.email ? ` · ${g.email}` : ""}
+                  </Txt>
+                  {!!errors.general && <Txt style={s.error}>{errors.general}</Txt>}
+                  <Button
+                    title="Accept"
+                    loading={saving}
+                    onPress={() => respondInvite(g.id, "accepted")}
+                  />
+                  <Button
+                    title="Decline"
+                    secondary
+                    disabled={saving}
+                    onPress={() => respondInvite(g.id, "rejected")}
+                  />
+                </Card>
+              ))
+            )}
           </>
         ) : dialog === "Edit guardians" ? (
           <>
@@ -346,7 +414,7 @@ export default function GuardiansScreen() {
           <>
             <Txt>{state.guardians.length} trusted guardians are connected.</Txt>
             <Txt style={s.muted}>
-              Your circle receives simulated SOS alerts. Manage each contact to
+              Your circle receives {backend ? "real SOS alerts" : "simulated SOS alerts"}. Manage each contact to
               update their details or choose your primary guardian.
             </Txt>
           </>

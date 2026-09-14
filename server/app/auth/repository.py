@@ -51,3 +51,12 @@ class RefreshTokensRepository:
             return int(result.split()[-1])
         except Exception:
             return 0
+
+    async def list_active_for_user(self, user_id: str) -> list[dict]:
+        rows = await self._db.fetch(
+            "SELECT id, expires_at, revoked_at, created_at FROM refresh_tokens "
+            "WHERE user_id = $1 AND revoked_at IS NULL AND expires_at > now() "
+            "ORDER BY created_at DESC",
+            user_id,
+        )
+        return [_row_to_dict(r) for r in rows]

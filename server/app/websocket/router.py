@@ -26,9 +26,10 @@ async def ws_endpoint(websocket: WebSocket, token: str = Query(...)):
             pass
         return
     user_id = str(user["id"])
-    await manager.connect(user_id, websocket)
+    is_admin = str(user.get("role", "user")) == "admin"
+    await manager.connect(user_id, websocket, is_admin=is_admin)
     try:
-        await websocket.send_json({"type": "connected", "user_id": user_id})
+        await websocket.send_json({"type": "connected", "user_id": user_id, "is_admin": is_admin})
         while True:
             # Keep-alive / client pings; server pushes events asynchronously.
             await websocket.receive_text()

@@ -92,8 +92,14 @@ class AuthService:
         record = await self._users.get_by_email(_normalize_email(email))
         if not record or not verify_password(password, record["password_hash"]):
             raise UnauthorizedError("Invalid email or password")
+        if record.get("disabled_at") is not None:
+            raise UnauthorizedError("Account is disabled")
         pair = await self._issue_pair(str(record["id"]))
-        user = {k: record[k] for k in ("id", "email", "name", "phone", "created_at", "updated_at") if k in record}
+        user = {
+            k: record[k]
+            for k in ("id", "email", "name", "phone", "role", "created_at", "updated_at")
+            if k in record
+        }
         return {"user": user, "tokens": pair}
 
     async def refresh(self, *, refresh_token: str) -> dict:

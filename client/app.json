@@ -14,7 +14,14 @@
       },
       "predictiveBackGestureEnabled": false,
       "package": "com.smartsafetytag.demo",
-      "googleServicesFile": "./google-services.json"
+      "googleServicesFile": "./google-services.json",
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_BACKGROUND_LOCATION",
+        "FOREGROUND_SERVICE",
+        "FOREGROUND_SERVICE_LOCATION"
+      ]
     },
     "web": {
       "output": "static",
@@ -22,6 +29,16 @@
     },
     "plugins": [
       "expo-router",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "We use your location to show your live position, share it with your guardians while sharing is on, and attach it to SOS alerts.",
+          "locationAlwaysAndWhenInUsePermission": "Allow background location so guardians can see you while sharing is on, even when the app is in the background.",
+          "locationAlwaysPermission": "Allow background location so guardians can see you while sharing is on, even when the app is in the background.",
+          "isAndroidBackgroundLocationEnabled": true,
+          "isAndroidForegroundServiceEnabled": true
+        }
+      ],
       [
         "expo-notifications",
         {

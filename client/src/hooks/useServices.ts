@@ -104,6 +104,7 @@ export function useEmergency() {
   const busy = useRef(false);
   const [pending, setPending] = useState(false);
   const [error, setError] = useState("");
+  const backend = isBackendMode(state.user?.id ?? null);
   return {
     pending,
     error,
@@ -124,6 +125,34 @@ export function useEmergency() {
       } finally {
         busy.current = false;
         setPending(false);
+      }
+    },
+    /** Server-backed recent emergencies (backend mode); local alerts otherwise. */
+    async history() {
+      if (!backend) return state.alerts;
+      try {
+        const { apiFetch } = await import("../services/api");
+        const res = await apiFetch<{ items: { id: string; status: string; created_at: string }[] }>(
+          "/api/emergencies?limit=20&offset=0",
+        );
+        return res.items.map((item) => ({
+          id: String(item.id),
+          createdAt: item.created_at,
+          recipients: state.guardians.length,
+          status: item.status,
+        }));
+      } catch {
+        return state.alerts;
+      }
+    },
+    async cancel(id: string) {
+      if (!backend) return false;
+      try {
+        const { apiFetch } = await import("../services/api");
+        await apiFetch(`/api/emergencies/${encodeURIComponent(id)}/cancel`, { method: "POST" });
+        return true;
+      } catch {
+        return false;
       }
     },
   };

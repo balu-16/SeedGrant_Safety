@@ -11,6 +11,7 @@ class UserPublic(BaseModel):
     email: EmailStr
     name: str
     phone: str
+    role: str = "user"
     created_at: datetime
     updated_at: datetime
 

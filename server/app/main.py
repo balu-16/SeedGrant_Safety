@@ -6,6 +6,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.admin.repository import AdminAuditRepository, AdminRepository
 from app.api.router import api_router
 from app.auth.repository import RefreshTokensRepository
 from app.core.config import Settings, get_settings
@@ -20,7 +21,7 @@ from app.locations.repository import LocationsRepository
 from app.notifications.service import NotificationService, build_notifications
 from app.push_tokens.repository import PushTokensRepository
 from app.users.repository import UsersRepository
-from app.websocket.manager import emit_to_users
+from app.websocket.manager import emit_to_admins, emit_to_users
 
 log = get_logger(__name__)
 
@@ -36,6 +37,8 @@ def build_repos(settings: Settings, pool: object | None) -> Repos:
         locations=LocationsRepository(pool),  # type: ignore[arg-type]
         emergencies=EmergenciesRepository(pool),  # type: ignore[arg-type]
         push_tokens=PushTokensRepository(pool),  # type: ignore[arg-type]
+        audit=AdminAuditRepository(pool),  # type: ignore[arg-type]
+        admin=AdminRepository(pool),  # type: ignore[arg-type]
     )
 
 
@@ -59,6 +62,9 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
         notifications.bind(push_tokens=app.state.repos.push_tokens, guardians=app.state.repos.guardians)
     if getattr(app.state, "emit", None) is None:
         app.state.emit = emit_to_users
+    if getattr(app.state, "emit_admins", None) is None:
+        app.state.emit_admins = emit_to_admins
+    await _bootstrap_admins(app)
     yield
     pool = getattr(app.state, "pool", None)
     if pool is not None:
@@ -66,6 +72,24 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
             await pool.close()
         except Exception:
             pass
+
+
+async def _bootstrap_admins(app: FastAPI) -> None:
+    """Promote ADMIN_EMAILS accounts to admin at startup (idempotent)."""
+    settings: Settings = app.state.settings
+    emails = settings.admin_emails
+    if not emails or settings.testing:
+        return
+    repos = getattr(app.state, "repos", None)
+    if repos is None or getattr(repos, "users", None) is None:
+        return
+    try:
+        promoted = await repos.users.promote_by_emails(emails)
+        if promoted:
+            log.info("Promoted %d ADMIN_EMAILS account(s) to admin", promoted)
+    except Exception as e:
+        # The admin router fails closed regardless; never block startup here.
+        log.warning("ADMIN_EMAILS bootstrap failed: %s", e)
 
 
 def create_app(settings: Settings | None = None) -> FastAPI:

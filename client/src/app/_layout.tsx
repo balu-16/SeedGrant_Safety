@@ -5,12 +5,18 @@ import { ActivityIndicator, View } from "react-native";
 import { AppProvider, useApp } from "../store/AppStore";
 import { useNotifications } from "../hooks/useNotifications";
 import { useGuardiansSync, useRealtime } from "../hooks/useServices";
+import { useLiveLocation } from "../hooks/useLiveLocation";
+import { registerBackgroundLocationTask } from "../tasks/locationTask";
+import { useSessionRestore } from "../hooks/useSessionRestore";
 import { C } from "../constants/theme";
+registerBackgroundLocationTask();
 function Routes() {
   const { state } = useApp();
   useNotifications();
   useGuardiansSync();
   useRealtime();
+  useLiveLocation();
+  useSessionRestore();
   if (!state.hydrated)
     return (
       <View

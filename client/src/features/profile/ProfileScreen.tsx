@@ -20,6 +20,8 @@ import {
 import { C } from "../../constants/theme";
 import { useApp } from "../../store/AppStore";
 import { useAuth } from "../../hooks/useServices";
+import { isBackendMode } from "../../services";
+import { ApiError } from "../../services/api";
 import { validEmail, validPhone } from "../../utils/validation";
 const rows: {
   title: string;
@@ -76,24 +78,40 @@ export default function ProfileScreen() {
     }
     setDialog(title);
   }
-  function saveProfile() {
+  const [savingProfile, setSavingProfile] = useState(false);
+  async function saveProfile() {
     const next: Record<string, string> = {};
     if (!profile.name.trim()) next.name = "Enter your name.";
     if (!validEmail(profile.email)) next.email = "Enter a valid email.";
     if (!validPhone(profile.phone)) next.phone = "Enter a valid phone number.";
     setErrors(next);
-    if (!Object.keys(next).length && state.user) {
-      dispatch({
-        type: "login",
-        user: {
-          ...state.user,
-          name: profile.name.trim(),
-          email: profile.email.trim().toLowerCase(),
-          phone: profile.phone.trim(),
-        },
-      });
-      setDialog("");
+    if (Object.keys(next).length || !state.user || savingProfile) return;
+    const user = {
+      ...state.user,
+      name: profile.name.trim(),
+      email: profile.email.trim().toLowerCase(),
+      phone: profile.phone.trim(),
+    };
+    // Backend stores name+phone (email is identity and immutable server-side).
+    if (isBackendMode(state.user.id)) {
+      setSavingProfile(true);
+      try {
+        const { apiFetch } = await import("../../services/api");
+        await apiFetch("/api/users/me", {
+          method: "PATCH",
+          body: { name: user.name, phone: user.phone },
+        });
+      } catch (e) {
+        setErrors({
+          general: e instanceof ApiError ? e.message : "Could not save your profile. Please try again.",
+        });
+        setSavingProfile(false);
+        return;
+      }
+      setSavingProfile(false);
     }
+    dispatch({ type: "login", user });
+    setDialog("");
   }
   return (
     <Page>
@@ -165,7 +183,8 @@ export default function ProfileScreen() {
               onChangeText={(phone) => setProfile({ ...profile, phone })}
               error={errors.phone}
             />
-            <Button title="Save profile" onPress={saveProfile} />
+            {!!errors.general && <Txt style={s.error}>{errors.general}</Txt>}
+            <Button title="Save profile" loading={savingProfile} onPress={saveProfile} />
           </>
         ) : dialog === "Notification Settings" ? (
           <>
@@ -191,32 +210,43 @@ export default function ProfileScreen() {
           <>
             <Toggle
               title="Location permission"
-              subtitle="Simulated permission"
+              subtitle={state.preferences.location ? "Live phone GPS" : "Off — map shows last known"}
               value={state.preferences.location}
-              onChange={(location) =>
+              onChange={async (location) => {
+                if (location) {
+                  const { ensureForegroundPermission } = await import(
+                    "../../services/location"
+                  );
+                  const result = await ensureForegroundPermission();
+                  if (result !== "granted") {
+                    setErrors({ permission: "Location was not granted. Enable it in system settings to see live GPS." });
+                    return;
+                  }
+                  setErrors({});
+                }
                 dispatch({ type: "preferences", value: { location } })
-              }
+              }}
             />
             <Toggle
               title="Contacts permission"
-              subtitle="Simulated permission"
+              subtitle="Not used in this phase"
               value={state.preferences.contacts}
               onChange={(contacts) =>
                 dispatch({ type: "preferences", value: { contacts } })
               }
             />
+            {!!errors.permission && <Txt style={s.error}>{errors.permission}</Txt>}
             <Txt style={s.muted}>
-              These are demo settings. Your real location and phone contacts are
-              never accessed.
+              Location uses your phone GPS for the live map, sharing and SOS.
             </Txt>
           </>
         ) : dialog === "Privacy & Security" ? (
           <>
-            <Txt style={s.bold}>Your data stays on this device</Txt>
+            <Txt style={s.bold}>How your data is handled</Txt>
             <Txt style={s.muted}>
-              This prototype stores your profile, guardians and preferences
-              locally. Passwords are never saved. There is no backend, analytics
-              or real location tracking.
+              Your profile and guardians sync with the safety server when
+              signed in; preferences stay on this device. Passwords are never
+              saved. Live GPS uploads only while sharing is on.
             </Txt>
             <Txt style={s.muted}>
               Signing out clears your local profile, contacts and preferences.

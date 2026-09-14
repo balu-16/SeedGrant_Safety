@@ -37,21 +37,28 @@ class FakeUsers:
             "name": name,
             "phone": phone,
             "password_hash": password_hash,
+            "role": "user",
+            "disabled_at": None,
             "created_at": _now(),
             "updated_at": _now(),
         }
         self.by_id[uid] = rec
         self.by_email[email.lower()] = rec
-        return {k: rec[k] for k in ("id", "email", "name", "phone", "created_at", "updated_at")}
+        return {k: rec[k] for k in ("id", "email", "name", "phone", "role", "created_at", "updated_at")}
+
+    @staticmethod
+    def _public(rec: dict) -> dict:
+        return {k: rec[k] for k in ("id", "email", "name", "phone", "role", "disabled_at", "created_at", "updated_at")}
 
     async def get_by_id(self, user_id: str) -> dict | None:
         rec = self.by_id.get(str(user_id))
         if not rec:
             return None
-        return {k: rec[k] for k in ("id", "email", "name", "phone", "created_at", "updated_at")}
+        return self._public(rec)
 
     async def get_by_email(self, email: str) -> dict | None:
-        return self.by_email.get(email.strip().lower())
+        rec = self.by_email.get(email.strip().lower())
+        return dict(rec) if rec else None
 
     async def update(self, user_id: str, *, name: str | None, phone: str | None) -> dict | None:
         rec = self.by_id.get(str(user_id))
@@ -63,6 +70,72 @@ class FakeUsers:
             rec["phone"] = phone
         rec["updated_at"] = _now()
         return await self.get_by_id(user_id)
+
+    async def list_all(
+        self,
+        *,
+        q: str | None = None,
+        role: str | None = None,
+        disabled: bool | None = None,
+        limit: int = 20,
+        offset: int = 0,
+    ) -> tuple[list[dict], int]:
+        def _match(rec: dict) -> bool:
+            if q:
+                needle = q.lower()
+                if needle not in rec["email"].lower() and needle not in rec["name"].lower():
+                    return False
+            if role and rec["role"] != role:
+                return False
+            if disabled is not None and (rec["disabled_at"] is not None) != disabled:
+                return False
+            return True
+
+        matched = sorted(
+            (r for r in self.by_id.values() if _match(r)),
+            key=lambda r: r["created_at"],
+            reverse=True,
+        )
+        return ([self._public(r) for r in matched[offset : offset + limit]], len(matched))
+
+    async def set_role(self, user_id: str, role: str) -> dict | None:
+        rec = self.by_id.get(str(user_id))
+        if not rec:
+            return None
+        rec["role"] = role
+        rec["updated_at"] = _now()
+        return await self.get_by_id(user_id)
+
+    async def set_disabled(self, user_id: str, disabled: bool) -> dict | None:
+        rec = self.by_id.get(str(user_id))
+        if not rec:
+            return None
+        rec["disabled_at"] = _now() if disabled else None
+        rec["updated_at"] = _now()
+        return await self.get_by_id(user_id)
+
+    async def set_password(self, user_id: str, password_hash: str) -> bool:
+        rec = self.by_id.get(str(user_id))
+        if not rec:
+            return False
+        rec["password_hash"] = password_hash
+        return True
+
+    async def delete(self, user_id: str) -> bool:
+        rec = self.by_id.pop(str(user_id), None)
+        if not rec:
+            return False
+        self.by_email.pop(rec["email"].lower(), None)
+        return True
+
+    async def promote_by_emails(self, emails: list[str]) -> int:
+        promoted = 0
+        for email in emails:
+            rec = self.by_email.get(email.strip().lower())
+            if rec and rec["role"] != "admin":
+                rec["role"] = "admin"
+                promoted += 1
+        return promoted
 
 
 class FakeRefresh:
@@ -98,6 +171,13 @@ class FakeRefresh:
                 rec["revoked_at"] = _now()
                 n += 1
         return n
+
+    async def list_active_for_user(self, user_id: str) -> list[dict]:
+        return [
+            {k: r[k] for k in ("id", "expires_at", "revoked_at", "created_at")}
+            for r in self.by_jti.values()
+            if str(r["user_id"]) == str(user_id) and r["revoked_at"] is None and r["expires_at"] > _now()
+        ]
 
 
 class FakeDevices:
@@ -198,6 +278,32 @@ class FakeDevices:
 
     async def delete(self, device_id: str) -> bool:
         return self.by_id.pop(str(device_id), None) is not None
+
+    async def list_all_admin(
+        self,
+        *,
+        connection_state: str | None = None,
+        low_battery: bool = False,
+        limit: int = 50,
+        offset: int = 0,
+    ) -> tuple[list[dict], int]:
+        def _match(r: dict) -> bool:
+            if connection_state and r["connection_state"] != connection_state:
+                return False
+            if low_battery and (r["battery_pct"] is None or r["battery_pct"] >= 20):
+                return False
+            return True
+
+        matched = sorted(
+            (r for r in self.by_id.values() if _match(r)),
+            key=lambda r: r["created_at"],
+            reverse=True,
+        )
+        out = []
+        for r in matched[offset : offset + limit]:
+            d = await self.get_by_id(r["id"])
+            out.append({**d, "owner_email": None, "owner_name": None})
+        return (out, len(matched))
 
 
 class FakeGuardians:
@@ -307,6 +413,27 @@ class FakeGuardians:
         rec["updated_at"] = _now()
         return dict(rec)
 
+    async def delete(self, guardian_id: str) -> bool:
+        return self.by_id.pop(str(guardian_id), None) is not None
+
+    async def list_all_admin(
+        self,
+        *,
+        status: str | None = None,
+        limit: int = 50,
+        offset: int = 0,
+    ) -> tuple[list[dict], int]:
+        matched = [r for r in self.by_id.values() if (status is None or r["status"] == status)]
+        matched.sort(key=lambda r: r["created_at"], reverse=True)
+        out = []
+        for r in matched[offset : offset + limit]:
+            d = dict(r)
+            d["protected_email"] = None
+            d["protected_name"] = None
+            d["guardian_account_email"] = None
+            out.append(d)
+        return (out, len(matched))
+
 
 class FakeLocations:
     def __init__(self) -> None:
@@ -348,6 +475,11 @@ class FakeLocations:
         mine = [r for r in self.items if str(r["user_id"]) == str(user_id)]
         mine.sort(key=lambda r: r["recorded_at"], reverse=True)
         return ([dict(r) for r in mine[offset : offset + limit]], len(mine))
+
+    async def delete_for_user(self, user_id: str) -> int:
+        before = len(self.items)
+        self.items = [r for r in self.items if str(r["user_id"]) != str(user_id)]
+        return before - len(self.items)
 
 
 class FakeEmergencies:
@@ -420,6 +552,44 @@ class FakeEmergencies:
             rec["resolved_at"] = _now()
         return dict(rec)
 
+    async def list_events(self, emergency_id: str) -> list[dict]:
+        return [
+            dict(ev)
+            for ev in sorted(
+                (e for e in self.events if str(e["emergency_id"]) == str(emergency_id)),
+                key=lambda e: e["created_at"],
+            )
+        ]
+
+    async def list_all_admin(
+        self,
+        *,
+        status: str | None = None,
+        trigger_type: str | None = None,
+        limit: int = 50,
+        offset: int = 0,
+    ) -> tuple[list[dict], int]:
+        def _match(r: dict) -> bool:
+            if status and r["status"] != status:
+                return False
+            if trigger_type and r["trigger_type"] != trigger_type:
+                return False
+            return True
+
+        matched = sorted(
+            (r for r in self.by_id.values() if _match(r)),
+            key=lambda r: r["created_at"],
+            reverse=True,
+        )
+        out = []
+        for r in matched[offset : offset + limit]:
+            d = dict(r)
+            d["protected_email"] = None
+            d["protected_name"] = None
+            d["protected_phone"] = None
+            out.append(d)
+        return (out, len(matched))
+
 
 class FakePushTokens:
     def __init__(self) -> None:
@@ -466,21 +636,143 @@ class FakePushTokens:
             return True
         return False
 
+    async def get_by_id(self, token_id: str) -> dict | None:
+        for rec in self.by_hash.values():
+            if str(rec["id"]) == str(token_id):
+                return dict(rec)
+        return None
+
+    async def delete_by_id(self, token_id: str) -> bool:
+        for token_hash, rec in list(self.by_hash.items()):
+            if str(rec["id"]) == str(token_id):
+                del self.by_hash[token_hash]
+                return True
+        return False
+
+    async def count_all(self) -> int:
+        return len(self.by_hash)
+
+
+class FakeAudit:
+    def __init__(self) -> None:
+        self.items: list[dict] = []
+
+    async def create(
+        self,
+        *,
+        actor_user_id: str | None,
+        action: str,
+        target_type: str,
+        target_id: str | None = None,
+        details: dict | None = None,
+    ) -> dict:
+        rec = {
+            "id": str(uuid.uuid4()),
+            "actor_user_id": str(actor_user_id) if actor_user_id else None,
+            "action": action,
+            "target_type": target_type,
+            "target_id": target_id,
+            "details": details,
+            "created_at": _now(),
+        }
+        self.items.append(rec)
+        return dict(rec)
+
+    async def list_all(
+        self,
+        *,
+        actor_id: str | None = None,
+        action: str | None = None,
+        target_type: str | None = None,
+        limit: int = 50,
+        offset: int = 0,
+    ) -> tuple[list[dict], int]:
+        def _match(r: dict) -> bool:
+            if actor_id and str(r["actor_user_id"]) != str(actor_id):
+                return False
+            if action and r["action"] != action:
+                return False
+            if target_type and r["target_type"] != target_type:
+                return False
+            return True
+
+        matched = sorted(
+            (r for r in self.items if _match(r)),
+            key=lambda r: r["created_at"],
+            reverse=True,
+        )
+        out = []
+        for r in matched[offset : offset + limit]:
+            d = dict(r)
+            d["actor_email"] = None
+            d["actor_name"] = None
+            out.append(d)
+        return (out, len(matched))
+
+
+class FakeAdmin:
+    """Cross-domain aggregates computed from the other fakes."""
+
+    def __init__(self, users: FakeUsers, devices: FakeDevices, guardians: FakeGuardians,
+                 emergencies: FakeEmergencies, push_tokens: FakePushTokens) -> None:
+        self._users = users
+        self._devices = devices
+        self._guardians = guardians
+        self._emergencies = emergencies
+        self._push = push_tokens
+
+    def _within(self, dt, days: int) -> bool:
+        return (_now() - dt).total_seconds() <= days * 86400
+
+    async def stats(self) -> dict:
+        users = list(self._users.by_id.values())
+        devices = list(self._devices.by_id.values())
+        guardians = list(self._guardians.by_id.values())
+        emergencies = list(self._emergencies.by_id.values())
+        return {
+            "users_total": len(users),
+            "users_new_7d": sum(1 for u in users if self._within(u["created_at"], 7)),
+            "users_new_30d": sum(1 for u in users if self._within(u["created_at"], 30)),
+            "devices_total": len(devices),
+            "devices_online": sum(1 for d in devices if d["connection_state"] == "online"),
+            "guardians_accepted": sum(1 for g in guardians if g["status"] == "accepted"),
+            "guardians_pending": sum(1 for g in guardians if g["status"] == "pending"),
+            "emergencies_open": sum(1 for e in emergencies if e["status"] in ("active", "acknowledged")),
+            "emergencies_30d": sum(1 for e in emergencies if self._within(e["created_at"], 30)),
+            "push_tokens_total": await self._push.count_all(),
+        }
+
+    async def series(self, *, days: int = 30) -> list[dict]:
+        return [
+            {"day": f"2026-01-{d:02d}", "signups": 0, "emergencies": 0}
+            for d in range(1, days + 1)
+        ]
+
+    async def all_user_ids(self) -> list[str]:
+        return list(self._users.by_id.keys())
+
 
 # ---------------------------------------------------------------- app ---
 
 
 def build_test_repos(settings: Settings) -> Repos:
+    users = FakeUsers()
+    devices = FakeDevices()
+    guardians = FakeGuardians()
+    emergencies = FakeEmergencies()
+    push_tokens = FakePushTokens()
     return Repos(
         settings=settings,
         pool=None,
-        users=FakeUsers(),  # type: ignore[arg-type]
+        users=users,  # type: ignore[arg-type]
         refresh_tokens=FakeRefresh(),  # type: ignore[arg-type]
-        devices=FakeDevices(),  # type: ignore[arg-type]
-        guardians=FakeGuardians(),  # type: ignore[arg-type]
+        devices=devices,  # type: ignore[arg-type]
+        guardians=guardians,  # type: ignore[arg-type]
         locations=FakeLocations(),  # type: ignore[arg-type]
-        emergencies=FakeEmergencies(),  # type: ignore[arg-type]
-        push_tokens=FakePushTokens(),  # type: ignore[arg-type]
+        emergencies=emergencies,  # type: ignore[arg-type]
+        push_tokens=push_tokens,  # type: ignore[arg-type]
+        audit=FakeAudit(),  # type: ignore[arg-type]
+        admin=FakeAdmin(users, devices, guardians, emergencies, push_tokens),  # type: ignore[arg-type]
     )
 
 
@@ -511,7 +803,12 @@ def emitted() -> list[tuple[list[str], dict]]:
 
 
 @pytest.fixture
-def test_app(settings: Settings, repos: Repos, emitted: list):
+def emitted_admins() -> list[dict]:
+    return []
+
+
+@pytest.fixture
+def test_app(settings: Settings, repos: Repos, emitted: list, emitted_admins: list):
     app = create_app(settings)
     app.state.pool = None
     app.state.repos = repos
@@ -520,7 +817,11 @@ def test_app(settings: Settings, repos: Repos, emitted: list):
     async def _emit(user_ids: list[str], event: dict) -> None:
         emitted.append((list(user_ids), dict(event)))
 
+    async def _emit_admins(event: dict) -> None:
+        emitted_admins.append(dict(event))
+
     app.state.emit = _emit
+    app.state.emit_admins = _emit_admins
     return app
 
 

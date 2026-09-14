@@ -20,7 +20,9 @@ async function startLogin(page: Page) {
 }
 async function login(page: Page) {
   await startLogin(page);
-  await page.getByRole("button", { name: "Sign in with Google" }).click();
+  await page.getByLabel("Email address", { exact: true }).fill("priya@example.com");
+  await page.getByLabel("Password", { exact: true }).fill("demo12345");
+  await page.getByRole("button", { name: "Sign In", exact: true }).click();
   await expect(page.getByText("Hi, Priya")).toBeVisible();
 }
 async function close(page: Page) {
@@ -53,7 +55,7 @@ test("onboarding slides, completion and reload persistence", async ({
   await page.waitForTimeout(350);
   await page.screenshot({ path: "artifacts/login.png" });
 });
-test("login validation, visibility, password reset and protected routes", async ({
+test("login validation, visibility and protected routes", async ({
   page,
 }) => {
   await startLogin(page);
@@ -70,10 +72,6 @@ test("login validation, visibility, password reset and protected routes", async 
     "type",
     "text",
   );
-  await page.getByRole("button", { name: "Forgot password?" }).click();
-  await page.getByRole("button", { name: "Send reset link" }).click();
-  await expect(page.getByText("Reset request simulated")).toBeVisible();
-  await page.getByRole("button", { name: "Back to sign in" }).click();
   await page.getByRole("button", { name: "Sign In", exact: true }).click();
   await expect(page.getByText("Hi, Priya")).toBeVisible();
   await page.reload();

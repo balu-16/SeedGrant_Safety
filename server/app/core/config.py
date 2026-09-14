@@ -38,6 +38,18 @@ class Settings(BaseSettings):
     log_level: str = Field(default="INFO")
     testing: bool = Field(default=False)
 
+    # Accounts with these emails are promoted to admin at startup (bootstrap).
+    admin_emails: list[str] = Field(default_factory=list)
+
+    @field_validator("admin_emails", mode="before")
+    @classmethod
+    def parse_admin_emails(cls, v: object) -> list[str]:
+        if isinstance(v, str):
+            return [e.strip().lower() for e in v.split(",") if e.strip()]
+        if isinstance(v, list):
+            return [str(e).strip().lower() for e in v if str(e).strip()]
+        return []
+
     push_provider: str = Field(default="mock")
     fcm_project_id: str = Field(default="")
     fcm_credentials_path: str = Field(default="./fcm-service-account.json")

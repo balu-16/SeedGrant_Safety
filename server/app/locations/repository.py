@@ -62,3 +62,10 @@ class LocationsRepository:
             offset,
         )
         return ([_row_to_dict(r) for r in rows], total)
+
+    async def delete_for_user(self, user_id: str) -> int:
+        result = await self._db.execute("DELETE FROM locations WHERE user_id = $1", user_id)
+        try:
+            return int(result.split()[-1])
+        except Exception:
+            return 0

@@ -30,6 +30,8 @@ ACCESS_TOKEN_EXPIRE_MINUTES=15
 REFRESH_TOKEN_EXPIRE_DAYS=7
 CORS_ORIGINS=["*"]
 ENV=development
+# Admin portal bootstrap: comma-separated emails promoted to admin at startup
+ADMIN_EMAILS=
 # Push delivery: mock (default, log-only) or fcm (direct FCM HTTP v1)
 PUSH_PROVIDER=fcm
 FCM_PROJECT_ID=<firebase project id>
@@ -52,6 +54,16 @@ uv run uvicorn app.main:app --reload   # http://127.0.0.1:8000
 Verify: `GET /api/health` (no DB), `GET /api/ready` (needs DB; 503 otherwise),
 Swagger at `/docs`.
 
+### Admin portal bootstrap
+
+The web admin portal (`../admin/`) consumes `/api/admin/*`, which requires
+`users.role = 'admin'`. Promote accounts with `ADMIN_EMAILS` (comma-separated,
+applied at startup) or one-off:
+
+```bash
+uv run python -m app.bootstrap_admin email@example.com
+```
+
 ## Tests (isolated — never touch Supabase)
 
 ```bash
@@ -72,7 +84,8 @@ uv run mypy app
 | locations | `POST /api/locations`, `GET /api/locations/latest?user_id=`, `GET /api/locations/history?user_id=&limit=&offset=` |
 | emergencies | `POST/GET /api/emergencies`, `GET /api/emergencies/{id}`, `PATCH /{id}/status`, `POST /{id}/resolve|cancel` |
 | push-tokens | `POST/GET/DELETE /api/push-tokens` (DELETE takes `?token=<raw>`) |
-| ws | `WS /api/ws?token=<access_jwt>` (auth at handshake, multi-socket per user) |
+| admin | `GET /api/admin/stats|health|users|devices|guardians|emergencies|locations|push-tokens|audit`, `PATCH/DELETE /api/admin/...`, `POST /api/admin/users/{id}/disable|enable|force-logout|reset-password|promote|demote`, `POST /api/admin/emergencies/{id}/ack|resolve|cancel`, `POST /api/admin/push/send` — **role=admin, fully audited** |
+| ws | `WS /api/ws?token=<access_jwt>` (auth at handshake, multi-socket per user; admins also receive every emergency event) |
 
 Auth: Argon2 passwords, short access JWT + rotating server-stored refresh tokens
 (`sub/type/iat/exp/jti` claims; cross-type tokens rejected with 401). Refresh

@@ -6,9 +6,10 @@ from typing import Any
 from fastapi import Depends, Request
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 
+from app.admin.repository import AdminAuditRepository, AdminRepository
 from app.auth.repository import RefreshTokensRepository
 from app.core.config import Settings
-from app.core.exceptions import DatabaseError, UnauthorizedError
+from app.core.exceptions import DatabaseError, ForbiddenError, UnauthorizedError
 from app.core.security import ACCESS_TOKEN_TYPE, decode_token
 from app.devices.repository import DevicesRepository
 from app.emergencies.repository import EmergenciesRepository
@@ -31,6 +32,8 @@ class Repos:
     locations: LocationsRepository
     emergencies: EmergenciesRepository
     push_tokens: PushTokensRepository
+    audit: AdminAuditRepository
+    admin: AdminRepository
 
 
 def get_settings_dep(request: Request) -> Settings:
@@ -45,6 +48,14 @@ def get_repos(request: Request) -> Repos:
         return repos
     # Fallback: build from pool (should not happen; app factory always sets Repos)
     raise DatabaseError("Repositories not initialized")
+
+
+def _reject_disabled(user: dict) -> dict:
+    # Fetched fresh from the DB on every request, so disabling an account
+    # kills existing sessions immediately (fail-closed, like user deletion).
+    if user.get("disabled_at") is not None:
+        raise UnauthorizedError("Account is disabled")
+    return user
 
 
 async def get_current_user(
@@ -63,6 +74,15 @@ async def get_current_user(
     user = await repos.users.get_by_id(str(payload["sub"]))
     if not user:
         raise UnauthorizedError("User no longer exists")
+    return _reject_disabled(user)
+
+
+async def get_current_admin(
+    user: dict = Depends(get_current_user),
+) -> dict:
+    # Role lives on the DB row (not the JWT), so demotion is also instant.
+    if str(user.get("role", "user")) != "admin":
+        raise ForbiddenError("Admin access required")
     return user
 
 
@@ -76,4 +96,4 @@ async def authenticate_ws_token(token: str, repos: Repos) -> dict:
     user = await repos.users.get_by_id(str(payload["sub"]))
     if not user:
         raise UnauthorizedError("User no longer exists")
-    return user
+    return _reject_disabled(user)

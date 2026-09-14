@@ -38,6 +38,7 @@ class EmergenciesService:
         notifications: NotificationService,
         *,
         emit: Callable[[list[str], dict], Awaitable[None]] | None = None,
+        emit_admins: Callable[[dict], Awaitable[None]] | None = None,
         pool: object | None = None,
         background: BackgroundTasks | None = None,
     ) -> None:
@@ -46,6 +47,7 @@ class EmergenciesService:
         self._devices = devices
         self._notifications = notifications
         self._emit = emit
+        self._emit_admins = emit_admins
         self._pool = pool
         self._background = background
 
@@ -116,14 +118,7 @@ class EmergenciesService:
         # so it runs after the response; the WS emit stays inline because it is
         # local and tests assert on it synchronously.
         await self._dispatch_delivery(self._deliver_created(emergency))
-        if self._emit is not None:
-            try:
-                await self._emit(
-                    [str(emergency["protected_user_id"])],
-                    {"type": "emergency-created", "emergency": _jsonable(emergency)},
-                )
-            except Exception:
-                pass
+        await self._emit_event([str(emergency["protected_user_id"])], "emergency-created", emergency)
         return emergency
 
     async def _dispatch_delivery(self, coro: Awaitable[None]) -> None:
@@ -149,6 +144,20 @@ class EmergenciesService:
         except Exception as e:
             log.warning("Emergency push delivery failed: %s", e)
 
+    async def _emit_event(self, user_ids: list[str], event_type: str, emergency: dict) -> None:
+        # Owners/guardians get it on their channel; admins also get every
+        # event for the live SOS monitor.
+        if self._emit is not None:
+            try:
+                await self._emit(user_ids, {"type": event_type, "emergency": _jsonable(emergency)})
+            except Exception:
+                pass
+        if self._emit_admins is not None:
+            try:
+                await self._emit_admins({"type": event_type, "emergency": _jsonable(emergency)})
+            except Exception:
+                pass
+
     async def get(self, reader_id: str, emergency_id: str) -> dict:
         emergency = await self._emergencies.get_by_id(emergency_id)
         if not emergency:
@@ -164,11 +173,14 @@ class EmergenciesService:
         offset = max(0, offset)
         return await self._emergencies.list_for_user(protected_id, limit=limit, offset=offset, status=status)
 
-    async def update_status(self, actor_id: str, emergency_id: str, status: str) -> dict:
+    async def update_status(
+        self, actor_id: str, emergency_id: str, status: str, *, actor_is_admin: bool = False
+    ) -> dict:
         emergency = await self._emergencies.get_by_id(emergency_id)
         if not emergency:
             raise NotFoundError("Emergency not found")
-        await self._assert_can_write_status(actor_id, str(emergency["protected_user_id"]))
+        if not actor_is_admin:
+            await self._assert_can_write_status(actor_id, str(emergency["protected_user_id"]))
         current = str(emergency["status"])
         if status == current:
             return emergency
@@ -200,14 +212,7 @@ class EmergenciesService:
                 to_status=status,
             )
         await self._dispatch_delivery(self._deliver_updated(updated, status))
-        if self._emit is not None:
-            try:
-                await self._emit(
-                    [str(updated["protected_user_id"])],
-                    {"type": "emergency-updated", "emergency": _jsonable(updated)},
-                )
-            except Exception:
-                pass
+        await self._emit_event([str(updated["protected_user_id"])], "emergency-updated", updated)
         return updated
 
     async def _deliver_updated(self, updated: dict, status: str) -> None:

@@ -16,6 +16,10 @@ export function mapLocationPoint(item: {
     name: `${item.latitude.toFixed(4)}, ${item.longitude.toFixed(4)}`,
     address: `${item.source}${item.accuracy_m ? ` · ±${Math.round(item.accuracy_m)}m` : ""}`,
     time: Number.isNaN(when.getTime()) ? item.recorded_at : when.toLocaleString(),
+    latitude: item.latitude,
+    longitude: item.longitude,
+    accuracy_m: item.accuracy_m,
+    recorded_at: item.recorded_at,
   };
 }
 
@@ -80,9 +84,25 @@ export function mapEmergency(res: EmergencyResponse, recipients: number): Emerge
 
 export const remoteEmergency: EmergencyService = {
   async trigger(recipients: number): Promise<Emergency> {
+    // Attach the latest phone-GPS fix when available; SOS must never be
+    // blocked on GPS, so fall back to a location-less alert.
+    let body: Record<string, unknown> = { trigger_type: "APP_BUTTON" };
+    try {
+      const { getLastFix, getOneShotFix } = await import("../location");
+      const fix = getLastFix() ?? (await getOneShotFix(8000).catch(() => null));
+      if (fix) {
+        body = {
+          trigger_type: "APP_BUTTON",
+          latitude: fix.latitude,
+          longitude: fix.longitude,
+        };
+      }
+    } catch {
+      // location unavailable — send the alert anyway
+    }
     const res = await apiFetch<EmergencyResponse>("/api/emergencies", {
       method: "POST",
-      body: { trigger_type: "APP_BUTTON" },
+      body,
     });
     return mapEmergency(res, recipients);
   },
@@ -113,6 +133,20 @@ export const remoteGuardians = {
   async list(): Promise<Guardian[]> {
     const items = await apiFetch<GuardianResponse[]>("/api/guardians");
     return items.filter((g) => g.status !== "removed").map(mapGuardian);
+  },
+  /** People I protect (accepted) + optionally pending invites awaiting my decision. */
+  async protecting(includePending = false): Promise<Guardian[]> {
+    const items = await apiFetch<GuardianResponse[]>(
+      `/api/guardians/protecting?include_pending=${includePending ? "true" : "false"}`,
+    );
+    return items.map(mapGuardian);
+  },
+  async respond(id: string, status: "accepted" | "rejected"): Promise<Guardian> {
+    const res = await apiFetch<GuardianResponse>(`/api/guardians/${encodeURIComponent(id)}/status`, {
+      method: "PATCH",
+      body: { status },
+    });
+    return mapGuardian(res);
   },
   async invite(input: { email: string; name: string; relation: string; primary: boolean }): Promise<Guardian> {
     const res = await apiFetch<GuardianResponse>("/api/guardians/invite", {

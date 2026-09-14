@@ -81,3 +81,38 @@ class DevicesRepository:
     async def delete(self, device_id: str) -> bool:
         result = await self._db.execute("DELETE FROM devices WHERE id = $1", device_id)
         return result != "DELETE 0"
+
+    async def list_all_admin(
+        self,
+        *,
+        connection_state: str | None = None,
+        low_battery: bool = False,
+        limit: int = 50,
+        offset: int = 0,
+    ) -> tuple[list[dict], int]:
+        clauses = []
+        args: list[Any] = []
+        if connection_state:
+            args.append(connection_state)
+            clauses.append(f"d.connection_state = ${len(args)}")
+        if low_battery:
+            clauses.append("d.battery_pct < 20")
+        where = f"WHERE {' AND '.join(clauses)}" if clauses else ""
+
+        total_row = await self._db.fetchrow(
+            f"SELECT COUNT(*) AS c FROM devices d {where}",
+            *args,
+        )
+        total = int(total_row["c"]) if total_row else 0
+        args.extend([limit, offset])
+        rows = await self._db.fetch(
+            f"""
+            SELECT d.id, d.owner_id, d.name, d.battery_pct, d.connection_state, d.last_seen_at,
+                   d.created_at, d.updated_at, u.email AS owner_email, u.name AS owner_name
+            FROM devices d JOIN users u ON u.id = d.owner_id
+            {where}
+            ORDER BY d.created_at DESC LIMIT ${len(args) - 1} OFFSET ${len(args)}
+            """,
+            *args,
+        )
+        return ([_row_to_dict(r) for r in rows], total)

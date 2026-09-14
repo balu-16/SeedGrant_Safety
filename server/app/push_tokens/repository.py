@@ -64,3 +64,18 @@ class PushTokensRepository:
         """Prune a dead token (e.g. FCM UNREGISTERED), regardless of owner."""
         result = await self._db.execute("DELETE FROM push_tokens WHERE token_hash = $1", token_hash)
         return result != "DELETE 0"
+
+    async def get_by_id(self, token_id: str) -> dict | None:
+        row = await self._db.fetchrow(
+            "SELECT id, user_id, platform, created_at, last_seen_at FROM push_tokens WHERE id = $1",
+            token_id,
+        )
+        return _row_to_dict(row) if row else None
+
+    async def delete_by_id(self, token_id: str) -> bool:
+        result = await self._db.execute("DELETE FROM push_tokens WHERE id = $1", token_id)
+        return result != "DELETE 0"
+
+    async def count_all(self) -> int:
+        row = await self._db.fetchrow("SELECT COUNT(*) AS c FROM push_tokens")
+        return int(row["c"]) if row else 0

@@ -119,3 +119,49 @@ class EmergenciesRepository:
             status,
         )
         return _row_to_dict(row) if row else None
+
+    async def list_events(self, emergency_id: str) -> list[dict]:
+        rows = await self._db.fetch(
+            """
+            SELECT ev.id, ev.emergency_id, ev.actor_user_id, ev.from_status, ev.to_status,
+                   ev.created_at, u.email AS actor_email
+            FROM emergency_events ev LEFT JOIN users u ON u.id = ev.actor_user_id
+            WHERE ev.emergency_id = $1 ORDER BY ev.created_at
+            """,
+            emergency_id,
+        )
+        return [_row_to_dict(r) for r in rows]
+
+    async def list_all_admin(
+        self,
+        *,
+        status: str | None = None,
+        trigger_type: str | None = None,
+        limit: int = 50,
+        offset: int = 0,
+    ) -> tuple[list[dict], int]:
+        clauses = []
+        args: list[Any] = []
+        if status:
+            args.append(status)
+            clauses.append(f"e.status = ${len(args)}")
+        if trigger_type:
+            args.append(trigger_type)
+            clauses.append(f"e.trigger_type = ${len(args)}")
+        where = f"WHERE {' AND '.join(clauses)}" if clauses else ""
+
+        total_row = await self._db.fetchrow(f"SELECT COUNT(*) AS c FROM emergencies e {where}", *args)
+        total = int(total_row["c"]) if total_row else 0
+        args.extend([limit, offset])
+        rows = await self._db.fetch(
+            f"""
+            SELECT e.id, e.protected_user_id, e.device_id, e.trigger_type, e.status, e.latitude,
+                   e.longitude, e.note, e.created_at, e.updated_at, e.resolved_at,
+                   u.email AS protected_email, u.name AS protected_name, u.phone AS protected_phone
+            FROM emergencies e JOIN users u ON u.id = e.protected_user_id
+            {where}
+            ORDER BY e.created_at DESC LIMIT ${len(args) - 1} OFFSET ${len(args)}
+            """,
+            *args,
+        )
+        return ([_row_to_dict(r) for r in rows], total)

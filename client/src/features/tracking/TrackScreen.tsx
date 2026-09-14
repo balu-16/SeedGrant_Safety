@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Pressable, View } from "react-native";
+import { Platform, Pressable, View } from "react-native";
 import { router } from "expo-router";
 import { Header } from "../../components/Header";
 import {
@@ -17,11 +17,30 @@ import {
 } from "../../components/ui";
 import { C } from "../../constants/theme";
 import { useTracking } from "../../hooks/useServices";
+import { useLastFix } from "../../hooks/useLiveLocation";
 import { useApp } from "../../store/AppStore";
 import { OfflineMap } from "./OfflineMap";
+import { LiveMap } from "./LiveMap";
+import { isBackendMode } from "../../services";
+import { formatCoord, formatRelative } from "../../services/location";
 export default function TrackScreen() {
   const { state, dispatch } = useApp();
   const points = useTracking();
+  const liveFix = useLastFix();
+  const backend = isBackendMode(state.user?.id ?? null);
+  const livePoint = points.find((p) => p.latitude !== undefined && p.longitude !== undefined);
+  const currentCoord =
+    liveFix != null
+      ? formatCoord(liveFix.latitude, liveFix.longitude)
+      : livePoint?.latitude !== undefined && livePoint?.longitude !== undefined
+        ? formatCoord(livePoint.latitude, livePoint.longitude)
+        : null;
+  const currentStamp = liveFix?.recorded_at ?? livePoint?.recorded_at ?? null;
+  const currentAccuracy = liveFix?.accuracy_m ?? livePoint?.accuracy_m ?? null;
+  const currentDetail = currentCoord ?? "Bandra West, Mumbai";
+  const currentSubtitle = currentStamp
+    ? `Last updated: ${formatRelative(currentStamp)}${currentAccuracy ? ` · Accuracy: ${Math.round(currentAccuracy)} m` : ""}`
+    : "Last updated: 2 min ago · Accuracy: 6 m";
   const [history, setHistory] = useState(false);
   const [dialog, setDialog] = useState("");
   return (
@@ -66,14 +85,23 @@ export default function TrackScreen() {
       </View>
       {!history && (
         <>
-          <OfflineMap
-            name={state.user?.name.split(" ")[0] ?? "Priya"}
-            onDetails={() => setDialog("Current Location")}
-          />
+          {Platform.OS === "web" ? (
+            <OfflineMap
+              name={state.user?.name.split(" ")[0] ?? "Priya"}
+              onDetails={() => setDialog("Current Location")}
+            />
+          ) : (
+            <LiveMap
+              name={state.user?.name.split(" ")[0] ?? "Priya"}
+              fix={liveFix}
+              trail={points}
+              onDetails={() => setDialog("Current Location")}
+            />
+          )}
           <Row
             title="Current Location"
-            detail="Bandra West, Mumbai"
-            subtitle="Last updated: 2 min ago · Accuracy: 6 m"
+            detail={currentDetail}
+            subtitle={currentSubtitle}
             icon="location"
             color={C.blue}
             onPress={() => setDialog("Current Location")}
@@ -154,7 +182,9 @@ export default function TrackScreen() {
         ))}
       </Card>
       <Txt style={{ color: C.muted, fontSize: 11, textAlign: "center" }}>
-        Illustrative map · No real GPS data
+        {backend || liveFix
+          ? "Live GPS · shared with guardians while sharing is on"
+          : "Illustrative map · No real GPS data"}
       </Txt>
       <Sheet title={dialog} visible={!!dialog} onClose={() => setDialog("")}>
         {dialog === "Live Sharing" ? (
@@ -166,7 +196,7 @@ export default function TrackScreen() {
             />
             <Txt style={s.muted}>
               {state.sharing
-                ? `${state.guardians.length} guardians can see your demo location.`
+                ? `${state.guardians.length} guardians can see your ${backend || liveFix ? "live" : "demo"} location.`
                 : "Your location sharing is paused."}
             </Txt>
             <Button
@@ -181,15 +211,20 @@ export default function TrackScreen() {
           <>
             <Icon name="location" size={42} />
             <Txt style={s.bold}>
-              {points.find((p) => p.name === dialog)?.address ??
-                "Bandra West, Mumbai"}
+              {dialog === "Current Location"
+                ? currentDetail
+                : (points.find((p) => p.name === dialog)?.address ?? "Bandra West, Mumbai")}
             </Txt>
             <Txt style={s.muted}>
-              {points.find((p) => p.name === dialog)?.time ??
-                "Last updated: 2 min ago · Accuracy: 6 m"}
+              {dialog === "Current Location"
+                ? currentSubtitle
+                : (points.find((p) => p.name === dialog)?.time ??
+                  "Last updated: 2 min ago · Accuracy: 6 m")}
             </Txt>
             <Txt style={s.muted}>
-              This location is part of the offline demonstration.
+              {backend || liveFix
+                ? "Live phone-GPS fix. Guardians see this while sharing is on."
+                : "This location is part of the offline demonstration."}
             </Txt>
           </>
         )}

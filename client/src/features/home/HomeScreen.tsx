@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Image, Pressable, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
@@ -20,6 +20,10 @@ import {
 import { C, illustrations } from "../../constants/theme";
 import { useApp } from "../../store/AppStore";
 import { useEmergency } from "../../hooks/useServices";
+import { useLastFix } from "../../hooks/useLiveLocation";
+import { formatCoord, formatRelative } from "../../services/location";
+import { isBackendMode } from "../../services";
+import type { Emergency } from "../../types";
 const actions: { title: string; icon: IconName; color: string; bg: string }[] =
   [
     {
@@ -44,11 +48,29 @@ const actions: { title: string; icon: IconName; color: string; bg: string }[] =
   ];
 export default function HomeScreen() {
   const { state, dispatch } = useApp();
-  const { pending, error: sosError, trigger } = useEmergency();
+  const { pending, error: sosError, trigger, history: emergencyHistory, cancel: cancelEmergency } = useEmergency();
+  const liveFix = useLastFix();
+  const backend = isBackendMode(state.user?.id ?? null);
   const [dialog, setDialog] = useState("");
   const [success, setSuccess] = useState(false);
   const [holding, setHolding] = useState(false);
+  const [serverAlerts, setServerAlerts] = useState<Emergency[] | null>(null);
   const longPressed = useRef(false);
+  useEffect(() => {
+    if (!backend || (dialog !== "Recent Alerts" && dialog !== "Safety Status")) return;
+    let active = true;
+    emergencyHistory().then((items) => {
+      if (active) setServerAlerts(items);
+    });
+    return () => {
+      active = false;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dialog, backend, state.alerts.length]);
+  const homeCoord = liveFix ? formatCoord(liveFix.latitude, liveFix.longitude) : "Bandra West, Mumbai";
+  const homeAccuracy = liveFix?.accuracy_m
+    ? `Accuracy · ${Math.round(liveFix.accuracy_m)} m · ${formatRelative(liveFix.recorded_at)}`
+    : "Accuracy · 6 m";
   function openSOS() {
     setSuccess(false);
     setDialog("Send an SOS alert?");
@@ -126,10 +148,18 @@ export default function HomeScreen() {
       </View>
       <Row
         title="Safety Status"
-        detail={state.alerts.length ? "Demo alert recorded" : "All Good"}
+        detail={
+          (backend ? (serverAlerts ?? state.alerts) : state.alerts).length
+            ? backend
+              ? "SOS on record"
+              : "Demo alert recorded"
+            : "All Good"
+        }
         subtitle={
-          state.alerts.length
-            ? "Your SOS simulation is complete"
+          (backend ? (serverAlerts ?? state.alerts) : state.alerts).length
+            ? backend
+              ? "Your SOS history is synced with the server"
+              : "Your SOS simulation is complete"
             : "No active alerts"
         }
         icon="shield-checkmark"
@@ -146,8 +176,8 @@ export default function HomeScreen() {
           <Txt style={{ fontSize: 13, fontWeight: "600" }}>
             Current Location
           </Txt>
-          <Txt style={{ fontSize: 13 }}>Bandra West, Mumbai</Txt>
-          <Txt style={{ fontSize: 12, color: C.muted }}>Accuracy · 6 m</Txt>
+          <Txt style={{ fontSize: 13 }}>{homeCoord}</Txt>
+          <Txt style={{ fontSize: 12, color: C.muted }}>{homeAccuracy}</Txt>
         </Card>
         <Card
           label="Live Tracking"
@@ -222,10 +252,10 @@ export default function HomeScreen() {
         </View>
       </Card>
       <Txt style={{ color: C.muted, fontSize: 11, textAlign: "center" }}>
-        Demo mode · Alerts and location are simulated
+        {backend || liveFix ? "Live GPS · SOS includes your location" : "Demo mode · Alerts and location are simulated"}
       </Txt>
       <Sheet
-        title={success ? "Demo alert complete" : dialog}
+        title={success ? (backend ? "SOS sent" : "Demo alert complete") : dialog}
         visible={!!dialog}
         onClose={() => {
           if (!pending) setDialog("");
@@ -236,26 +266,32 @@ export default function HomeScreen() {
             <>
               <Icon name="checkmark-circle" color={C.green} size={46} />
               <Txt>
-                Your demo SOS was recorded for {state.guardians.length}{" "}
-                guardians.
+                {backend
+                  ? `Your SOS was sent${liveFix ? " with your live location" : ""} to ${state.guardians.length} guardians.`
+                  : `Your demo SOS was recorded for ${state.guardians.length} guardians.`}
               </Txt>
-              <Txt style={s.muted}>No real messages or calls were sent.</Txt>
+              <Txt style={s.muted}>
+                {backend
+                  ? "Guardians and admins were notified. Cancel it from Recent Alerts if this was accidental."
+                  : "No real messages or calls were sent."}
+              </Txt>
               <Button title="Done" onPress={() => setDialog("")} />
             </>
           ) : (
             <>
               <Txt>
-                This will simulate an emergency alert to{" "}
-                {state.guardians.length} trusted guardians.
+                {backend
+                  ? `This will send an emergency alert${liveFix ? " with your live location" : ""} to ${state.guardians.length} trusted guardians.`
+                  : `This will simulate an emergency alert to ${state.guardians.length} trusted guardians.`}
               </Txt>
               {state.guardians.length === 0 && (
                 <Txt style={s.muted}>
-                  Your safety circle is empty. You can still try the simulation.
+                  Your safety circle is empty. You can still {backend ? "send the alert" : "try the simulation"}.
                 </Txt>
               )}
               {!!sosError && <Txt style={s.error}>{sosError}</Txt>}
               <Button
-                title="Send demo SOS"
+                title={backend ? "Send SOS" : "Send demo SOS"}
                 danger
                 loading={pending}
                 onPress={async () => {
@@ -273,16 +309,35 @@ export default function HomeScreen() {
           )
         ) : dialog === "Recent Alerts" || dialog === "Safety Status" ? (
           <>
-            {!state.alerts.length ? (
+            {(backend ? (serverAlerts ?? state.alerts) : state.alerts).length === 0 ? (
               <Txt>No alerts. You’re all good.</Txt>
             ) : (
-              state.alerts.map((a) => (
+              (backend ? (serverAlerts ?? state.alerts) : state.alerts).map((a) => (
                 <Card key={a.id}>
-                  <Txt style={s.bold}>SOS simulation completed</Txt>
+                  <Txt style={s.bold}>
+                    {a.status === "cancelled"
+                      ? "SOS cancelled"
+                      : a.status === "resolved"
+                        ? "SOS resolved"
+                        : backend
+                          ? `SOS ${a.status}`
+                          : "SOS simulation completed"}
+                  </Txt>
                   <Txt style={s.muted}>
                     {new Date(a.createdAt).toLocaleString()} · {a.recipients}{" "}
                     guardians
                   </Txt>
+                  {backend && (a.status === "active" || a.status === "acknowledged") && (
+                    <Button
+                      title="Cancel this SOS"
+                      secondary
+                      danger
+                      onPress={async () => {
+                        const ok = await cancelEmergency(a.id);
+                        if (ok) setServerAlerts(await emergencyHistory());
+                      }}
+                    />
+                  )}
                 </Card>
               ))
             )}

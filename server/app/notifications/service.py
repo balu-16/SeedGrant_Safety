@@ -130,6 +130,22 @@ class NotificationService:
             data={"kind": "emergency-updated", "emergency_id": emergency_id, "status": status},
         )
 
+    async def send_to_users(
+        self, *, user_ids: list[str], title: str, body: str, data: dict | None = None
+    ) -> NotificationResult:
+        """Admin-portal send: test push to one user or broadcast to many."""
+        audience: list[str] = []
+        for uid in user_ids:
+            uid = str(uid)
+            if uid not in audience:
+                audience.append(uid)
+        return await self._deliver(
+            audience_user_ids=audience,
+            title=title,
+            body=body,
+            data=data or {"kind": "admin-broadcast"},
+        )
+
 
 def build_notifications(settings: Settings) -> NotificationService:
     """Select the push provider from settings; fall back to mock on any misconfig."""

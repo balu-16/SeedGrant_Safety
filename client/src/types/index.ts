@@ -20,6 +20,17 @@ export interface LocationPoint {
   address: string;
   time: string;
   current?: boolean;
+  /** Real GPS fix — present for live/server points, absent for legacy demo rows. */
+  latitude?: number;
+  longitude?: number;
+  accuracy_m?: number | null;
+  recorded_at?: string;
+}
+export interface LiveFix {
+  latitude: number;
+  longitude: number;
+  accuracy_m: number | null;
+  recorded_at: string;
 }
 export interface Device {
   connected: boolean;

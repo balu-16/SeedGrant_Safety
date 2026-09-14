@@ -27,7 +27,6 @@ import { useAuth } from "../../hooks/useServices";
 import {
   validateLogin,
   validateSignup,
-  validEmail,
 } from "../../utils/validation";
 export default function AuthScreen({ signup = false }: { signup?: boolean }) {
   const auth = useAuth();
@@ -43,26 +42,20 @@ export default function AuthScreen({ signup = false }: { signup?: boolean }) {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [pending, setPending] = useState(false);
   const [dialog, setDialog] = useState("");
-  const [resetEmail, setResetEmail] = useState("");
-  const [resetSent, setResetSent] = useState(false);
-  const [resetError, setResetError] = useState("");
   const change = (key: keyof typeof form, value: string | boolean) => {
     setForm({ ...form, [key]: value });
     setErrors({ ...errors, [key]: "" });
   };
-  async function submit(google = false) {
+  async function submit() {
     if (pending) return;
-    const result = google
-      ? {}
-      : signup
-        ? validateSignup(form)
-        : validateLogin(form.email, form.password);
+    const result = signup
+      ? validateSignup(form)
+      : validateLogin(form.email, form.password);
     setErrors(result);
     if (Object.keys(result).length) return;
     setPending(true);
     try {
-      if (google) await auth.google();
-      else if (signup) await auth.signup(form);
+      if (signup) await auth.signup(form);
       else await auth.login(form.email, form.password);
       router.replace("/home");
     } catch (e) {
@@ -221,25 +214,7 @@ export default function AuthScreen({ signup = false }: { signup?: boolean }) {
                 </View>
                 {!!errors.terms && <Txt style={s.error}>{errors.terms}</Txt>}
               </>
-            ) : (
-              <View
-                style={{
-                  alignItems: "flex-end",
-                  marginTop: -8,
-                  marginBottom: -5,
-                }}
-              >
-                <LinkText
-                  title="Forgot password?"
-                  onPress={() => {
-                    setDialog("Reset password");
-                    setResetEmail(form.email);
-                    setResetSent(false);
-                    setResetError("");
-                  }}
-                />
-              </View>
-            )}
+            ) : null}
             {!!errors.general && <Txt style={s.error}>{errors.general}</Txt>}
             <Button
               title={signup ? "Create Account" : "Sign In"}
@@ -247,44 +222,6 @@ export default function AuthScreen({ signup = false }: { signup?: boolean }) {
               onPress={() => submit()}
               loading={pending}
             />
-            {!signup && (
-              <>
-                <View style={[s.row, { marginVertical: 5 }]}>
-                  <View
-                    style={{ flex: 1, height: 1, backgroundColor: C.border }}
-                  />
-                  <Txt style={s.muted}>Or continue with</Txt>
-                  <View
-                    style={{ flex: 1, height: 1, backgroundColor: C.border }}
-                  />
-                </View>
-                <Pressable
-                  accessibilityRole="button"
-                  accessibilityLabel="Sign in with Google"
-                  disabled={pending}
-                  onPress={() => submit(true)}
-                  style={[
-                    s.button,
-                    {
-                      backgroundColor: "white",
-                      borderColor: "#D2E0F5",
-                      borderWidth: 1,
-                    },
-                  ]}
-                >
-                  <Txt
-                    style={{
-                      fontSize: 25,
-                      fontWeight: "700",
-                      color: "#4285F4",
-                    }}
-                  >
-                    G
-                  </Txt>
-                  <Txt style={s.bold}>Sign in with Google</Txt>
-                </Pressable>
-              </>
-            )}
             <View
               style={{
                 flexDirection: "row",
@@ -311,63 +248,11 @@ export default function AuthScreen({ signup = false }: { signup?: boolean }) {
         </ScrollView>
       </KeyboardAvoidingView>
       <Sheet title={dialog} visible={!!dialog} onClose={() => setDialog("")}>
-        {dialog === "Reset password" ? (
-          resetSent ? (
-            <>
-              <Icon name="checkmark-circle" color={C.green} size={45} />
-              <Txt>Reset request simulated</Txt>
-              <Txt style={s.muted}>
-                This local demo does not send email. You can sign in using any
-                valid email and a password with at least 8 characters.
-              </Txt>
-              <Button title="Back to sign in" onPress={() => setDialog("")} />
-            </>
-          ) : (
-            <>
-              <Txt style={s.muted}>
-                Enter your email to try the password reset flow.
-              </Txt>
-              <Field
-                icon="mail-outline"
-                placeholder="Reset email"
-                value={resetEmail}
-                onChangeText={setResetEmail}
-                error={resetError}
-                keyboardType="email-address"
-              />
-              <Button
-                title="Send reset link"
-                loading={pending}
-                onPress={async () => {
-                  if (!validEmail(resetEmail)) {
-                    setResetError("Enter a valid email address.");
-                    return;
-                  }
-                  setPending(true);
-                  setResetError("");
-                  try {
-                    await auth.reset(resetEmail);
-                    setResetSent(true);
-                  } catch (e) {
-                    setResetError(
-                      e instanceof Error && e.message
-                        ? e.message
-                        : "Could not send the reset link. Please try again."
-                    );
-                  } finally {
-                    setPending(false);
-                  }
-                }}
-              />
-            </>
-          )
-        ) : (
-          <Txt style={s.muted}>
-            {dialog === "Privacy Policy"
-              ? "This prototype stores your demo profile and preferences on this device. It does not collect real location, access contacts, or transmit your data. Passwords are not saved. Sign out to clear your local profile."
-              : "This is a local demonstration of Smart Safety Tag. Alerts, device connections and location sharing are simulated. No emergency call or message is sent by this prototype."}
-          </Txt>
-        )}
+        <Txt style={s.muted}>
+          {dialog === "Privacy Policy"
+            ? "Your profile syncs with the safety server when signed in; preferences stay on this device. Passwords are never saved. Live GPS uploads only while sharing is on."
+            : "Smart Safety Tag shares your live phone-GPS location with guardians while sharing is on, and sends SOS alerts with your location to your safety circle."}
+        </Txt>
       </Sheet>
     </SafeAreaView>
   );
