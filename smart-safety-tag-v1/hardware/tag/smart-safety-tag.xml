@@ -1,0 +1,3165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>/home/balarakeshg16/Documents/SeedGrant_Naveen/smart-safety-tag-v1/hardware/tag/smart-safety-tag.kicad_sch</source>
+    <date>2026-09-29T13:23:42</date>
+    <tool>Eeschema 10.0.6</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>Smart Safety Tag V1</title>
+        <company/>
+        <rev>V1-P1</rev>
+        <date>2026-09-29</date>
+        <source>smart-safety-tag.kicad_sch</source>
+        <comment number="1" value="Prototype; physical validation pending"/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="2" name="/Mcu Ble/" tstamps="/3d920732-a48a-5ae0-b2a5-37caea38834c/">
+      <title_block>
+        <title>Mcu Ble</title>
+        <company/>
+        <rev>V1-P1</rev>
+        <date>2026-09-29</date>
+        <source>mcu_ble.kicad_sch</source>
+        <comment number="1" value="Prototype; physical validation pending"/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="3" name="/Microphone/" tstamps="/ede8bbc9-c923-5070-979e-d294b01bf006/">
+      <title_block>
+        <title>Microphone</title>
+        <company/>
+        <rev>V1-P1</rev>
+        <date>2026-09-29</date>
+        <source>microphone.kicad_sch</source>
+        <comment number="1" value="Prototype; physical validation pending"/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="4" name="/Accelerometer/" tstamps="/73827b47-d06e-5107-a275-48fc6109f5c7/">
+      <title_block>
+        <title>Accelerometer</title>
+        <company/>
+        <rev>V1-P1</rev>
+        <date>2026-09-29</date>
+        <source>accelerometer.kicad_sch</source>
+        <comment number="1" value="Prototype; physical validation pending"/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="5" name="/Battery Charging/" tstamps="/faf56be5-a3a7-59d6-9731-9148b70cdc12/">
+      <title_block>
+        <title>Battery Charging</title>
+        <company/>
+        <rev>V1-P1</rev>
+        <date>2026-09-29</date>
+        <source>battery_charging.kicad_sch</source>
+        <comment number="1" value="Prototype; physical validation pending"/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="6" name="/Power Regulation/" tstamps="/6752633f-dee8-536d-963e-24e980c8f3a3/">
+      <title_block>
+        <title>Power Regulation</title>
+        <company/>
+        <rev>V1-P1</rev>
+        <date>2026-09-29</date>
+        <source>power_regulation.kicad_sch</source>
+        <comment number="1" value="Prototype; physical validation pending"/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="7" name="/Battery Monitoring/" tstamps="/ae1a7b54-0bdb-5b2a-8b9a-81bf34b356dd/">
+      <title_block>
+        <title>Battery Monitoring</title>
+        <company/>
+        <rev>V1-P1</rev>
+        <date>2026-09-29</date>
+        <source>battery_monitoring.kicad_sch</source>
+        <comment number="1" value="Prototype; physical validation pending"/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="8" name="/Sos Feedback/" tstamps="/5f746fe9-d4df-56f5-9730-92a1e1c23cfb/">
+      <title_block>
+        <title>Sos Feedback</title>
+        <company/>
+        <rev>V1-P1</rev>
+        <date>2026-09-29</date>
+        <source>sos_feedback.kicad_sch</source>
+        <comment number="1" value="Prototype; physical validation pending"/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="9" name="/Programming Protection/" tstamps="/94347f4e-6bef-5071-a61a-85b6b36eee35/">
+      <title_block>
+        <title>Programming Protection</title>
+        <company/>
+        <rev>V1-P1</rev>
+        <date>2026-09-29</date>
+        <source>programming_protection.kicad_sch</source>
+        <comment number="1" value="Prototype; physical validation pending"/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="C1">
+      <value>22uF 16V X5R</value>
+      <footprint>Safety:C_1206_3216Metric</footprint>
+      <fields>
+        <field name="MPN">C3216X5R1C226M160AB</field>
+        <field name="Footprint">Safety:C_1206_3216Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="C" description=""/>
+      <property name="MPN" value="C3216X5R1C226M160AB"/>
+      <property name="Sheetname" value="Mcu Ble"/>
+      <property name="Sheetfile" value="schematic/mcu_ble/mcu_ble.kicad_sch"/>
+      <sheetpath names="/Mcu Ble/" tstamps="/3d920732-a48a-5ae0-b2a5-37caea38834c/"/>
+      <tstamps>9b4b46c3-8ebe-53dd-8105-eef27964a091</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C2">
+      <value>100nF 50V X7R</value>
+      <footprint>Safety:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">C1608X7R1H104K080AA</field>
+        <field name="Footprint">Safety:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="C" description=""/>
+      <property name="MPN" value="C1608X7R1H104K080AA"/>
+      <property name="Sheetname" value="Mcu Ble"/>
+      <property name="Sheetfile" value="schematic/mcu_ble/mcu_ble.kicad_sch"/>
+      <sheetpath names="/Mcu Ble/" tstamps="/3d920732-a48a-5ae0-b2a5-37caea38834c/"/>
+      <tstamps>18c988d4-40fa-5d5c-9c82-5f164a498b8a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C3">
+      <value>1uF 16V X7R</value>
+      <footprint>Safety:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">C1608X7R1C105K080AC</field>
+        <field name="Footprint">Safety:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="C" description=""/>
+      <property name="MPN" value="C1608X7R1C105K080AC"/>
+      <property name="Sheetname" value="Mcu Ble"/>
+      <property name="Sheetfile" value="schematic/mcu_ble/mcu_ble.kicad_sch"/>
+      <sheetpath names="/Mcu Ble/" tstamps="/3d920732-a48a-5ae0-b2a5-37caea38834c/"/>
+      <tstamps>66ab2682-8e1b-5f5d-84ff-fb25c0d4026b</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C20">
+      <value>100nF 50V X7R</value>
+      <footprint>Safety:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">C1608X7R1H104K080AA</field>
+        <field name="Footprint">Safety:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="C" description=""/>
+      <property name="MPN" value="C1608X7R1H104K080AA"/>
+      <property name="Sheetname" value="Mcu Ble"/>
+      <property name="Sheetfile" value="schematic/mcu_ble/mcu_ble.kicad_sch"/>
+      <sheetpath names="/Mcu Ble/" tstamps="/3d920732-a48a-5ae0-b2a5-37caea38834c/"/>
+      <tstamps>59759e17-f5d7-558b-b383-9565fc7aee98</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C21">
+      <value>10uF 25V X5R</value>
+      <footprint>Safety:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="MPN">C2012X5R1E106K125AB</field>
+        <field name="Footprint">Safety:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="C" description=""/>
+      <property name="MPN" value="C2012X5R1E106K125AB"/>
+      <property name="Sheetname" value="Mcu Ble"/>
+      <property name="Sheetfile" value="schematic/mcu_ble/mcu_ble.kicad_sch"/>
+      <sheetpath names="/Mcu Ble/" tstamps="/3d920732-a48a-5ae0-b2a5-37caea38834c/"/>
+      <tstamps>62d14d42-380a-517f-bb8b-2e0bdbfd856c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R1">
+      <value>10k 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">RC0603FR-0710KL</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="R" description=""/>
+      <property name="MPN" value="RC0603FR-0710KL"/>
+      <property name="Sheetname" value="Mcu Ble"/>
+      <property name="Sheetfile" value="schematic/mcu_ble/mcu_ble.kicad_sch"/>
+      <sheetpath names="/Mcu Ble/" tstamps="/3d920732-a48a-5ae0-b2a5-37caea38834c/"/>
+      <tstamps>3e40b429-d1da-57df-b1a2-6b8e4c0822a6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R2">
+      <value>10k 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">RC0603FR-0710KL</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="R" description=""/>
+      <property name="MPN" value="RC0603FR-0710KL"/>
+      <property name="Sheetname" value="Mcu Ble"/>
+      <property name="Sheetfile" value="schematic/mcu_ble/mcu_ble.kicad_sch"/>
+      <sheetpath names="/Mcu Ble/" tstamps="/3d920732-a48a-5ae0-b2a5-37caea38834c/"/>
+      <tstamps>c5a98877-0dea-5398-87ee-8645b3242ef6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R3">
+      <value>4.7k 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">RC0603FR-074K7L</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="R" description=""/>
+      <property name="MPN" value="RC0603FR-074K7L"/>
+      <property name="Sheetname" value="Mcu Ble"/>
+      <property name="Sheetfile" value="schematic/mcu_ble/mcu_ble.kicad_sch"/>
+      <sheetpath names="/Mcu Ble/" tstamps="/3d920732-a48a-5ae0-b2a5-37caea38834c/"/>
+      <tstamps>1c1f1ebb-670f-5d13-b37c-4555ddf55a1c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R4">
+      <value>4.7k 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">RC0603FR-074K7L</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="R" description=""/>
+      <property name="MPN" value="RC0603FR-074K7L"/>
+      <property name="Sheetname" value="Mcu Ble"/>
+      <property name="Sheetfile" value="schematic/mcu_ble/mcu_ble.kicad_sch"/>
+      <sheetpath names="/Mcu Ble/" tstamps="/3d920732-a48a-5ae0-b2a5-37caea38834c/"/>
+      <tstamps>3064fbfe-5688-5b32-8352-832e94b1b1d7</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U1">
+      <value>ESP32-S3-MINI-1-N4R2</value>
+      <footprint>Safety:ESP32-S2-MINI-1</footprint>
+      <fields>
+        <field name="MPN">ESP32-S3-MINI-1-N4R2</field>
+        <field name="Footprint">Safety:ESP32-S2-MINI-1</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="ESP32-S3-MINI-1" description="RF Module, ESP32-S3 SoC, Wi-Fi 802.11b/g/n, Bluetooth, BLE, 32-bit, 3.3V, SMD, onboard antenna"/>
+      <property name="MPN" value="ESP32-S3-MINI-1-N4R2"/>
+      <property name="Sheetname" value="Mcu Ble"/>
+      <property name="Sheetfile" value="schematic/mcu_ble/mcu_ble.kicad_sch"/>
+      <property name="ki_keywords" value="RF Radio BT ESP ESP32-S3 Espressif"/>
+      <property name="ki_fp_filters" value="ESP32?S*MINI?1"/>
+      <sheetpath names="/Mcu Ble/" tstamps="/3d920732-a48a-5ae0-b2a5-37caea38834c/"/>
+      <tstamps>c5144f9a-21b8-5e33-97e1-0a0d26951ee9</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="45"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+            <pin num="16"/>
+            <pin num="17"/>
+            <pin num="18"/>
+            <pin num="19"/>
+            <pin num="20"/>
+            <pin num="21"/>
+            <pin num="22"/>
+            <pin num="3"/>
+            <pin num="55"/>
+            <pin num="65"/>
+            <pin num="46"/>
+            <pin num="47"/>
+            <pin num="48"/>
+            <pin num="49"/>
+            <pin num="50"/>
+            <pin num="51"/>
+            <pin num="52"/>
+            <pin num="53"/>
+            <pin num="54"/>
+            <pin num="56"/>
+            <pin num="57"/>
+            <pin num="58"/>
+            <pin num="59"/>
+            <pin num="60"/>
+            <pin num="61"/>
+            <pin num="62"/>
+            <pin num="63"/>
+            <pin num="64"/>
+            <pin num="2"/>
+            <pin num="1"/>
+            <pin num="42"/>
+            <pin num="43"/>
+            <pin num="39"/>
+            <pin num="40"/>
+            <pin num="23"/>
+            <pin num="24"/>
+            <pin num="25"/>
+            <pin num="26"/>
+            <pin num="28"/>
+            <pin num="29"/>
+            <pin num="31"/>
+            <pin num="32"/>
+            <pin num="33"/>
+            <pin num="34"/>
+            <pin num="35"/>
+            <pin num="36"/>
+            <pin num="37"/>
+            <pin num="38"/>
+            <pin num="41"/>
+            <pin num="44"/>
+            <pin num="27"/>
+            <pin num="30"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C4">
+      <value>1uF 16V X7R</value>
+      <footprint>Safety:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">C1608X7R1C105K080AC</field>
+        <field name="Footprint">Safety:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="C" description=""/>
+      <property name="MPN" value="C1608X7R1C105K080AC"/>
+      <property name="Sheetname" value="Microphone"/>
+      <property name="Sheetfile" value="schematic/microphone/microphone.kicad_sch"/>
+      <sheetpath names="/Microphone/" tstamps="/ede8bbc9-c923-5070-979e-d294b01bf006/"/>
+      <tstamps>b58547e3-6c98-58c6-97c8-9a1b9fdd543d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C5">
+      <value>1uF 16V X7R</value>
+      <footprint>Safety:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">C1608X7R1C105K080AC</field>
+        <field name="Footprint">Safety:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="C" description=""/>
+      <property name="MPN" value="C1608X7R1C105K080AC"/>
+      <property name="Sheetname" value="Microphone"/>
+      <property name="Sheetfile" value="schematic/microphone/microphone.kicad_sch"/>
+      <sheetpath names="/Microphone/" tstamps="/ede8bbc9-c923-5070-979e-d294b01bf006/"/>
+      <tstamps>a2ee1745-6656-545d-9da7-03793593cb36</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C6">
+      <value>1uF 16V X7R</value>
+      <footprint>Safety:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">C1608X7R1C105K080AC</field>
+        <field name="Footprint">Safety:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="C" description=""/>
+      <property name="MPN" value="C1608X7R1C105K080AC"/>
+      <property name="Sheetname" value="Microphone"/>
+      <property name="Sheetfile" value="schematic/microphone/microphone.kicad_sch"/>
+      <sheetpath names="/Microphone/" tstamps="/ede8bbc9-c923-5070-979e-d294b01bf006/"/>
+      <tstamps>8de82b9e-ca7a-559c-82b4-2eef207af4fe</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C22">
+      <value>1uF 16V X7R</value>
+      <footprint>Safety:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">C1608X7R1C105K080AC</field>
+        <field name="Footprint">Safety:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="C" description=""/>
+      <property name="MPN" value="C1608X7R1C105K080AC"/>
+      <property name="Sheetname" value="Microphone"/>
+      <property name="Sheetfile" value="schematic/microphone/microphone.kicad_sch"/>
+      <sheetpath names="/Microphone/" tstamps="/ede8bbc9-c923-5070-979e-d294b01bf006/"/>
+      <tstamps>ba01129b-6326-5c5c-ae17-54ec9f700874</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C26">
+      <value>1uF 16V X7R</value>
+      <footprint>Safety:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">C1608X7R1C105K080AC</field>
+        <field name="Footprint">Safety:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="C" description=""/>
+      <property name="MPN" value="C1608X7R1C105K080AC"/>
+      <property name="Sheetname" value="Microphone"/>
+      <property name="Sheetfile" value="schematic/microphone/microphone.kicad_sch"/>
+      <sheetpath names="/Microphone/" tstamps="/ede8bbc9-c923-5070-979e-d294b01bf006/"/>
+      <tstamps>4463413a-6210-5f70-86ce-709c256bda12</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C27">
+      <value>1uF 16V X7R</value>
+      <footprint>Safety:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">C1608X7R1C105K080AC</field>
+        <field name="Footprint">Safety:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="C" description=""/>
+      <property name="MPN" value="C1608X7R1C105K080AC"/>
+      <property name="Sheetname" value="Microphone"/>
+      <property name="Sheetfile" value="schematic/microphone/microphone.kicad_sch"/>
+      <sheetpath names="/Microphone/" tstamps="/ede8bbc9-c923-5070-979e-d294b01bf006/"/>
+      <tstamps>18e4e208-af36-5433-a709-a32094c97f61</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R5">
+      <value>1k 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">RC0603FR-071KL</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="R" description=""/>
+      <property name="MPN" value="RC0603FR-071KL"/>
+      <property name="Sheetname" value="Microphone"/>
+      <property name="Sheetfile" value="schematic/microphone/microphone.kicad_sch"/>
+      <sheetpath names="/Microphone/" tstamps="/ede8bbc9-c923-5070-979e-d294b01bf006/"/>
+      <tstamps>575745ac-112c-55c2-b41b-5cd667e18f36</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R6">
+      <value>10k 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">RC0603FR-0710KL</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="R" description=""/>
+      <property name="MPN" value="RC0603FR-0710KL"/>
+      <property name="Sheetname" value="Microphone"/>
+      <property name="Sheetfile" value="schematic/microphone/microphone.kicad_sch"/>
+      <sheetpath names="/Microphone/" tstamps="/ede8bbc9-c923-5070-979e-d294b01bf006/"/>
+      <tstamps>abbbe54f-ef92-5d5d-9834-9c8e3b7eb481</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U2">
+      <value>IM67D128BV01</value>
+      <footprint>Safety:Infineon_IM67D128BV01</footprint>
+      <datasheet>https://www.infineon.com/assets/row/public/documents/24/49/infineon-im67d128b-datasheet-en.pdf</datasheet>
+      <fields>
+        <field name="MPN">IM67D128BV01</field>
+        <field name="Footprint">Safety:Infineon_IM67D128BV01</field>
+        <field name="Datasheet">https://www.infineon.com/assets/row/public/documents/24/49/infineon-im67d128b-datasheet-en.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="IM67D128BV01" description=""/>
+      <property name="MPN" value="IM67D128BV01"/>
+      <property name="Sheetname" value="Microphone"/>
+      <property name="Sheetfile" value="schematic/microphone/microphone.kicad_sch"/>
+      <sheetpath names="/Microphone/" tstamps="/ede8bbc9-c923-5070-979e-d294b01bf006/"/>
+      <tstamps>0453381a-806e-5a7f-9c60-a0f166abb303</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U3">
+      <value>TPS7A2030PDBVR</value>
+      <footprint>Safety:SOT-23-5</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/tps7a20.pdf</datasheet>
+      <fields>
+        <field name="MPN">TPS7A2030PDBVR</field>
+        <field name="Footprint">Safety:SOT-23-5</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/tps7a20.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="TPS7A2030PDBVR" description=""/>
+      <property name="MPN" value="TPS7A2030PDBVR"/>
+      <property name="Sheetname" value="Microphone"/>
+      <property name="Sheetfile" value="schematic/microphone/microphone.kicad_sch"/>
+      <sheetpath names="/Microphone/" tstamps="/ede8bbc9-c923-5070-979e-d294b01bf006/"/>
+      <tstamps>05bc9c2a-0fd8-5dd9-b550-a0068715f7d6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C7">
+      <value>100nF 50V X7R</value>
+      <footprint>Safety:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">C1608X7R1H104K080AA</field>
+        <field name="Footprint">Safety:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="C" description=""/>
+      <property name="MPN" value="C1608X7R1H104K080AA"/>
+      <property name="Sheetname" value="Accelerometer"/>
+      <property name="Sheetfile" value="schematic/accelerometer/accelerometer.kicad_sch"/>
+      <sheetpath names="/Accelerometer/" tstamps="/73827b47-d06e-5107-a275-48fc6109f5c7/"/>
+      <tstamps>e0a45410-1ac4-54b3-9426-f817f3406fdd</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C8">
+      <value>10uF 25V X5R</value>
+      <footprint>Safety:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="MPN">C2012X5R1E106K125AB</field>
+        <field name="Footprint">Safety:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="C" description=""/>
+      <property name="MPN" value="C2012X5R1E106K125AB"/>
+      <property name="Sheetname" value="Accelerometer"/>
+      <property name="Sheetfile" value="schematic/accelerometer/accelerometer.kicad_sch"/>
+      <sheetpath names="/Accelerometer/" tstamps="/73827b47-d06e-5107-a275-48fc6109f5c7/"/>
+      <tstamps>d304b656-9157-54d4-abde-897c87b029d1</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C23">
+      <value>100nF 50V X7R</value>
+      <footprint>Safety:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">C1608X7R1H104K080AA</field>
+        <field name="Footprint">Safety:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="C" description=""/>
+      <property name="MPN" value="C1608X7R1H104K080AA"/>
+      <property name="Sheetname" value="Accelerometer"/>
+      <property name="Sheetfile" value="schematic/accelerometer/accelerometer.kicad_sch"/>
+      <sheetpath names="/Accelerometer/" tstamps="/73827b47-d06e-5107-a275-48fc6109f5c7/"/>
+      <tstamps>8aedb3d5-1e1d-54b4-bc44-c0dba1f8d2e3</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U4">
+      <value>LIS2DW12</value>
+      <footprint>Safety:LGA-12_2x2mm_P0.5mm</footprint>
+      <datasheet>https://www.st.com/resource/en/datasheet/lis2dw12.pdf</datasheet>
+      <fields>
+        <field name="MPN">LIS2DW12TR</field>
+        <field name="Footprint">Safety:LGA-12_2x2mm_P0.5mm</field>
+        <field name="Datasheet">https://www.st.com/resource/en/datasheet/lis2dw12.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="LIS2DW12" description=""/>
+      <property name="MPN" value="LIS2DW12TR"/>
+      <property name="Sheetname" value="Accelerometer"/>
+      <property name="Sheetfile" value="schematic/accelerometer/accelerometer.kicad_sch"/>
+      <sheetpath names="/Accelerometer/" tstamps="/73827b47-d06e-5107-a275-48fc6109f5c7/"/>
+      <tstamps>3205aa91-8b0b-54d4-a518-443a2055a400</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C9">
+      <value>1uF 25V X7R</value>
+      <footprint>Safety:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">C1608X7R1E105K080AE</field>
+        <field name="Footprint">Safety:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="C" description=""/>
+      <property name="MPN" value="C1608X7R1E105K080AE"/>
+      <property name="Sheetname" value="Battery Charging"/>
+      <property name="Sheetfile" value="schematic/battery_charging/battery_charging.kicad_sch"/>
+      <sheetpath names="/Battery Charging/" tstamps="/faf56be5-a3a7-59d6-9731-9148b70cdc12/"/>
+      <tstamps>340ca264-9a18-5060-bf87-10ca7731fe63</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C10">
+      <value>22uF 16V X5R</value>
+      <footprint>Safety:C_1206_3216Metric</footprint>
+      <fields>
+        <field name="MPN">C3216X5R1C226M160AB</field>
+        <field name="Footprint">Safety:C_1206_3216Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="C" description=""/>
+      <property name="MPN" value="C3216X5R1C226M160AB"/>
+      <property name="Sheetname" value="Battery Charging"/>
+      <property name="Sheetfile" value="schematic/battery_charging/battery_charging.kicad_sch"/>
+      <sheetpath names="/Battery Charging/" tstamps="/faf56be5-a3a7-59d6-9731-9148b70cdc12/"/>
+      <tstamps>1e696f71-ae1e-5667-8c80-808525319e5a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C11">
+      <value>1uF 16V X7R</value>
+      <footprint>Safety:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">C1608X7R1C105K080AC</field>
+        <field name="Footprint">Safety:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="C" description=""/>
+      <property name="MPN" value="C1608X7R1C105K080AC"/>
+      <property name="Sheetname" value="Battery Charging"/>
+      <property name="Sheetfile" value="schematic/battery_charging/battery_charging.kicad_sch"/>
+      <sheetpath names="/Battery Charging/" tstamps="/faf56be5-a3a7-59d6-9731-9148b70cdc12/"/>
+      <tstamps>b78393a2-72fa-53c6-9e62-b7906e5b826c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C12">
+      <value>100nF 50V X7R</value>
+      <footprint>Safety:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">C1608X7R1H104K080AA</field>
+        <field name="Footprint">Safety:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="C" description=""/>
+      <property name="MPN" value="C1608X7R1H104K080AA"/>
+      <property name="Sheetname" value="Battery Charging"/>
+      <property name="Sheetfile" value="schematic/battery_charging/battery_charging.kicad_sch"/>
+      <sheetpath names="/Battery Charging/" tstamps="/faf56be5-a3a7-59d6-9731-9148b70cdc12/"/>
+      <tstamps>b7fc1f24-8056-526c-8612-3010eb6c3014</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C24">
+      <value>10uF 25V X5R</value>
+      <footprint>Safety:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="MPN">C2012X5R1E106K125AB</field>
+        <field name="Footprint">Safety:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="C" description=""/>
+      <property name="MPN" value="C2012X5R1E106K125AB"/>
+      <property name="Sheetname" value="Battery Charging"/>
+      <property name="Sheetfile" value="schematic/battery_charging/battery_charging.kicad_sch"/>
+      <sheetpath names="/Battery Charging/" tstamps="/faf56be5-a3a7-59d6-9731-9148b70cdc12/"/>
+      <tstamps>fa72effb-3132-5879-bb86-a9b0c2561ab3</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D1">
+      <value>TPD1E10B06DYAR</value>
+      <footprint>Safety:D_SOD-523</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/tpd1e10b06.pdf</datasheet>
+      <fields>
+        <field name="MPN">TPD1E10B06DYAR</field>
+        <field name="Footprint">Safety:D_SOD-523</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/tpd1e10b06.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="ESD" description=""/>
+      <property name="MPN" value="TPD1E10B06DYAR"/>
+      <property name="Sheetname" value="Battery Charging"/>
+      <property name="Sheetfile" value="schematic/battery_charging/battery_charging.kicad_sch"/>
+      <sheetpath names="/Battery Charging/" tstamps="/faf56be5-a3a7-59d6-9731-9148b70cdc12/"/>
+      <tstamps>4244ff92-3540-5c1e-a705-e8dee28a4f6b</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D2">
+      <value>PMEG6010CEH</value>
+      <footprint>Safety:D_SOD-123F</footprint>
+      <datasheet>https://assets.nexperia.com/documents/data-sheet/PMEG6010CEH.pdf</datasheet>
+      <fields>
+        <field name="MPN">PMEG6010CEH,115</field>
+        <field name="Footprint">Safety:D_SOD-123F</field>
+        <field name="Datasheet">https://assets.nexperia.com/documents/data-sheet/PMEG6010CEH.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="REVDIODE" description=""/>
+      <property name="MPN" value="PMEG6010CEH,115"/>
+      <property name="Sheetname" value="Battery Charging"/>
+      <property name="Sheetfile" value="schematic/battery_charging/battery_charging.kicad_sch"/>
+      <sheetpath names="/Battery Charging/" tstamps="/faf56be5-a3a7-59d6-9731-9148b70cdc12/"/>
+      <tstamps>f7189444-cb84-5dc3-a678-c9833a669ed6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J1">
+      <value>AKY1604 protected pack</value>
+      <footprint>Safety:Molex_PicoBlade_53261-0271_1x02-1MP_P1.25mm_Horizontal</footprint>
+      <datasheet>https://www.molex.com/en-us/products/part-detail/532610271</datasheet>
+      <fields>
+        <field name="MPN">53261-0271</field>
+        <field name="Footprint">Safety:Molex_PicoBlade_53261-0271_1x02-1MP_P1.25mm_Horizontal</field>
+        <field name="Datasheet">https://www.molex.com/en-us/products/part-detail/532610271</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="BATCONN" description=""/>
+      <property name="MPN" value="53261-0271"/>
+      <property name="Sheetname" value="Battery Charging"/>
+      <property name="Sheetfile" value="schematic/battery_charging/battery_charging.kicad_sch"/>
+      <sheetpath names="/Battery Charging/" tstamps="/faf56be5-a3a7-59d6-9731-9148b70cdc12/"/>
+      <tstamps>29ebfb83-6735-552d-818a-dbe175b76edd</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J2">
+      <value>5V magnetic pogo contact pair</value>
+      <footprint>Safety:Pogo_Charge_2Pin</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Safety:Pogo_Charge_2Pin</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="CHGCONN" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="Battery Charging"/>
+      <property name="Sheetfile" value="schematic/battery_charging/battery_charging.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/Battery Charging/" tstamps="/faf56be5-a3a7-59d6-9731-9148b70cdc12/"/>
+      <tstamps>7aa431a9-6d9c-52bf-aa43-b128a82999c6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="Q1">
+      <value>BSS138P</value>
+      <footprint>Safety:SOT-23</footprint>
+      <datasheet>https://assets.nexperia.com/documents/data-sheet/BSS138P.pdf</datasheet>
+      <fields>
+        <field name="MPN">BSS138P,215</field>
+        <field name="Footprint">Safety:SOT-23</field>
+        <field name="Datasheet">https://assets.nexperia.com/documents/data-sheet/BSS138P.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="BSS138" description=""/>
+      <property name="MPN" value="BSS138P,215"/>
+      <property name="Sheetname" value="Battery Charging"/>
+      <property name="Sheetfile" value="schematic/battery_charging/battery_charging.kicad_sch"/>
+      <sheetpath names="/Battery Charging/" tstamps="/faf56be5-a3a7-59d6-9731-9148b70cdc12/"/>
+      <tstamps>cc6f3acf-6464-5dfc-a581-28f7c7527f14</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="Q2">
+      <value>BSS138P</value>
+      <footprint>Safety:SOT-23</footprint>
+      <datasheet>https://assets.nexperia.com/documents/data-sheet/BSS138P.pdf</datasheet>
+      <fields>
+        <field name="MPN">BSS138P,215</field>
+        <field name="Footprint">Safety:SOT-23</field>
+        <field name="Datasheet">https://assets.nexperia.com/documents/data-sheet/BSS138P.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="BSS138" description=""/>
+      <property name="MPN" value="BSS138P,215"/>
+      <property name="Sheetname" value="Battery Charging"/>
+      <property name="Sheetfile" value="schematic/battery_charging/battery_charging.kicad_sch"/>
+      <sheetpath names="/Battery Charging/" tstamps="/faf56be5-a3a7-59d6-9731-9148b70cdc12/"/>
+      <tstamps>e7ae2740-266d-5899-8cb7-d3a66523e79b</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R7">
+      <value>18k 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">RC0603FR-0718KL</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="R" description=""/>
+      <property name="MPN" value="RC0603FR-0718KL"/>
+      <property name="Sheetname" value="Battery Charging"/>
+      <property name="Sheetfile" value="schematic/battery_charging/battery_charging.kicad_sch"/>
+      <sheetpath names="/Battery Charging/" tstamps="/faf56be5-a3a7-59d6-9731-9148b70cdc12/"/>
+      <tstamps>e8176adc-c38d-52f4-b783-2997cfc6d378</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R8">
+      <value>2k 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">RC0603FR-072KL</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="R" description=""/>
+      <property name="MPN" value="RC0603FR-072KL"/>
+      <property name="Sheetname" value="Battery Charging"/>
+      <property name="Sheetfile" value="schematic/battery_charging/battery_charging.kicad_sch"/>
+      <sheetpath names="/Battery Charging/" tstamps="/faf56be5-a3a7-59d6-9731-9148b70cdc12/"/>
+      <tstamps>23abf41d-6bb7-5667-8a79-5cb1c01f6c3f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R9">
+      <value>10k 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">RC0603FR-0710KL</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="R" description=""/>
+      <property name="MPN" value="RC0603FR-0710KL"/>
+      <property name="Sheetname" value="Battery Charging"/>
+      <property name="Sheetfile" value="schematic/battery_charging/battery_charging.kicad_sch"/>
+      <sheetpath names="/Battery Charging/" tstamps="/faf56be5-a3a7-59d6-9731-9148b70cdc12/"/>
+      <tstamps>0f1a736b-f590-5d83-b44a-14549ce93035</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R10">
+      <value>10k 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">RC0603FR-0710KL</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="R" description=""/>
+      <property name="MPN" value="RC0603FR-0710KL"/>
+      <property name="Sheetname" value="Battery Charging"/>
+      <property name="Sheetfile" value="schematic/battery_charging/battery_charging.kicad_sch"/>
+      <sheetpath names="/Battery Charging/" tstamps="/faf56be5-a3a7-59d6-9731-9148b70cdc12/"/>
+      <tstamps>79d380e4-2ca1-570a-b6e2-26844653202d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R11">
+      <value>432k 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">RC0603FR-07432KL</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="R" description=""/>
+      <property name="MPN" value="RC0603FR-07432KL"/>
+      <property name="Sheetname" value="Battery Charging"/>
+      <property name="Sheetfile" value="schematic/battery_charging/battery_charging.kicad_sch"/>
+      <sheetpath names="/Battery Charging/" tstamps="/faf56be5-a3a7-59d6-9731-9148b70cdc12/"/>
+      <tstamps>861680f8-f1ba-5a21-8766-e360c83cee1d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R12">
+      <value>24.9k 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">RC0603FR-0724K9L</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="R" description=""/>
+      <property name="MPN" value="RC0603FR-0724K9L"/>
+      <property name="Sheetname" value="Battery Charging"/>
+      <property name="Sheetfile" value="schematic/battery_charging/battery_charging.kicad_sch"/>
+      <sheetpath names="/Battery Charging/" tstamps="/faf56be5-a3a7-59d6-9731-9148b70cdc12/"/>
+      <tstamps>4c337597-533d-568e-93a1-68df869d9bd9</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R13">
+      <value>365k 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">RC0603FR-07365KL</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="R" description=""/>
+      <property name="MPN" value="RC0603FR-07365KL"/>
+      <property name="Sheetname" value="Battery Charging"/>
+      <property name="Sheetfile" value="schematic/battery_charging/battery_charging.kicad_sch"/>
+      <sheetpath names="/Battery Charging/" tstamps="/faf56be5-a3a7-59d6-9731-9148b70cdc12/"/>
+      <tstamps>39750918-c068-5c87-ad0f-e0336b135be9</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R14">
+      <value>49.9k 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">RC0603FR-0749K9L</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="R" description=""/>
+      <property name="MPN" value="RC0603FR-0749K9L"/>
+      <property name="Sheetname" value="Battery Charging"/>
+      <property name="Sheetfile" value="schematic/battery_charging/battery_charging.kicad_sch"/>
+      <sheetpath names="/Battery Charging/" tstamps="/faf56be5-a3a7-59d6-9731-9148b70cdc12/"/>
+      <tstamps>7387fd9a-08d8-514c-9c2f-155ca88dde12</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R15">
+      <value>100k 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">RC0603FR-07100KL</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="R" description=""/>
+      <property name="MPN" value="RC0603FR-07100KL"/>
+      <property name="Sheetname" value="Battery Charging"/>
+      <property name="Sheetfile" value="schematic/battery_charging/battery_charging.kicad_sch"/>
+      <sheetpath names="/Battery Charging/" tstamps="/faf56be5-a3a7-59d6-9731-9148b70cdc12/"/>
+      <tstamps>04ec2543-91c4-5289-bc01-812d37f04f86</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R16">
+      <value>47k 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">RC0603FR-0747KL</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="R" description=""/>
+      <property name="MPN" value="RC0603FR-0747KL"/>
+      <property name="Sheetname" value="Battery Charging"/>
+      <property name="Sheetfile" value="schematic/battery_charging/battery_charging.kicad_sch"/>
+      <sheetpath names="/Battery Charging/" tstamps="/faf56be5-a3a7-59d6-9731-9148b70cdc12/"/>
+      <tstamps>e362a3ba-3728-5a43-bfcf-675ffa2a8b85</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R17">
+      <value>100k 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">RC0603FR-07100KL</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="R" description=""/>
+      <property name="MPN" value="RC0603FR-07100KL"/>
+      <property name="Sheetname" value="Battery Charging"/>
+      <property name="Sheetfile" value="schematic/battery_charging/battery_charging.kicad_sch"/>
+      <sheetpath names="/Battery Charging/" tstamps="/faf56be5-a3a7-59d6-9731-9148b70cdc12/"/>
+      <tstamps>3d6be2c1-93a5-5519-bb56-23e0a2bc29cc</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="RT1">
+      <value>10k B3435 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <datasheet>https://www.tdk-electronics.tdk.com/en/530404/products/product-catalog/sensors-and-sensor-systems/smd-ntc-thermistors</datasheet>
+      <fields>
+        <field name="MPN">B57332V5103A260</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.tdk-electronics.tdk.com/en/530404/products/product-catalog/sensors-and-sensor-systems/smd-ntc-thermistors</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="NTC" description=""/>
+      <property name="MPN" value="B57332V5103A260"/>
+      <property name="Sheetname" value="Battery Charging"/>
+      <property name="Sheetfile" value="schematic/battery_charging/battery_charging.kicad_sch"/>
+      <sheetpath names="/Battery Charging/" tstamps="/faf56be5-a3a7-59d6-9731-9148b70cdc12/"/>
+      <tstamps>f97fccee-3c16-5f4f-adf2-e570524693e7</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U5">
+      <value>BQ25185DLHR</value>
+      <footprint>Safety:Texas_DLH0010A_WSON-10-1EP_2.2x2mm_P0.4mm_EP0.9x1.5mm</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/bq25185.pdf</datasheet>
+      <fields>
+        <field name="MPN">BQ25185DLHR</field>
+        <field name="Footprint">Safety:Texas_DLH0010A_WSON-10-1EP_2.2x2mm_P0.4mm_EP0.9x1.5mm</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/bq25185.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="BQ25185" description=""/>
+      <property name="MPN" value="BQ25185DLHR"/>
+      <property name="Sheetname" value="Battery Charging"/>
+      <property name="Sheetfile" value="schematic/battery_charging/battery_charging.kicad_sch"/>
+      <sheetpath names="/Battery Charging/" tstamps="/faf56be5-a3a7-59d6-9731-9148b70cdc12/"/>
+      <tstamps>f5648c23-a337-538a-9d59-7423e6d659fe</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="9"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U6">
+      <value>TLV7042DDFR</value>
+      <footprint>Safety:SOT-23-8</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/tlv7032.pdf</datasheet>
+      <fields>
+        <field name="MPN">TLV7042DDFR</field>
+        <field name="Footprint">Safety:SOT-23-8</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/tlv7032.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="TLV7042" description=""/>
+      <property name="MPN" value="TLV7042DDFR"/>
+      <property name="Sheetname" value="Battery Charging"/>
+      <property name="Sheetfile" value="schematic/battery_charging/battery_charging.kicad_sch"/>
+      <sheetpath names="/Battery Charging/" tstamps="/faf56be5-a3a7-59d6-9731-9148b70cdc12/"/>
+      <tstamps>c7e40583-8638-57b5-9f95-612f3713a04c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="8"/>
+            <pin num="1"/>
+            <pin num="7"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C13">
+      <value>22uF 16V X5R</value>
+      <footprint>Safety:C_1206_3216Metric</footprint>
+      <fields>
+        <field name="MPN">C3216X5R1C226M160AB</field>
+        <field name="Footprint">Safety:C_1206_3216Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="C" description=""/>
+      <property name="MPN" value="C3216X5R1C226M160AB"/>
+      <property name="Sheetname" value="Power Regulation"/>
+      <property name="Sheetfile" value="schematic/power_regulation/power_regulation.kicad_sch"/>
+      <sheetpath names="/Power Regulation/" tstamps="/6752633f-dee8-536d-963e-24e980c8f3a3/"/>
+      <tstamps>3307ac6b-a7b9-5e91-b88a-52a041a9dc75</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C14">
+      <value>22uF 16V X5R</value>
+      <footprint>Safety:C_1206_3216Metric</footprint>
+      <fields>
+        <field name="MPN">C3216X5R1C226M160AB</field>
+        <field name="Footprint">Safety:C_1206_3216Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="C" description=""/>
+      <property name="MPN" value="C3216X5R1C226M160AB"/>
+      <property name="Sheetname" value="Power Regulation"/>
+      <property name="Sheetfile" value="schematic/power_regulation/power_regulation.kicad_sch"/>
+      <sheetpath names="/Power Regulation/" tstamps="/6752633f-dee8-536d-963e-24e980c8f3a3/"/>
+      <tstamps>b6d91fd4-885c-562e-a2a7-b8240e27ec91</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C15">
+      <value>22uF 16V X5R</value>
+      <footprint>Safety:C_1206_3216Metric</footprint>
+      <fields>
+        <field name="MPN">C3216X5R1C226M160AB</field>
+        <field name="Footprint">Safety:C_1206_3216Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="C" description=""/>
+      <property name="MPN" value="C3216X5R1C226M160AB"/>
+      <property name="Sheetname" value="Power Regulation"/>
+      <property name="Sheetfile" value="schematic/power_regulation/power_regulation.kicad_sch"/>
+      <sheetpath names="/Power Regulation/" tstamps="/6752633f-dee8-536d-963e-24e980c8f3a3/"/>
+      <tstamps>f885163d-c5eb-5c9f-aa38-018115fcc4a6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="L1">
+      <value>0.47uH 5.4A at 20% drop</value>
+      <footprint>Safety:L_Coilcraft_XFL4015</footprint>
+      <datasheet>https://www.coilcraft.com/getmedia/84927b8b-f089-421b-a7f4-a0fa23afe908/xfl4015.pdf</datasheet>
+      <fields>
+        <field name="MPN">XFL4015-471MEC</field>
+        <field name="Footprint">Safety:L_Coilcraft_XFL4015</field>
+        <field name="Datasheet">https://www.coilcraft.com/getmedia/84927b8b-f089-421b-a7f4-a0fa23afe908/xfl4015.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="L" description=""/>
+      <property name="MPN" value="XFL4015-471MEC"/>
+      <property name="Sheetname" value="Power Regulation"/>
+      <property name="Sheetfile" value="schematic/power_regulation/power_regulation.kicad_sch"/>
+      <sheetpath names="/Power Regulation/" tstamps="/6752633f-dee8-536d-963e-24e980c8f3a3/"/>
+      <tstamps>a9924756-e9e5-5039-bb5c-dbf8ba7186ca</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R18">
+      <value>511k 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">RC0603FR-07511KL</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="R" description=""/>
+      <property name="MPN" value="RC0603FR-07511KL"/>
+      <property name="Sheetname" value="Power Regulation"/>
+      <property name="Sheetfile" value="schematic/power_regulation/power_regulation.kicad_sch"/>
+      <sheetpath names="/Power Regulation/" tstamps="/6752633f-dee8-536d-963e-24e980c8f3a3/"/>
+      <tstamps>dc39ef76-9297-5176-af6c-eeccef0670b1</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R19">
+      <value>91k 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">RC0603FR-0791KL</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="R" description=""/>
+      <property name="MPN" value="RC0603FR-0791KL"/>
+      <property name="Sheetname" value="Power Regulation"/>
+      <property name="Sheetfile" value="schematic/power_regulation/power_regulation.kicad_sch"/>
+      <sheetpath names="/Power Regulation/" tstamps="/6752633f-dee8-536d-963e-24e980c8f3a3/"/>
+      <tstamps>19274efc-b7cb-5c6f-a45a-4bf8b74f4c0e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R20">
+      <value>100k 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">RC0603FR-07100KL</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="R" description=""/>
+      <property name="MPN" value="RC0603FR-07100KL"/>
+      <property name="Sheetname" value="Power Regulation"/>
+      <property name="Sheetfile" value="schematic/power_regulation/power_regulation.kicad_sch"/>
+      <sheetpath names="/Power Regulation/" tstamps="/6752633f-dee8-536d-963e-24e980c8f3a3/"/>
+      <tstamps>924cdb33-c20d-5827-9b2e-75933251f4bd</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R21">
+      <value>10k 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">RC0603FR-0710KL</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="R" description=""/>
+      <property name="MPN" value="RC0603FR-0710KL"/>
+      <property name="Sheetname" value="Power Regulation"/>
+      <property name="Sheetfile" value="schematic/power_regulation/power_regulation.kicad_sch"/>
+      <sheetpath names="/Power Regulation/" tstamps="/6752633f-dee8-536d-963e-24e980c8f3a3/"/>
+      <tstamps>04a85ddb-e73d-59f6-b7ae-9630fbfee381</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U7">
+      <value>TPS63802DLAR</value>
+      <footprint>Safety:Texas_DLA0010A_VSON-10_2x3mm</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/tps63802.pdf</datasheet>
+      <fields>
+        <field name="MPN">TPS63802DLAR</field>
+        <field name="Footprint">Safety:Texas_DLA0010A_VSON-10_2x3mm</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/tps63802.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="TPS63802" description=""/>
+      <property name="MPN" value="TPS63802DLAR"/>
+      <property name="Sheetname" value="Power Regulation"/>
+      <property name="Sheetfile" value="schematic/power_regulation/power_regulation.kicad_sch"/>
+      <sheetpath names="/Power Regulation/" tstamps="/6752633f-dee8-536d-963e-24e980c8f3a3/"/>
+      <tstamps>f61a7b5b-bb6e-5037-a75d-6837135567d5</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C16">
+      <value>100nF 50V X7R</value>
+      <footprint>Safety:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">C1608X7R1H104K080AA</field>
+        <field name="Footprint">Safety:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="C" description=""/>
+      <property name="MPN" value="C1608X7R1H104K080AA"/>
+      <property name="Sheetname" value="Battery Monitoring"/>
+      <property name="Sheetfile" value="schematic/battery_monitoring/battery_monitoring.kicad_sch"/>
+      <sheetpath names="/Battery Monitoring/" tstamps="/ae1a7b54-0bdb-5b2a-8b9a-81bf34b356dd/"/>
+      <tstamps>b53093de-3748-5c9c-b70b-5dba850fab73</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R22">
+      <value>10k 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">RC0603FR-0710KL</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="R" description=""/>
+      <property name="MPN" value="RC0603FR-0710KL"/>
+      <property name="Sheetname" value="Battery Monitoring"/>
+      <property name="Sheetfile" value="schematic/battery_monitoring/battery_monitoring.kicad_sch"/>
+      <sheetpath names="/Battery Monitoring/" tstamps="/ae1a7b54-0bdb-5b2a-8b9a-81bf34b356dd/"/>
+      <tstamps>9e9e3e07-d0cd-5d6e-9bda-19221f89d114</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U8">
+      <value>MAX17048G+T10</value>
+      <footprint>Safety:TDFN-8-1EP_2x2mm_P0.5mm_EP0.8x1.2mm</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/MAX17048-MAX17049.pdf</datasheet>
+      <fields>
+        <field name="MPN">MAX17048G+T10</field>
+        <field name="Footprint">Safety:TDFN-8-1EP_2x2mm_P0.5mm_EP0.8x1.2mm</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/MAX17048-MAX17049.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="MAX17048" description=""/>
+      <property name="MPN" value="MAX17048G+T10"/>
+      <property name="Sheetname" value="Battery Monitoring"/>
+      <property name="Sheetfile" value="schematic/battery_monitoring/battery_monitoring.kicad_sch"/>
+      <sheetpath names="/Battery Monitoring/" tstamps="/ae1a7b54-0bdb-5b2a-8b9a-81bf34b356dd/"/>
+      <tstamps>df49a307-d891-5d2a-8385-7775336eed09</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="5"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C17">
+      <value>10nF 50V X7R</value>
+      <footprint>Safety:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">C1608X7R1H103K080AA</field>
+        <field name="Footprint">Safety:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="C" description=""/>
+      <property name="MPN" value="C1608X7R1H103K080AA"/>
+      <property name="Sheetname" value="Sos Feedback"/>
+      <property name="Sheetfile" value="schematic/sos_feedback/sos_feedback.kicad_sch"/>
+      <sheetpath names="/Sos Feedback/" tstamps="/5f746fe9-d4df-56f5-9730-92a1e1c23cfb/"/>
+      <tstamps>ada05b84-5948-5e60-8fc6-2aabc6692e0e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C18">
+      <value>1uF 16V X7R</value>
+      <footprint>Safety:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">C1608X7R1C105K080AC</field>
+        <field name="Footprint">Safety:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="C" description=""/>
+      <property name="MPN" value="C1608X7R1C105K080AC"/>
+      <property name="Sheetname" value="Sos Feedback"/>
+      <property name="Sheetfile" value="schematic/sos_feedback/sos_feedback.kicad_sch"/>
+      <sheetpath names="/Sos Feedback/" tstamps="/5f746fe9-d4df-56f5-9730-92a1e1c23cfb/"/>
+      <tstamps>f1ba46cf-2a09-59ba-a252-9a684c0d2274</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C19">
+      <value>4.7uF 10V X5R</value>
+      <footprint>Safety:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">C1608X5R1A475K080AE</field>
+        <field name="Footprint">Safety:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="C" description=""/>
+      <property name="MPN" value="C1608X5R1A475K080AE"/>
+      <property name="Sheetname" value="Sos Feedback"/>
+      <property name="Sheetfile" value="schematic/sos_feedback/sos_feedback.kicad_sch"/>
+      <sheetpath names="/Sos Feedback/" tstamps="/5f746fe9-d4df-56f5-9730-92a1e1c23cfb/"/>
+      <tstamps>ee3c31fb-62da-59d0-a40b-a38b5538d4c8</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C25">
+      <value>1uF 16V X7R</value>
+      <footprint>Safety:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">C1608X7R1C105K080AC</field>
+        <field name="Footprint">Safety:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="C" description=""/>
+      <property name="MPN" value="C1608X7R1C105K080AC"/>
+      <property name="Sheetname" value="Sos Feedback"/>
+      <property name="Sheetfile" value="schematic/sos_feedback/sos_feedback.kicad_sch"/>
+      <sheetpath names="/Sos Feedback/" tstamps="/5f746fe9-d4df-56f5-9730-92a1e1c23cfb/"/>
+      <tstamps>d3757e31-15ba-5852-977b-e989de59af22</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D3">
+      <value>APFA3010LSEEZGKQBKC</value>
+      <footprint>Safety:LED_Kingbright_APFA3010_3x1.5mm_Horizontal</footprint>
+      <datasheet>https://www.kingbrightusa.com/images/catalog/spec/apfa3010lseezgkqbkc.pdf</datasheet>
+      <fields>
+        <field name="MPN">APFA3010LSEEZGKQBKC</field>
+        <field name="Footprint">Safety:LED_Kingbright_APFA3010_3x1.5mm_Horizontal</field>
+        <field name="Datasheet">https://www.kingbrightusa.com/images/catalog/spec/apfa3010lseezgkqbkc.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="RGB" description=""/>
+      <property name="MPN" value="APFA3010LSEEZGKQBKC"/>
+      <property name="Sheetname" value="Sos Feedback"/>
+      <property name="Sheetfile" value="schematic/sos_feedback/sos_feedback.kicad_sch"/>
+      <sheetpath names="/Sos Feedback/" tstamps="/5f746fe9-d4df-56f5-9730-92a1e1c23cfb/"/>
+      <tstamps>a9c8fcd8-1287-5184-a661-1987a9597133</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="1"/>
+            <pin num="3"/>
+            <pin num="4"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D4">
+      <value>PMEG2010EA</value>
+      <footprint>Safety:D_SOD-323</footprint>
+      <datasheet>https://assets.nexperia.com/documents/data-sheet/PMEG2010EA.pdf</datasheet>
+      <fields>
+        <field name="MPN">PMEG2010EA,115</field>
+        <field name="Footprint">Safety:D_SOD-323</field>
+        <field name="Datasheet">https://assets.nexperia.com/documents/data-sheet/PMEG2010EA.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="DIODE" description=""/>
+      <property name="MPN" value="PMEG2010EA,115"/>
+      <property name="Sheetname" value="Sos Feedback"/>
+      <property name="Sheetfile" value="schematic/sos_feedback/sos_feedback.kicad_sch"/>
+      <sheetpath names="/Sos Feedback/" tstamps="/5f746fe9-d4df-56f5-9730-92a1e1c23cfb/"/>
+      <tstamps>cf5323cb-c568-55f1-893d-a5715e176790</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="M1">
+      <value>VC0825B002F</value>
+      <footprint>Safety:Motor_VC0825B002F</footprint>
+      <datasheet>https://www.vybronics.com/wp-content/uploads/datasheet-files/Vybronics-VC0825B002F-datasheet.pdf</datasheet>
+      <fields>
+        <field name="MPN">VC0825B002F</field>
+        <field name="Footprint">Safety:Motor_VC0825B002F</field>
+        <field name="Datasheet">https://www.vybronics.com/wp-content/uploads/datasheet-files/Vybronics-VC0825B002F-datasheet.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="MOTOR" description=""/>
+      <property name="MPN" value="VC0825B002F"/>
+      <property name="Sheetname" value="Sos Feedback"/>
+      <property name="Sheetfile" value="schematic/sos_feedback/sos_feedback.kicad_sch"/>
+      <sheetpath names="/Sos Feedback/" tstamps="/5f746fe9-d4df-56f5-9730-92a1e1c23cfb/"/>
+      <tstamps>b61d5f05-6f70-5833-97ef-3dfe8dc1fb25</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="Q3">
+      <value>AO3400A</value>
+      <footprint>Safety:SOT-23</footprint>
+      <datasheet>https://aosmd.com/res/data_sheets/AO3400A.pdf</datasheet>
+      <fields>
+        <field name="MPN">AO3400A</field>
+        <field name="Footprint">Safety:SOT-23</field>
+        <field name="Datasheet">https://aosmd.com/res/data_sheets/AO3400A.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="NMOS" description=""/>
+      <property name="MPN" value="AO3400A"/>
+      <property name="Sheetname" value="Sos Feedback"/>
+      <property name="Sheetfile" value="schematic/sos_feedback/sos_feedback.kicad_sch"/>
+      <sheetpath names="/Sos Feedback/" tstamps="/5f746fe9-d4df-56f5-9730-92a1e1c23cfb/"/>
+      <tstamps>e60c9ded-1c2e-5186-93e9-3f6ebf306254</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R23">
+      <value>100k 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">RC0603FR-07100KL</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="R" description=""/>
+      <property name="MPN" value="RC0603FR-07100KL"/>
+      <property name="Sheetname" value="Sos Feedback"/>
+      <property name="Sheetfile" value="schematic/sos_feedback/sos_feedback.kicad_sch"/>
+      <sheetpath names="/Sos Feedback/" tstamps="/5f746fe9-d4df-56f5-9730-92a1e1c23cfb/"/>
+      <tstamps>e9e9f701-d0ec-5bea-8b19-c6fa5fea0c25</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R24">
+      <value>1k 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">RC0603FR-071KL</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="R" description=""/>
+      <property name="MPN" value="RC0603FR-071KL"/>
+      <property name="Sheetname" value="Sos Feedback"/>
+      <property name="Sheetfile" value="schematic/sos_feedback/sos_feedback.kicad_sch"/>
+      <sheetpath names="/Sos Feedback/" tstamps="/5f746fe9-d4df-56f5-9730-92a1e1c23cfb/"/>
+      <tstamps>390a6a90-98e3-5af7-88b6-7d156f762aa0</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R25">
+      <value>330R 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">RC0603FR-07330RL</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="R" description=""/>
+      <property name="MPN" value="RC0603FR-07330RL"/>
+      <property name="Sheetname" value="Sos Feedback"/>
+      <property name="Sheetfile" value="schematic/sos_feedback/sos_feedback.kicad_sch"/>
+      <sheetpath names="/Sos Feedback/" tstamps="/5f746fe9-d4df-56f5-9730-92a1e1c23cfb/"/>
+      <tstamps>7c88495e-0a3d-530d-9dfe-e49bab0eca8f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R26">
+      <value>330R 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">RC0603FR-07330RL</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="R" description=""/>
+      <property name="MPN" value="RC0603FR-07330RL"/>
+      <property name="Sheetname" value="Sos Feedback"/>
+      <property name="Sheetfile" value="schematic/sos_feedback/sos_feedback.kicad_sch"/>
+      <sheetpath names="/Sos Feedback/" tstamps="/5f746fe9-d4df-56f5-9730-92a1e1c23cfb/"/>
+      <tstamps>036b2919-fc5e-5dde-a08e-5d276901218c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R27">
+      <value>100R 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">RC0603FR-07100RL</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="R" description=""/>
+      <property name="MPN" value="RC0603FR-07100RL"/>
+      <property name="Sheetname" value="Sos Feedback"/>
+      <property name="Sheetfile" value="schematic/sos_feedback/sos_feedback.kicad_sch"/>
+      <sheetpath names="/Sos Feedback/" tstamps="/5f746fe9-d4df-56f5-9730-92a1e1c23cfb/"/>
+      <tstamps>e4df2e40-5554-5129-abdf-68e8b54d0c60</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R28">
+      <value>100k 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">RC0603FR-07100KL</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="R" description=""/>
+      <property name="MPN" value="RC0603FR-07100KL"/>
+      <property name="Sheetname" value="Sos Feedback"/>
+      <property name="Sheetfile" value="schematic/sos_feedback/sos_feedback.kicad_sch"/>
+      <sheetpath names="/Sos Feedback/" tstamps="/5f746fe9-d4df-56f5-9730-92a1e1c23cfb/"/>
+      <tstamps>ded2dff7-9656-5be5-9d2e-c92bb8ff31f5</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="SW1">
+      <value>SOS</value>
+      <footprint>Safety:SW_Push_1P1T-SH_NO_CK_KMR2xxG</footprint>
+      <datasheet>https://www.ckswitches.com/media/1479/kmr2.pdf</datasheet>
+      <fields>
+        <field name="MPN">KMR231GLFS</field>
+        <field name="Footprint">Safety:SW_Push_1P1T-SH_NO_CK_KMR2xxG</field>
+        <field name="Datasheet">https://www.ckswitches.com/media/1479/kmr2.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="SW" description=""/>
+      <property name="MPN" value="KMR231GLFS"/>
+      <property name="Sheetname" value="Sos Feedback"/>
+      <property name="Sheetfile" value="schematic/sos_feedback/sos_feedback.kicad_sch"/>
+      <sheetpath names="/Sos Feedback/" tstamps="/5f746fe9-d4df-56f5-9730-92a1e1c23cfb/"/>
+      <tstamps>5f16b344-de1b-53a4-be4d-092b6b4ec08d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="SH"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U9">
+      <value>TPS7A2030PDBVR</value>
+      <footprint>Safety:SOT-23-5</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/tps7a20.pdf</datasheet>
+      <fields>
+        <field name="MPN">TPS7A2030PDBVR</field>
+        <field name="Footprint">Safety:SOT-23-5</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/tps7a20.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="TPS7A2030PDBVR" description=""/>
+      <property name="MPN" value="TPS7A2030PDBVR"/>
+      <property name="Sheetname" value="Sos Feedback"/>
+      <property name="Sheetfile" value="schematic/sos_feedback/sos_feedback.kicad_sch"/>
+      <sheetpath names="/Sos Feedback/" tstamps="/5f746fe9-d4df-56f5-9730-92a1e1c23cfb/"/>
+      <tstamps>e2e2ef3a-0080-5697-9003-825464e6baa3</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP1">
+      <value>3V3</value>
+      <footprint>Safety:TestPoint_Pad_D1.0mm</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Safety:TestPoint_Pad_D1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="TP" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="Programming Protection"/>
+      <property name="Sheetfile" value="schematic/programming_protection/programming_protection.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/Programming Protection/" tstamps="/94347f4e-6bef-5071-a61a-85b6b36eee35/"/>
+      <tstamps>ac51f0fc-e1e5-5138-aedd-58dcd804c20f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP2">
+      <value>GND</value>
+      <footprint>Safety:TestPoint_Pad_D1.0mm</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Safety:TestPoint_Pad_D1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="TP" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="Programming Protection"/>
+      <property name="Sheetfile" value="schematic/programming_protection/programming_protection.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/Programming Protection/" tstamps="/94347f4e-6bef-5071-a61a-85b6b36eee35/"/>
+      <tstamps>35da2c4e-8297-5c60-8994-50d3c6b897e8</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP3">
+      <value>UART_TX</value>
+      <footprint>Safety:TestPoint_Pad_D1.0mm</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Safety:TestPoint_Pad_D1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="TP" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="Programming Protection"/>
+      <property name="Sheetfile" value="schematic/programming_protection/programming_protection.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/Programming Protection/" tstamps="/94347f4e-6bef-5071-a61a-85b6b36eee35/"/>
+      <tstamps>df0aefc9-7402-5c57-8661-69e80695efe0</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP4">
+      <value>UART_RX</value>
+      <footprint>Safety:TestPoint_Pad_D1.0mm</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Safety:TestPoint_Pad_D1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="TP" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="Programming Protection"/>
+      <property name="Sheetfile" value="schematic/programming_protection/programming_protection.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/Programming Protection/" tstamps="/94347f4e-6bef-5071-a61a-85b6b36eee35/"/>
+      <tstamps>4fb693ae-6c17-5865-818a-b620ed4ecc47</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP5">
+      <value>BOOT_N</value>
+      <footprint>Safety:TestPoint_Pad_D1.0mm</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Safety:TestPoint_Pad_D1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="TP" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="Programming Protection"/>
+      <property name="Sheetfile" value="schematic/programming_protection/programming_protection.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/Programming Protection/" tstamps="/94347f4e-6bef-5071-a61a-85b6b36eee35/"/>
+      <tstamps>f87630aa-3d8d-51af-b5e0-748cf659556a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP6">
+      <value>EN</value>
+      <footprint>Safety:TestPoint_Pad_D1.0mm</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Safety:TestPoint_Pad_D1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="TP" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="Programming Protection"/>
+      <property name="Sheetfile" value="schematic/programming_protection/programming_protection.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/Programming Protection/" tstamps="/94347f4e-6bef-5071-a61a-85b6b36eee35/"/>
+      <tstamps>00d6c2f0-02a4-579b-94e0-c0a911bbec23</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Safety" part="BATCONN">
+      <docs>https://www.molex.com/en-us/products/part-detail/532610271</docs>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">BATCONN</field>
+        <field name="Footprint">Safety:Molex_PicoBlade_53261-0271_1x02-1MP_P1.25mm_Horizontal</field>
+        <field name="Datasheet">https://www.molex.com/en-us/products/part-detail/532610271</field>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="PACK+" type="power_out"/>
+        <pin num="2" name="PACK-" type="power_out"/>
+      </pins>
+    </libpart>
+    <libpart lib="Safety" part="BQ25185">
+      <docs>https://www.ti.com/lit/ds/symlink/bq25185.pdf</docs>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">BQ25185</field>
+        <field name="Footprint">Safety:Texas_DLH0010A_WSON-10-1EP_2.2x2mm_P0.4mm_EP0.9x1.5mm</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/bq25185.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="SYS" type="power_out"/>
+        <pin num="2" name="BAT" type="passive"/>
+        <pin num="3" name="STAT2" type="open_collector"/>
+        <pin num="4" name="CE" type="input"/>
+        <pin num="5" name="GND" type="power_in"/>
+        <pin num="6" name="TS/MR" type="input"/>
+        <pin num="7" name="ILIM/VSET" type="input"/>
+        <pin num="8" name="ISET" type="input"/>
+        <pin num="9" name="STAT1" type="open_collector"/>
+        <pin num="10" name="IN" type="power_in"/>
+        <pin num="11" name="EP" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="Safety" part="BSS138">
+      <docs>https://assets.nexperia.com/documents/data-sheet/BSS138P.pdf</docs>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">BSS138</field>
+        <field name="Footprint">Safety:SOT-23</field>
+        <field name="Datasheet">https://assets.nexperia.com/documents/data-sheet/BSS138P.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="G" type="passive"/>
+        <pin num="2" name="S" type="passive"/>
+        <pin num="3" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Safety" part="C">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+        <field name="Footprint">Safety:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Safety" part="CHGCONN">
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">CHGCONN</field>
+        <field name="Footprint">Safety:Pogo_Charge_2Pin</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="PROTECTED_5V" type="power_out"/>
+        <pin num="2" name="RETURN" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Safety" part="DIODE">
+      <docs>https://assets.nexperia.com/documents/data-sheet/PMEG2010EA.pdf</docs>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">DIODE</field>
+        <field name="Footprint">Safety:D_SOD-323</field>
+        <field name="Datasheet">https://assets.nexperia.com/documents/data-sheet/PMEG2010EA.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Safety" part="ESD">
+      <docs>https://www.ti.com/lit/ds/symlink/tpd1e10b06.pdf</docs>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">ESD</field>
+        <field name="Footprint">Safety:D_SOD-523</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/tpd1e10b06.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="IO" type="passive"/>
+        <pin num="2" name="GND" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Safety" part="ESP32-S3-MINI-1">
+      <description>RF Module, ESP32-S3 SoC, Wi-Fi 802.11b/g/n, Bluetooth, BLE, 32-bit, 3.3V, SMD, onboard antenna</description>
+      <docs>https://www.espressif.com/sites/default/files/documentation/esp32-s3-mini-1_mini-1u_datasheet_en.pdf</docs>
+      <footprints>
+        <fp>ESP32?S*MINI?1</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">ESP32-S3-MINI-1</field>
+        <field name="Footprint">Safety:ESP32-S2-MINI-1</field>
+        <field name="Datasheet">https://www.espressif.com/sites/default/files/documentation/esp32-s3-mini-1_mini-1u_datasheet_en.pdf</field>
+        <field name="Description">RF Module, ESP32-S3 SoC, Wi-Fi 802.11b/g/n, Bluetooth, BLE, 32-bit, 3.3V, SMD, onboard antenna</field>
+      </fields>
+      <pins>
+        <pin num="1" name="GND" type="power_in"/>
+        <pin num="2" name="GND" type="passive"/>
+        <pin num="3" name="3V3" type="power_in"/>
+        <pin num="4" name="IO0" type="bidirectional"/>
+        <pin num="5" name="IO1" type="bidirectional"/>
+        <pin num="6" name="IO2" type="bidirectional"/>
+        <pin num="7" name="IO3" type="bidirectional"/>
+        <pin num="8" name="IO4" type="bidirectional"/>
+        <pin num="9" name="IO5" type="bidirectional"/>
+        <pin num="10" name="IO6" type="bidirectional"/>
+        <pin num="11" name="IO7" type="bidirectional"/>
+        <pin num="12" name="IO8" type="bidirectional"/>
+        <pin num="13" name="IO9" type="bidirectional"/>
+        <pin num="14" name="IO10" type="bidirectional"/>
+        <pin num="15" name="IO11" type="bidirectional"/>
+        <pin num="16" name="IO12" type="bidirectional"/>
+        <pin num="17" name="IO13" type="bidirectional"/>
+        <pin num="18" name="IO14" type="bidirectional"/>
+        <pin num="19" name="IO15" type="bidirectional"/>
+        <pin num="20" name="IO16" type="bidirectional"/>
+        <pin num="21" name="IO17" type="bidirectional"/>
+        <pin num="22" name="IO18" type="bidirectional"/>
+        <pin num="23" name="USB_D-" type="bidirectional"/>
+        <pin num="24" name="USB_D+" type="bidirectional"/>
+        <pin num="25" name="IO21" type="bidirectional"/>
+        <pin num="26" name="IO26" type="bidirectional"/>
+        <pin num="27" name="IO47" type="bidirectional"/>
+        <pin num="28" name="IO33" type="bidirectional"/>
+        <pin num="29" name="IO34" type="bidirectional"/>
+        <pin num="30" name="IO48" type="bidirectional"/>
+        <pin num="31" name="IO35" type="bidirectional"/>
+        <pin num="32" name="IO36" type="bidirectional"/>
+        <pin num="33" name="IO37" type="bidirectional"/>
+        <pin num="34" name="IO38" type="bidirectional"/>
+        <pin num="35" name="IO39" type="bidirectional"/>
+        <pin num="36" name="IO40" type="bidirectional"/>
+        <pin num="37" name="IO41" type="bidirectional"/>
+        <pin num="38" name="IO42" type="bidirectional"/>
+        <pin num="39" name="TXD0" type="bidirectional"/>
+        <pin num="40" name="RXD0" type="bidirectional"/>
+        <pin num="41" name="IO45" type="bidirectional"/>
+        <pin num="42" name="GND" type="passive"/>
+        <pin num="43" name="GND" type="passive"/>
+        <pin num="44" name="IO46" type="bidirectional"/>
+        <pin num="45" name="EN" type="input"/>
+        <pin num="46" name="GND" type="passive"/>
+        <pin num="47" name="GND" type="passive"/>
+        <pin num="48" name="GND" type="passive"/>
+        <pin num="49" name="GND" type="passive"/>
+        <pin num="50" name="GND" type="passive"/>
+        <pin num="51" name="GND" type="passive"/>
+        <pin num="52" name="GND" type="passive"/>
+        <pin num="53" name="GND" type="passive"/>
+        <pin num="54" name="GND" type="passive"/>
+        <pin num="55" name="GND" type="passive"/>
+        <pin num="56" name="GND" type="passive"/>
+        <pin num="57" name="GND" type="passive"/>
+        <pin num="58" name="GND" type="passive"/>
+        <pin num="59" name="GND" type="passive"/>
+        <pin num="60" name="GND" type="passive"/>
+        <pin num="61" name="GND" type="passive"/>
+        <pin num="62" name="GND" type="passive"/>
+        <pin num="63" name="GND" type="passive"/>
+        <pin num="64" name="GND" type="passive"/>
+        <pin num="65" name="GND" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Safety" part="IM67D128BV01">
+      <docs>https://www.infineon.com/assets/row/public/documents/24/49/infineon-im67d128b-datasheet-en.pdf</docs>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">IM67D128BV01</field>
+        <field name="Footprint">Safety:Infineon_IM67D128BV01</field>
+        <field name="Datasheet">https://www.infineon.com/assets/row/public/documents/24/49/infineon-im67d128b-datasheet-en.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="DATA" type="output"/>
+        <pin num="2" name="LR" type="passive"/>
+        <pin num="3" name="GND" type="power_in"/>
+        <pin num="4" name="CLOCK" type="input"/>
+        <pin num="5" name="VDD" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="Safety" part="L">
+      <docs>https://www.coilcraft.com/getmedia/84927b8b-f089-421b-a7f4-a0fa23afe908/xfl4015.pdf</docs>
+      <fields>
+        <field name="Reference">L</field>
+        <field name="Value">L</field>
+        <field name="Footprint">Safety:L_Coilcraft_XFL4015</field>
+        <field name="Datasheet">https://www.coilcraft.com/getmedia/84927b8b-f089-421b-a7f4-a0fa23afe908/xfl4015.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Safety" part="LIS2DW12">
+      <docs>https://www.st.com/resource/en/datasheet/lis2dw12.pdf</docs>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">LIS2DW12</field>
+        <field name="Footprint">Safety:LGA-12_2x2mm_P0.5mm</field>
+        <field name="Datasheet">https://www.st.com/resource/en/datasheet/lis2dw12.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="SCL" type="input"/>
+        <pin num="2" name="CS" type="input"/>
+        <pin num="3" name="SA0" type="input"/>
+        <pin num="4" name="SDA" type="bidirectional"/>
+        <pin num="5" name="NC" type="no_connect"/>
+        <pin num="6" name="GND" type="power_in"/>
+        <pin num="7" name="RES" type="passive"/>
+        <pin num="8" name="GND" type="power_in"/>
+        <pin num="9" name="VDD" type="power_in"/>
+        <pin num="10" name="VDDIO" type="power_in"/>
+        <pin num="11" name="INT2" type="output"/>
+        <pin num="12" name="INT1" type="output"/>
+      </pins>
+    </libpart>
+    <libpart lib="Safety" part="MAX17048">
+      <docs>https://www.analog.com/media/en/technical-documentation/data-sheets/MAX17048-MAX17049.pdf</docs>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">MAX17048</field>
+        <field name="Footprint">Safety:TDFN-8-1EP_2x2mm_P0.5mm_EP0.8x1.2mm</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/MAX17048-MAX17049.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="CTG" type="power_in"/>
+        <pin num="2" name="CELL" type="no_connect"/>
+        <pin num="3" name="VDD" type="power_in"/>
+        <pin num="4" name="GND" type="power_in"/>
+        <pin num="5" name="ALRT" type="open_collector"/>
+        <pin num="6" name="QSTRT" type="input"/>
+        <pin num="7" name="SCL" type="input"/>
+        <pin num="8" name="SDA" type="bidirectional"/>
+        <pin num="9" name="EP" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="Safety" part="MOTOR">
+      <docs>https://www.vybronics.com/wp-content/uploads/datasheet-files/Vybronics-VC0825B002F-datasheet.pdf</docs>
+      <fields>
+        <field name="Reference">M</field>
+        <field name="Value">MOTOR</field>
+        <field name="Footprint">Safety:Motor_VC0825B002F</field>
+        <field name="Datasheet">https://www.vybronics.com/wp-content/uploads/datasheet-files/Vybronics-VC0825B002F-datasheet.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="+" type="passive"/>
+        <pin num="2" name="-" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Safety" part="NMOS">
+      <docs>https://aosmd.com/res/data_sheets/AO3400A.pdf</docs>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">NMOS</field>
+        <field name="Footprint">Safety:SOT-23</field>
+        <field name="Datasheet">https://aosmd.com/res/data_sheets/AO3400A.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="G" type="passive"/>
+        <pin num="2" name="S" type="passive"/>
+        <pin num="3" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Safety" part="NTC">
+      <docs>https://www.tdk-electronics.tdk.com/en/530404/products/product-catalog/sensors-and-sensor-systems/smd-ntc-thermistors</docs>
+      <fields>
+        <field name="Reference">RT</field>
+        <field name="Value">NTC</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet">https://www.tdk-electronics.tdk.com/en/530404/products/product-catalog/sensors-and-sensor-systems/smd-ntc-thermistors</field>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Safety" part="R">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Safety" part="REVDIODE">
+      <docs>https://assets.nexperia.com/documents/data-sheet/PMEG6010CEH.pdf</docs>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">REVDIODE</field>
+        <field name="Footprint">Safety:D_SOD-123F</field>
+        <field name="Datasheet">https://assets.nexperia.com/documents/data-sheet/PMEG6010CEH.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="power_out"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Safety" part="RGB">
+      <docs>https://www.kingbrightusa.com/images/catalog/spec/apfa3010lseezgkqbkc.pdf</docs>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">RGB</field>
+        <field name="Footprint">Safety:LED_Kingbright_APFA3010_3x1.5mm_Horizontal</field>
+        <field name="Datasheet">https://www.kingbrightusa.com/images/catalog/spec/apfa3010lseezgkqbkc.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="RED_K" type="passive"/>
+        <pin num="2" name="COMMON_A" type="passive"/>
+        <pin num="3" name="GREEN_K" type="passive"/>
+        <pin num="4" name="BLUE_K" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Safety" part="SW">
+      <docs>https://www.ckswitches.com/media/1479/kmr2.pdf</docs>
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">SW</field>
+        <field name="Footprint">Safety:SW_Push_1P1T-SH_NO_CK_KMR2xxG</field>
+        <field name="Datasheet">https://www.ckswitches.com/media/1479/kmr2.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="A" type="passive"/>
+        <pin num="2" name="B" type="passive"/>
+        <pin num="SH" name="SHIELD" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Safety" part="TLV7042">
+      <docs>https://www.ti.com/lit/ds/symlink/tlv7032.pdf</docs>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">TLV7042</field>
+        <field name="Footprint">Safety:SOT-23-8</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/tlv7032.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="OUTA" type="open_collector"/>
+        <pin num="2" name="INA-" type="input"/>
+        <pin num="3" name="INA+" type="input"/>
+        <pin num="4" name="VEE" type="power_in"/>
+        <pin num="5" name="INB+" type="input"/>
+        <pin num="6" name="INB-" type="input"/>
+        <pin num="7" name="OUTB" type="open_collector"/>
+        <pin num="8" name="VCC" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="Safety" part="TP">
+      <fields>
+        <field name="Reference">TP</field>
+        <field name="Value">TP</field>
+        <field name="Footprint">Safety:TestPoint_Pad_D1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="TP" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Safety" part="TPS63802">
+      <docs>https://www.ti.com/lit/ds/symlink/tps63802.pdf</docs>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">TPS63802</field>
+        <field name="Footprint">Safety:Texas_DLA0010A_VSON-10_2x3mm</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/tps63802.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="EN" type="input"/>
+        <pin num="2" name="MODE" type="input"/>
+        <pin num="3" name="AGND" type="power_in"/>
+        <pin num="4" name="FB" type="input"/>
+        <pin num="5" name="PG" type="open_collector"/>
+        <pin num="6" name="VOUT" type="power_out"/>
+        <pin num="7" name="L2" type="passive"/>
+        <pin num="8" name="GND" type="power_in"/>
+        <pin num="9" name="L1" type="passive"/>
+        <pin num="10" name="VIN" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="Safety" part="TPS7A2030PDBVR">
+      <docs>https://www.ti.com/lit/ds/symlink/tps7a20.pdf</docs>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">TPS7A2030PDBVR</field>
+        <field name="Footprint">Safety:SOT-23-5</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/tps7a20.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="IN" type="power_in"/>
+        <pin num="2" name="GND" type="power_in"/>
+        <pin num="3" name="EN" type="input"/>
+        <pin num="4" name="NC" type="no_connect"/>
+        <pin num="5" name="OUT" type="power_out"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Safety">
+      <uri>${KIPRJMOD}/symbols/Safety.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="3V3" class="Default">
+      <node ref="C1" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C14" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C15" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C2" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C20" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C21" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C23" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C27" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C4" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C7" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C8" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="D3" pin="2" pinfunction="COMMON_A_2" pintype="passive"/>
+      <node ref="R1" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R10" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R18" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R2" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R21" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R22" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R23" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R3" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R4" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R9" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="TP1" pin="1" pinfunction="TP_1" pintype="passive"/>
+      <node ref="U1" pin="3" pinfunction="3V3_3" pintype="power_in"/>
+      <node ref="U3" pin="1" pinfunction="IN_1" pintype="power_in"/>
+      <node ref="U4" pin="10" pinfunction="VDDIO_10" pintype="power_in"/>
+      <node ref="U4" pin="2" pinfunction="CS_2" pintype="input"/>
+      <node ref="U4" pin="9" pinfunction="VDD_9" pintype="power_in"/>
+      <node ref="U7" pin="6" pinfunction="VOUT_6" pintype="power_out"/>
+    </net>
+    <net code="2" name="ACC_INT1" class="Default">
+      <node ref="U1" pin="6" pinfunction="IO2_6" pintype="bidirectional"/>
+      <node ref="U4" pin="12" pinfunction="INT1_12" pintype="output"/>
+    </net>
+    <net code="3" name="ACC_INT2" class="Default">
+      <node ref="U1" pin="8" pinfunction="IO4_8" pintype="bidirectional"/>
+      <node ref="U4" pin="11" pinfunction="INT2_11" pintype="output"/>
+    </net>
+    <net code="4" name="BAT" class="Default">
+      <node ref="C11" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C16" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="J1" pin="1" pinfunction="PACK+_1" pintype="power_out"/>
+      <node ref="U5" pin="2" pinfunction="BAT_2" pintype="passive"/>
+      <node ref="U8" pin="3" pinfunction="VDD_3" pintype="power_in"/>
+    </net>
+    <net code="5" name="BOOT_N" class="Default">
+      <node ref="R2" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="TP5" pin="1" pinfunction="TP_1" pintype="passive"/>
+      <node ref="U1" pin="4" pinfunction="IO0_4" pintype="bidirectional"/>
+    </net>
+    <net code="6" name="CHARGE_INHIBIT" class="Default">
+      <node ref="Q2" pin="1" pinfunction="G_1" pintype="passive"/>
+      <node ref="R17" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="20" pinfunction="IO16_20" pintype="bidirectional"/>
+    </net>
+    <net code="7" name="CHG_CE_N" class="Default">
+      <node ref="Q1" pin="3" pinfunction="D_3" pintype="passive"/>
+      <node ref="R16" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U5" pin="4" pinfunction="CE_4" pintype="input"/>
+    </net>
+    <net code="8" name="CHG_IN" class="Default">
+      <node ref="C12" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C9" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="D2" pin="1" pinfunction="K_1" pintype="power_out"/>
+      <node ref="R11" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R13" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R15" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R16" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U5" pin="10" pinfunction="IN_10" pintype="power_in"/>
+      <node ref="U6" pin="8" pinfunction="VCC_8" pintype="power_in"/>
+    </net>
+    <net code="9" name="CHG_OK" class="Default">
+      <node ref="Q1" pin="1" pinfunction="G_1" pintype="passive"/>
+      <node ref="Q2" pin="3" pinfunction="D_3" pintype="passive"/>
+      <node ref="R15" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U6" pin="1" pinfunction="OUTA_1" pintype="open_collector"/>
+      <node ref="U6" pin="7" pinfunction="OUTB_7" pintype="open_collector"/>
+    </net>
+    <net code="10" name="CHG_RAW" class="Default">
+      <node ref="D1" pin="1" pinfunction="IO_1" pintype="passive"/>
+      <node ref="D2" pin="2" pinfunction="A_2" pintype="passive"/>
+      <node ref="J2" pin="1" pinfunction="PROTECTED_5V_1" pintype="power_out"/>
+    </net>
+    <net code="11" name="CHG_STAT1_N" class="Default">
+      <node ref="R9" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U1" pin="18" pinfunction="IO14_18" pintype="bidirectional"/>
+      <node ref="U5" pin="9" pinfunction="STAT1_9" pintype="open_collector"/>
+    </net>
+    <net code="12" name="CHG_STAT2_N" class="Default">
+      <node ref="R10" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U1" pin="19" pinfunction="IO15_19" pintype="bidirectional"/>
+      <node ref="U5" pin="3" pinfunction="STAT2_3" pintype="open_collector"/>
+    </net>
+    <net code="13" name="COLD_REF" class="Default">
+      <node ref="R13" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R14" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U6" pin="5" pinfunction="INB+_5" pintype="input"/>
+    </net>
+    <net code="14" name="EN" class="Default">
+      <node ref="C3" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R1" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="TP6" pin="1" pinfunction="TP_1" pintype="passive"/>
+      <node ref="U1" pin="45" pinfunction="EN_45" pintype="input"/>
+    </net>
+    <net code="15" name="FB" class="Default">
+      <node ref="R18" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R19" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U7" pin="4" pinfunction="FB_4" pintype="input"/>
+    </net>
+    <net code="16" name="FUEL_ALERT_N" class="Default">
+      <node ref="R22" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U1" pin="9" pinfunction="IO5_9" pintype="bidirectional"/>
+      <node ref="U8" pin="5" pinfunction="ALRT_5" pintype="open_collector"/>
+    </net>
+    <net code="17" name="GND" class="Default">
+      <node ref="C1" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C10" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C11" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C12" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C13" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C14" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C15" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C16" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C17" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C18" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C19" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C2" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C20" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C21" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C22" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C23" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C24" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C25" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C26" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C27" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C3" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C4" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C5" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C6" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C7" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C8" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C9" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="D1" pin="2" pinfunction="GND_2" pintype="passive"/>
+      <node ref="J1" pin="2" pinfunction="PACK-_2" pintype="power_out"/>
+      <node ref="J2" pin="2" pinfunction="RETURN_2" pintype="passive"/>
+      <node ref="Q1" pin="2" pinfunction="S_2" pintype="passive"/>
+      <node ref="Q2" pin="2" pinfunction="S_2" pintype="passive"/>
+      <node ref="Q3" pin="2" pinfunction="S_2" pintype="passive"/>
+      <node ref="R12" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R14" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R17" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R19" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R20" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R28" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R6" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R7" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R8" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="RT1" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="SW1" pin="2" pinfunction="B_2" pintype="passive"/>
+      <node ref="SW1" pin="SH" pinfunction="SHIELD_SH" pintype="passive"/>
+      <node ref="TP2" pin="1" pinfunction="TP_1" pintype="passive"/>
+      <node ref="U1" pin="1" pinfunction="GND_1" pintype="power_in"/>
+      <node ref="U1" pin="2" pinfunction="GND_2" pintype="passive"/>
+      <node ref="U1" pin="42" pinfunction="GND_42" pintype="passive"/>
+      <node ref="U1" pin="43" pinfunction="GND_43" pintype="passive"/>
+      <node ref="U1" pin="46" pinfunction="GND_46" pintype="passive"/>
+      <node ref="U1" pin="47" pinfunction="GND_47" pintype="passive"/>
+      <node ref="U1" pin="48" pinfunction="GND_48" pintype="passive"/>
+      <node ref="U1" pin="49" pinfunction="GND_49" pintype="passive"/>
+      <node ref="U1" pin="50" pinfunction="GND_50" pintype="passive"/>
+      <node ref="U1" pin="51" pinfunction="GND_51" pintype="passive"/>
+      <node ref="U1" pin="52" pinfunction="GND_52" pintype="passive"/>
+      <node ref="U1" pin="53" pinfunction="GND_53" pintype="passive"/>
+      <node ref="U1" pin="54" pinfunction="GND_54" pintype="passive"/>
+      <node ref="U1" pin="55" pinfunction="GND_55" pintype="passive"/>
+      <node ref="U1" pin="56" pinfunction="GND_56" pintype="passive"/>
+      <node ref="U1" pin="57" pinfunction="GND_57" pintype="passive"/>
+      <node ref="U1" pin="58" pinfunction="GND_58" pintype="passive"/>
+      <node ref="U1" pin="59" pinfunction="GND_59" pintype="passive"/>
+      <node ref="U1" pin="60" pinfunction="GND_60" pintype="passive"/>
+      <node ref="U1" pin="61" pinfunction="GND_61" pintype="passive"/>
+      <node ref="U1" pin="62" pinfunction="GND_62" pintype="passive"/>
+      <node ref="U1" pin="63" pinfunction="GND_63" pintype="passive"/>
+      <node ref="U1" pin="64" pinfunction="GND_64" pintype="passive"/>
+      <node ref="U1" pin="65" pinfunction="GND_65" pintype="passive"/>
+      <node ref="U2" pin="2" pinfunction="LR_2" pintype="passive"/>
+      <node ref="U2" pin="3" pinfunction="GND_3" pintype="power_in"/>
+      <node ref="U3" pin="2" pinfunction="GND_2" pintype="power_in"/>
+      <node ref="U4" pin="3" pinfunction="SA0_3" pintype="input"/>
+      <node ref="U4" pin="6" pinfunction="GND_6" pintype="power_in"/>
+      <node ref="U4" pin="7" pinfunction="RES_7" pintype="passive"/>
+      <node ref="U4" pin="8" pinfunction="GND_8" pintype="power_in"/>
+      <node ref="U5" pin="11" pinfunction="EP_11" pintype="power_in"/>
+      <node ref="U5" pin="5" pinfunction="GND_5" pintype="power_in"/>
+      <node ref="U6" pin="4" pinfunction="VEE_4" pintype="power_in"/>
+      <node ref="U7" pin="3" pinfunction="AGND_3" pintype="power_in"/>
+      <node ref="U7" pin="8" pinfunction="GND_8" pintype="power_in"/>
+      <node ref="U8" pin="1" pinfunction="CTG_1" pintype="power_in"/>
+      <node ref="U8" pin="4" pinfunction="GND_4" pintype="power_in"/>
+      <node ref="U8" pin="6" pinfunction="QSTRT_6" pintype="input"/>
+      <node ref="U8" pin="9" pinfunction="EP_9" pintype="power_in"/>
+      <node ref="U9" pin="2" pinfunction="GND_2" pintype="power_in"/>
+    </net>
+    <net code="18" name="HOT_REF" class="Default">
+      <node ref="R11" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R12" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U6" pin="2" pinfunction="INA-_2" pintype="input"/>
+    </net>
+    <net code="19" name="I2C_SCL" class="Default">
+      <node ref="R4" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U1" pin="11" pinfunction="IO7_11" pintype="bidirectional"/>
+      <node ref="U4" pin="1" pinfunction="SCL_1" pintype="input"/>
+      <node ref="U8" pin="7" pinfunction="SCL_7" pintype="input"/>
+    </net>
+    <net code="20" name="I2C_SDA" class="Default">
+      <node ref="R3" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U1" pin="10" pinfunction="IO6_10" pintype="bidirectional"/>
+      <node ref="U4" pin="4" pinfunction="SDA_4" pintype="bidirectional"/>
+      <node ref="U8" pin="8" pinfunction="SDA_8" pintype="bidirectional"/>
+    </net>
+    <net code="21" name="ICHG_SET" class="Default">
+      <node ref="R8" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U5" pin="8" pinfunction="ISET_8" pintype="input"/>
+    </net>
+    <net code="22" name="ILIM_SET" class="Default">
+      <node ref="R7" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U5" pin="7" pinfunction="ILIM/VSET_7" pintype="input"/>
+    </net>
+    <net code="23" name="LED_B_K" class="Default">
+      <node ref="D3" pin="4" pinfunction="BLUE_K_4" pintype="passive"/>
+      <node ref="R26" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="24" name="LED_B_N" class="Default">
+      <node ref="R26" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U1" pin="17" pinfunction="IO13_17" pintype="bidirectional"/>
+    </net>
+    <net code="25" name="LED_G_K" class="Default">
+      <node ref="D3" pin="3" pinfunction="GREEN_K_3" pintype="passive"/>
+      <node ref="R25" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="26" name="LED_G_N" class="Default">
+      <node ref="R25" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U1" pin="16" pinfunction="IO12_16" pintype="bidirectional"/>
+    </net>
+    <net code="27" name="LED_R_K" class="Default">
+      <node ref="D3" pin="1" pinfunction="RED_K_1" pintype="passive"/>
+      <node ref="R24" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="28" name="LED_R_N" class="Default">
+      <node ref="R24" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U1" pin="15" pinfunction="IO11_15" pintype="bidirectional"/>
+    </net>
+    <net code="29" name="MIC_3V0" class="Default">
+      <node ref="C22" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C26" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C5" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C6" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U2" pin="5" pinfunction="VDD_5" pintype="power_in"/>
+      <node ref="U3" pin="5" pinfunction="OUT_5" pintype="power_out"/>
+    </net>
+    <net code="30" name="MODE_MIC" class="Default">
+      <node ref="R20" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="21" pinfunction="IO17_21" pintype="bidirectional"/>
+      <node ref="U3" pin="3" pinfunction="EN_3" pintype="input"/>
+      <node ref="U7" pin="2" pinfunction="MODE_2" pintype="input"/>
+    </net>
+    <net code="31" name="MOTOR_3V0" class="Default">
+      <node ref="C19" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C25" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="D4" pin="1" pinfunction="K_1" pintype="passive"/>
+      <node ref="M1" pin="1" pinfunction="+_1" pintype="passive"/>
+      <node ref="U9" pin="5" pinfunction="OUT_5" pintype="power_out"/>
+    </net>
+    <net code="32" name="MOTOR_EN" class="Default">
+      <node ref="U1" pin="22" pinfunction="IO18_22" pintype="bidirectional"/>
+      <node ref="U9" pin="3" pinfunction="EN_3" pintype="input"/>
+    </net>
+    <net code="33" name="MOTOR_GATE" class="Default">
+      <node ref="R27" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="14" pinfunction="IO10_14" pintype="bidirectional"/>
+    </net>
+    <net code="34" name="MOTOR_GATE_R" class="Default">
+      <node ref="Q3" pin="1" pinfunction="G_1" pintype="passive"/>
+      <node ref="R27" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R28" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="35" name="MOTOR_LOW" class="Default">
+      <node ref="D4" pin="2" pinfunction="A_2" pintype="passive"/>
+      <node ref="M1" pin="2" pinfunction="-_2" pintype="passive"/>
+      <node ref="Q3" pin="3" pinfunction="D_3" pintype="passive"/>
+    </net>
+    <net code="36" name="PDM_CLK" class="Default">
+      <node ref="R5" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="12" pinfunction="IO8_12" pintype="bidirectional"/>
+    </net>
+    <net code="37" name="PDM_CLK_3V0" class="Default">
+      <node ref="R5" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R6" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U2" pin="4" pinfunction="CLOCK_4" pintype="input"/>
+    </net>
+    <net code="38" name="PDM_DATA" class="Default">
+      <node ref="U1" pin="13" pinfunction="IO9_13" pintype="bidirectional"/>
+      <node ref="U2" pin="1" pinfunction="DATA_1" pintype="output"/>
+    </net>
+    <net code="39" name="PWR_GOOD_N" class="Default">
+      <node ref="R21" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U7" pin="5" pinfunction="PG_5" pintype="open_collector"/>
+    </net>
+    <net code="40" name="SOS_N" class="Default">
+      <node ref="C17" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R23" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="SW1" pin="1" pinfunction="A_1" pintype="passive"/>
+      <node ref="U1" pin="5" pinfunction="IO1_5" pintype="bidirectional"/>
+    </net>
+    <net code="41" name="SW_L1" class="Default">
+      <node ref="L1" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U7" pin="9" pinfunction="L1_9" pintype="passive"/>
+    </net>
+    <net code="42" name="SW_L2" class="Default">
+      <node ref="L1" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U7" pin="7" pinfunction="L2_7" pintype="passive"/>
+    </net>
+    <net code="43" name="SYS" class="Default">
+      <node ref="C10" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C13" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C18" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C24" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U5" pin="1" pinfunction="SYS_1" pintype="power_out"/>
+      <node ref="U7" pin="1" pinfunction="EN_1" pintype="input"/>
+      <node ref="U7" pin="10" pinfunction="VIN_10" pintype="power_in"/>
+      <node ref="U9" pin="1" pinfunction="IN_1" pintype="power_in"/>
+    </net>
+    <net code="44" name="TS_MR" class="Default">
+      <node ref="RT1" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U5" pin="6" pinfunction="TS/MR_6" pintype="input"/>
+      <node ref="U6" pin="3" pinfunction="INA+_3" pintype="input"/>
+      <node ref="U6" pin="6" pinfunction="INB-_6" pintype="input"/>
+    </net>
+    <net code="45" name="UART_RX" class="Default">
+      <node ref="TP4" pin="1" pinfunction="TP_1" pintype="passive"/>
+      <node ref="U1" pin="40" pinfunction="RXD0_40" pintype="bidirectional"/>
+    </net>
+    <net code="46" name="UART_TX" class="Default">
+      <node ref="TP3" pin="1" pinfunction="TP_1" pintype="passive"/>
+      <node ref="U1" pin="39" pinfunction="TXD0_39" pintype="bidirectional"/>
+    </net>
+    <net code="47" name="unconnected-(U1-IO3-Pad7)" class="Default">
+      <node ref="U1" pin="7" pinfunction="IO3_7" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="48" name="unconnected-(U1-IO21-Pad25)" class="Default">
+      <node ref="U1" pin="25" pinfunction="IO21_25" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="49" name="unconnected-(U1-IO26-Pad26)" class="Default">
+      <node ref="U1" pin="26" pinfunction="IO26_26" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="50" name="unconnected-(U1-IO33-Pad28)" class="Default">
+      <node ref="U1" pin="28" pinfunction="IO33_28" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="51" name="unconnected-(U1-IO34-Pad29)" class="Default">
+      <node ref="U1" pin="29" pinfunction="IO34_29" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="52" name="unconnected-(U1-IO35-Pad31)" class="Default">
+      <node ref="U1" pin="31" pinfunction="IO35_31" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="53" name="unconnected-(U1-IO36-Pad32)" class="Default">
+      <node ref="U1" pin="32" pinfunction="IO36_32" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="54" name="unconnected-(U1-IO37-Pad33)" class="Default">
+      <node ref="U1" pin="33" pinfunction="IO37_33" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="55" name="unconnected-(U1-IO38-Pad34)" class="Default">
+      <node ref="U1" pin="34" pinfunction="IO38_34" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="56" name="unconnected-(U1-IO39-Pad35)" class="Default">
+      <node ref="U1" pin="35" pinfunction="IO39_35" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="57" name="unconnected-(U1-IO40-Pad36)" class="Default">
+      <node ref="U1" pin="36" pinfunction="IO40_36" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="58" name="unconnected-(U1-IO41-Pad37)" class="Default">
+      <node ref="U1" pin="37" pinfunction="IO41_37" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="59" name="unconnected-(U1-IO42-Pad38)" class="Default">
+      <node ref="U1" pin="38" pinfunction="IO42_38" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="60" name="unconnected-(U1-IO45-Pad41)" class="Default">
+      <node ref="U1" pin="41" pinfunction="IO45_41" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="61" name="unconnected-(U1-IO46-Pad44)" class="Default">
+      <node ref="U1" pin="44" pinfunction="IO46_44" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="62" name="unconnected-(U1-IO47-Pad27)" class="Default">
+      <node ref="U1" pin="27" pinfunction="IO47_27" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="63" name="unconnected-(U1-IO48-Pad30)" class="Default">
+      <node ref="U1" pin="30" pinfunction="IO48_30" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="64" name="unconnected-(U1-USB_D+-Pad24)" class="Default">
+      <node ref="U1" pin="24" pinfunction="USB_D+_24" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="65" name="unconnected-(U1-USB_D--Pad23)" class="Default">
+      <node ref="U1" pin="23" pinfunction="USB_D-_23" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="66" name="unconnected-(U3-NC-Pad4)" class="Default">
+      <node ref="U3" pin="4" pinfunction="NC_4" pintype="no_connect"/>
+    </net>
+    <net code="67" name="unconnected-(U4-NC-Pad5)" class="Default">
+      <node ref="U4" pin="5" pinfunction="NC_5" pintype="no_connect"/>
+    </net>
+    <net code="68" name="unconnected-(U8-CELL-Pad2)" class="Default">
+      <node ref="U8" pin="2" pinfunction="CELL_2" pintype="no_connect"/>
+    </net>
+    <net code="69" name="unconnected-(U9-NC-Pad4)" class="Default">
+      <node ref="U9" pin="4" pinfunction="NC_4" pintype="no_connect"/>
+    </net>
+  </nets>
+</export>

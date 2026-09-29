@@ -1,0 +1,24 @@
+Drill report for smart-safety-tag.kicad_pcb
+Created on 2026-09-29T21:44:05
+
+Copper Layer Stackup:
+    =============================================================
+    L1 :  F.Cu                      front
+    L2 :  B.Cu                      back
+
+
+Drill file 'smart-safety-tag.drl' contains
+    plated through holes:
+    =============================================================
+    T1  0.300mm  0.0118"  (91 holes))
+    T2  0.800mm  0.0315"  (2 holes))
+
+    Total plated holes count 93
+
+
+Not plated through holes are merged with plated holes
+    unplated through holes:
+    =============================================================
+    T3  0.400mm  0.0157"  (1 hole)
+
+    Total unplated holes count 1

@@ -1,0 +1,1 @@
+(fp_lib_table (lib (name "Safety")(type "KiCad")(uri "${KIPRJMOD}/footprints/Safety.pretty")(options "")(descr "Local adapter footprints")))

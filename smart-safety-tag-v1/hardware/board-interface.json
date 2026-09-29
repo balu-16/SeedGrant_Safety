@@ -1,0 +1,33 @@
+{
+  "board": "smart-safety-tag-v1",
+  "mcu": "ESP32-S3-MINI-1-N4R2",
+  "gpio": {
+    "sos_n": 1,
+    "accelerometer_int1": 2,
+    "accelerometer_int2": 4,
+    "fuel_alert_n": 5,
+    "i2c_sda": 6,
+    "i2c_scl": 7,
+    "pdm_clk": 8,
+    "pdm_data": 9,
+    "motor_gate": 10,
+    "led_red_n": 11,
+    "led_green_n": 12,
+    "led_blue_n": 13,
+    "charger_stat1_n": 14,
+    "charger_stat2_n": 15,
+    "charge_inhibit": 16,
+    "regulator_mode": 17,
+    "motor_supply_enable": 18,
+    "uart0_tx": 43,
+    "uart0_rx": 44,
+    "boot": 0
+  },
+  "programming_pads": ["3V3", "GND", "TX", "RX", "GPIO0", "EN"],
+  "audio": {
+    "pcm_sample_rate_hz": 16000,
+    "pcm_bits": 16,
+    "channels": 1,
+    "pdm_clock_hz": 2048000
+  }
+}

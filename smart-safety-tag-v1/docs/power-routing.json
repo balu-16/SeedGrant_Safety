@@ -1,0 +1,168 @@
+{
+  "tag": {
+    "3V3": {
+      "0.200": {
+        "segments": 32,
+        "length_mm": 52.845
+      },
+      "0.300": {
+        "segments": 33,
+        "length_mm": 22.878
+      },
+      "0.400": {
+        "segments": 6,
+        "length_mm": 5.804
+      },
+      "0.500": {
+        "segments": 5,
+        "length_mm": 11.212
+      },
+      "0.600": {
+        "segments": 59,
+        "length_mm": 97.927
+      }
+    },
+    "BAT": {
+      "0.200": {
+        "segments": 16,
+        "length_mm": 29.354
+      },
+      "0.300": {
+        "segments": 13,
+        "length_mm": 5.265
+      },
+      "0.400": {
+        "segments": 1,
+        "length_mm": 1.051
+      },
+      "0.600": {
+        "segments": 10,
+        "length_mm": 12.85
+      }
+    },
+    "CHG_IN": {
+      "0.200": {
+        "segments": 21,
+        "length_mm": 41.773
+      },
+      "0.300": {
+        "segments": 1,
+        "length_mm": 0.358
+      },
+      "0.500": {
+        "segments": 10,
+        "length_mm": 13.326
+      }
+    },
+    "CHG_RAW": {
+      "0.500": {
+        "segments": 6,
+        "length_mm": 7.854
+      }
+    },
+    "MOTOR_3V0": {
+      "0.200": {
+        "segments": 3,
+        "length_mm": 6.553
+      },
+      "0.300": {
+        "segments": 1,
+        "length_mm": 1.83
+      },
+      "0.500": {
+        "segments": 11,
+        "length_mm": 23.024
+      }
+    },
+    "MOTOR_LOW": {
+      "0.200": {
+        "segments": 2,
+        "length_mm": 20.523
+      },
+      "0.500": {
+        "segments": 4,
+        "length_mm": 7.763
+      }
+    },
+    "SW_L1": {
+      "0.300": {
+        "segments": 1,
+        "length_mm": 3.365
+      },
+      "0.500": {
+        "segments": 1,
+        "length_mm": 0.544
+      }
+    },
+    "SW_L2": {
+      "0.300": {
+        "segments": 1,
+        "length_mm": 2.765
+      },
+      "0.500": {
+        "segments": 1,
+        "length_mm": 1.393
+      }
+    },
+    "SYS": {
+      "0.200": {
+        "segments": 8,
+        "length_mm": 24.203
+      },
+      "0.250": {
+        "segments": 1,
+        "length_mm": 1.3
+      },
+      "0.300": {
+        "segments": 7,
+        "length_mm": 16.718
+      },
+      "0.400": {
+        "segments": 1,
+        "length_mm": 0.919
+      },
+      "0.500": {
+        "segments": 1,
+        "length_mm": 1.85
+      },
+      "0.600": {
+        "segments": 15,
+        "length_mm": 28.992
+      }
+    }
+  },
+  "charging-adapter": {
+    "PROTECTED_5V": {
+      "0.200": {
+        "segments": 1,
+        "length_mm": 2.553
+      },
+      "0.300": {
+        "segments": 1,
+        "length_mm": 4.895
+      },
+      "0.400": {
+        "segments": 1,
+        "length_mm": 1.768
+      },
+      "0.600": {
+        "segments": 6,
+        "length_mm": 21.741
+      }
+    },
+    "USB_5V": {
+      "0.200": {
+        "segments": 12,
+        "length_mm": 22.401
+      },
+      "0.400": {
+        "segments": 2,
+        "length_mm": 1.712
+      },
+      "0.600": {
+        "segments": 6,
+        "length_mm": 2.313
+      }
+    }
+  }
+}

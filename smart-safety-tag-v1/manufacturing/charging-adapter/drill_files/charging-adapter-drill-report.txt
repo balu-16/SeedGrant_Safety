@@ -1,0 +1,23 @@
+Drill report for charging-adapter.kicad_pcb
+Created on 2026-09-29T21:44:08
+
+Copper Layer Stackup:
+    =============================================================
+    L1 :  F.Cu                      front
+    L2 :  B.Cu                      back
+
+
+Drill file 'charging-adapter.drl' contains
+    plated through holes:
+    =============================================================
+    T1  0.300mm  0.0118"  (4 holes))
+    T2  0.600mm  0.0236"  (4 holes)  (with 4 slots)
+
+    Total plated holes count 8
+
+
+Not plated through holes are merged with plated holes
+    unplated through holes:
+    =============================================================
+
+    Total unplated holes count 0

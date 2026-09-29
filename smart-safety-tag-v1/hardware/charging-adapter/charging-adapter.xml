@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>/home/balarakeshg16/Documents/SeedGrant_Naveen/smart-safety-tag-v1/hardware/charging-adapter/charging-adapter.kicad_sch</source>
+    <date>2026-09-29T13:23:42</date>
+    <tool>Eeschema 10.0.6</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>Smart Safety Tag 5V Charging Fixture</title>
+        <company/>
+        <rev>V1-P1</rev>
+        <date>2026-09-29</date>
+        <source>charging-adapter.kicad_sch</source>
+        <comment number="1" value="Prototype; physical validation pending"/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="C1">
+      <value>1uF 25V X7R</value>
+      <footprint>Safety:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">C1608X7R1E105K080AE</field>
+        <field name="Footprint">Safety:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="C" description=""/>
+      <property name="MPN" value="C1608X7R1E105K080AE"/>
+      <property name="Sheetname" value="charging-adapter"/>
+      <property name="Sheetfile" value="charging-adapter.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>dcf1494f-d25d-549f-922b-0f43dfd590b0</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C2">
+      <value>3.3nF 100V X7R</value>
+      <footprint>Safety:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">C1608X7R2A332K080AA</field>
+        <field name="Footprint">Safety:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="C" description=""/>
+      <property name="MPN" value="C1608X7R2A332K080AA"/>
+      <property name="Sheetname" value="charging-adapter"/>
+      <property name="Sheetfile" value="charging-adapter.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>fcf10984-bfb4-5bf5-87e2-f58249aa38ab</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C3">
+      <value>1uF 16V X7R</value>
+      <footprint>Safety:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">C1608X7R1C105K080AC</field>
+        <field name="Footprint">Safety:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="C" description=""/>
+      <property name="MPN" value="C1608X7R1C105K080AC"/>
+      <property name="Sheetname" value="charging-adapter"/>
+      <property name="Sheetfile" value="charging-adapter.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9d51e2b0-16f1-5bdb-a1f9-231f5304cb62</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D1">
+      <value>TPD1E10B06DYAR</value>
+      <footprint>Safety:D_SOD-523</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/tpd1e10b06.pdf</datasheet>
+      <fields>
+        <field name="MPN">TPD1E10B06DYAR</field>
+        <field name="Footprint">Safety:D_SOD-523</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/tpd1e10b06.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="ESD" description=""/>
+      <property name="MPN" value="TPD1E10B06DYAR"/>
+      <property name="Sheetname" value="charging-adapter"/>
+      <property name="Sheetfile" value="charging-adapter.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>93dcff08-5caf-5d1a-a0b7-728be9c2ea77</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D2">
+      <value>TPD1E10B06DYAR</value>
+      <footprint>Safety:D_SOD-523</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/tpd1e10b06.pdf</datasheet>
+      <fields>
+        <field name="MPN">TPD1E10B06DYAR</field>
+        <field name="Footprint">Safety:D_SOD-523</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/tpd1e10b06.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="ESD" description=""/>
+      <property name="MPN" value="TPD1E10B06DYAR"/>
+      <property name="Sheetname" value="charging-adapter"/>
+      <property name="Sheetfile" value="charging-adapter.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>72cc89eb-d21d-51f6-a012-cb17f5e4db88</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J1">
+      <value>USB-C 5V input</value>
+      <footprint>Safety:USB_C_Receptacle_GCT_USB4125-xx-x_6P_TopMnt_Horizontal</footprint>
+      <datasheet>https://gct.co/connector/usb4125</datasheet>
+      <fields>
+        <field name="MPN">USB4125-GF-A</field>
+        <field name="Footprint">Safety:USB_C_Receptacle_GCT_USB4125-xx-x_6P_TopMnt_Horizontal</field>
+        <field name="Datasheet">https://gct.co/connector/usb4125</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="USB_C_6P" description=""/>
+      <property name="MPN" value="USB4125-GF-A"/>
+      <property name="Sheetname" value="charging-adapter"/>
+      <property name="Sheetfile" value="charging-adapter.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d603f191-d9a0-5214-ab83-af2b502fc540</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="A5"/>
+            <pin num="B5"/>
+            <pin num="A9"/>
+            <pin num="B9"/>
+            <pin num="A12"/>
+            <pin num="B12"/>
+            <pin num="SH"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="P1">
+      <value>TAG +5V</value>
+      <footprint>Safety:PogoPin_MillMax_0900-1</footprint>
+      <datasheet>https://www.mill-max.com/sites/default/files/external/catalog/2021-02/023-028.pdf</datasheet>
+      <fields>
+        <field name="MPN">0900-1-15-20-75-14-11-0</field>
+        <field name="Footprint">Safety:PogoPin_MillMax_0900-1</field>
+        <field name="Datasheet">https://www.mill-max.com/sites/default/files/external/catalog/2021-02/023-028.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="PogoPin_0900_1" description=""/>
+      <property name="MPN" value="0900-1-15-20-75-14-11-0"/>
+      <property name="Sheetname" value="charging-adapter"/>
+      <property name="Sheetfile" value="charging-adapter.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4d46f16f-2e1f-5cc9-b9b1-d5546c8dda9e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="P2">
+      <value>TAG GND</value>
+      <footprint>Safety:PogoPin_MillMax_0900-1</footprint>
+      <datasheet>https://www.mill-max.com/sites/default/files/external/catalog/2021-02/023-028.pdf</datasheet>
+      <fields>
+        <field name="MPN">0900-1-15-20-75-14-11-0</field>
+        <field name="Footprint">Safety:PogoPin_MillMax_0900-1</field>
+        <field name="Datasheet">https://www.mill-max.com/sites/default/files/external/catalog/2021-02/023-028.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="PogoPin_0900_1" description=""/>
+      <property name="MPN" value="0900-1-15-20-75-14-11-0"/>
+      <property name="Sheetname" value="charging-adapter"/>
+      <property name="Sheetfile" value="charging-adapter.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6507361b-4835-5ca2-af07-20fb789e67e4</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R1">
+      <value>5.1k 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">RC0603FR-075K1L</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="R" description=""/>
+      <property name="MPN" value="RC0603FR-075K1L"/>
+      <property name="Sheetname" value="charging-adapter"/>
+      <property name="Sheetfile" value="charging-adapter.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1528fd07-6196-55f6-a914-5d20ad67b42a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R2">
+      <value>5.1k 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">RC0603FR-075K1L</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="R" description=""/>
+      <property name="MPN" value="RC0603FR-075K1L"/>
+      <property name="Sheetname" value="charging-adapter"/>
+      <property name="Sheetfile" value="charging-adapter.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>41c598a1-45a2-52cd-a8ed-2d30fb098586</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R3">
+      <value>200k 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">RC0603FR-07200KL</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="R" description=""/>
+      <property name="MPN" value="RC0603FR-07200KL"/>
+      <property name="Sheetname" value="charging-adapter"/>
+      <property name="Sheetfile" value="charging-adapter.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c208ffc4-60d1-50ee-b379-7cb469857535</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R4">
+      <value>100k 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">RC0603FR-07100KL</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="R" description=""/>
+      <property name="MPN" value="RC0603FR-07100KL"/>
+      <property name="Sheetname" value="charging-adapter"/>
+      <property name="Sheetfile" value="charging-adapter.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6f04828a-c976-5b25-a511-c8a857773517</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R5">
+      <value>2.8k 1%</value>
+      <footprint>Safety:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN">RC0603FR-072K8L</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="R" description=""/>
+      <property name="MPN" value="RC0603FR-072K8L"/>
+      <property name="Sheetname" value="charging-adapter"/>
+      <property name="Sheetfile" value="charging-adapter.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>111cdecb-ea45-53c1-af3c-5552a0f9f4ab</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP1">
+      <value>PROTECTED_5V</value>
+      <footprint>Safety:TestPoint_Pad_D1.0mm</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Safety:TestPoint_Pad_D1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="TP" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="charging-adapter"/>
+      <property name="Sheetfile" value="charging-adapter.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>113a525d-1b3c-5123-8dab-0326b4febf42</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP2">
+      <value>GND</value>
+      <footprint>Safety:TestPoint_Pad_D1.0mm</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Safety:TestPoint_Pad_D1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="TP" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="charging-adapter"/>
+      <property name="Sheetfile" value="charging-adapter.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>dce21518-30dd-57db-950b-7d2ff4cc9be3</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U1">
+      <value>TPS259530DSGR</value>
+      <footprint>Safety:Texas_DSG0008A_WSON-8-1EP_2x2mm_P0.5mm_EP0.9x1.6mm</footprint>
+      <datasheet>https://www.ti.com/lit/ds/symlink/tps2595.pdf</datasheet>
+      <fields>
+        <field name="MPN">TPS259530DSGR</field>
+        <field name="Footprint">Safety:Texas_DSG0008A_WSON-8-1EP_2x2mm_P0.5mm_EP0.9x1.6mm</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/tps2595.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Safety" part="TPS259530" description=""/>
+      <property name="MPN" value="TPS259530DSGR"/>
+      <property name="Sheetname" value="charging-adapter"/>
+      <property name="Sheetfile" value="charging-adapter.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>662d880a-f422-5df8-81a5-448a72074548</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="5"/>
+            <pin num="6"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Safety" part="C">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+        <field name="Footprint">Safety:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Safety" part="ESD">
+      <docs>https://www.ti.com/lit/ds/symlink/tpd1e10b06.pdf</docs>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">ESD</field>
+        <field name="Footprint">Safety:D_SOD-523</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/tpd1e10b06.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="IO" type="passive"/>
+        <pin num="2" name="GND" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Safety" part="PogoPin_0900_1">
+      <docs>https://www.mill-max.com/sites/default/files/external/catalog/2021-02/023-028.pdf</docs>
+      <fields>
+        <field name="Reference">P</field>
+        <field name="Value">PogoPin_0900_1</field>
+        <field name="Footprint">Safety:PogoPin_MillMax_0900-1</field>
+        <field name="Datasheet">https://www.mill-max.com/sites/default/files/external/catalog/2021-02/023-028.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="CONTACT" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Safety" part="R">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+        <field name="Footprint">Safety:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Safety" part="TP">
+      <fields>
+        <field name="Reference">TP</field>
+        <field name="Value">TP</field>
+        <field name="Footprint">Safety:TestPoint_Pad_D1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="TP" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Safety" part="TPS259530">
+      <docs>https://www.ti.com/lit/ds/symlink/tps2595.pdf</docs>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">TPS259530</field>
+        <field name="Footprint">Safety:Texas_DSG0008A_WSON-8-1EP_2x2mm_P0.5mm_EP0.9x1.6mm</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/tps2595.pdf</field>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="dVdt" type="passive"/>
+        <pin num="2" name="EN/UVLO" type="passive"/>
+        <pin num="3" name="IN" type="power_in"/>
+        <pin num="4" name="IN" type="power_in"/>
+        <pin num="5" name="OUT" type="power_out"/>
+        <pin num="6" name="FLT" type="open_collector"/>
+        <pin num="7" name="ILM" type="passive"/>
+        <pin num="8" name="GND" type="power_in"/>
+        <pin num="9" name="EP" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="Safety" part="USB_C_6P">
+      <docs>https://gct.co/connector/usb4125</docs>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">USB_C_6P</field>
+        <field name="Footprint">Safety:USB_C_Receptacle_GCT_USB4125-xx-x_6P_TopMnt_Horizontal</field>
+        <field name="Datasheet">https://gct.co/connector/usb4125</field>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="A5" name="CC1" type="passive"/>
+        <pin num="A9" name="VBUS" type="power_out"/>
+        <pin num="A12" name="GND" type="power_out"/>
+        <pin num="B5" name="CC2" type="passive"/>
+        <pin num="B9" name="VBUS" type="passive"/>
+        <pin num="B12" name="GND" type="passive"/>
+        <pin num="SH" name="SHELL" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Safety">
+      <uri>${KIPRJMOD}/symbols/Safety.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="CC1" class="Default">
+      <node ref="J1" pin="A5" pinfunction="CC1_A5" pintype="passive"/>
+      <node ref="R1" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="2" name="CC2" class="Default">
+      <node ref="J1" pin="B5" pinfunction="CC2_B5" pintype="passive"/>
+      <node ref="R2" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="3" name="DV_DT" class="Default">
+      <node ref="C2" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="1" pinfunction="dVdt_1" pintype="passive"/>
+    </net>
+    <net code="4" name="EF_EN" class="Default">
+      <node ref="R3" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R4" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="2" pinfunction="EN/UVLO_2" pintype="passive"/>
+    </net>
+    <net code="5" name="GND" class="Default">
+      <node ref="C1" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C2" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C3" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="D1" pin="2" pinfunction="GND_2" pintype="passive"/>
+      <node ref="D2" pin="2" pinfunction="GND_2" pintype="passive"/>
+      <node ref="J1" pin="A12" pinfunction="GND_A12" pintype="power_out"/>
+      <node ref="J1" pin="B12" pinfunction="GND_B12" pintype="passive"/>
+      <node ref="J1" pin="SH" pinfunction="SHELL_SH" pintype="passive"/>
+      <node ref="P2" pin="1" pinfunction="CONTACT_1" pintype="passive"/>
+      <node ref="R1" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R2" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R4" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R5" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="TP2" pin="1" pinfunction="TP_1" pintype="passive"/>
+      <node ref="U1" pin="8" pinfunction="GND_8" pintype="power_in"/>
+      <node ref="U1" pin="9" pinfunction="EP_9" pintype="power_in"/>
+    </net>
+    <net code="6" name="ILIM" class="Default">
+      <node ref="R5" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="7" pinfunction="ILM_7" pintype="passive"/>
+    </net>
+    <net code="7" name="PROTECTED_5V" class="Default">
+      <node ref="C3" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="D2" pin="1" pinfunction="IO_1" pintype="passive"/>
+      <node ref="P1" pin="1" pinfunction="CONTACT_1" pintype="passive"/>
+      <node ref="TP1" pin="1" pinfunction="TP_1" pintype="passive"/>
+      <node ref="U1" pin="5" pinfunction="OUT_5" pintype="power_out"/>
+    </net>
+    <net code="8" name="USB_5V" class="Default">
+      <node ref="C1" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="D1" pin="1" pinfunction="IO_1" pintype="passive"/>
+      <node ref="J1" pin="A9" pinfunction="VBUS_A9" pintype="power_out"/>
+      <node ref="J1" pin="B9" pinfunction="VBUS_B9" pintype="passive"/>
+      <node ref="R3" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="3" pinfunction="IN_3" pintype="power_in"/>
+      <node ref="U1" pin="4" pinfunction="IN_4" pintype="power_in"/>
+    </net>
+    <net code="9" name="unconnected-(U1-FLT-Pad6)" class="Default">
+      <node ref="U1" pin="6" pinfunction="FLT_6" pintype="open_collector+no_connect"/>
+    </net>
+  </nets>
+</export>

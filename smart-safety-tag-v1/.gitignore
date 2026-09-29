@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+*.kicad_prl
+*-backups/
+firmware/hardware-tests/build/
+firmware/hardware-tests/sdkconfig.old

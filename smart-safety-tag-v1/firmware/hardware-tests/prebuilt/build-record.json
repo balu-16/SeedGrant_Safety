@@ -1,0 +1,35 @@
+{
+  "exported_utc": "2026-09-29T06:05:39.544004+00:00",
+  "project_version": "1.0.0-hwtest",
+  "target": "esp32s3",
+  "esp_idf_version": "v5.5",
+  "esp_idf_commit": "8c750b088c7cd857d079c0eeb495da199b359461",
+  "application_size_bytes": 582816,
+  "flash_size": "4 MB",
+  "psram": "2 MB quad, 40 MHz; boot memory test enabled",
+  "status": "compiled successfully; no physical-board flash or measurements performed",
+  "source_sha256": {
+    "firmware/hardware-tests/CMakeLists.txt": "3a46a8abba5969a5ca3147545c86d76673db96bc9b835eec20fe2894be55a811",
+    "firmware/hardware-tests/sdkconfig.defaults": "8acba5661ffcfcb723c5fb5cc1fcda37c4e0bea8cb700d8a19a93fd633931d0e",
+    "firmware/hardware-tests/sdkconfig": "fc9cde0b27b75b0ac9b46d41ae641b73be023ed9ae123efd854f570c1b0d797b",
+    "hardware/board-interface.json": "0aa1328740117d7af0ed90604d9392357cdddadd9c383baf8b2c44621e9ea754",
+    "firmware/hardware-tests/main/CMakeLists.txt": "e25b8bc1e5a86dc6e33af467b497d6d4d545b61878eaef6de0d5b5c3ea925fb7",
+    "firmware/hardware-tests/main/accelerometer_test.c": "e2797af9df800191fb7b2e8a8cf9dd8adbda902a558b993ef4eb61de9fdc80e6",
+    "firmware/hardware-tests/main/ble_test.c": "d07f6e288a7abcf1131ac7ba3417209b99e7db410952c06c6c4f75de48510325",
+    "firmware/hardware-tests/main/board_main.c": "3e654d1fde8fe3d80181653a02cabaf675d57fd2a676954f08e18a835c877544",
+    "firmware/hardware-tests/main/board_pins.h": "c5caa2867c8c9cea46eca6aef4fb7771d88fab128981a1e0109ea3aaad1c40c0",
+    "firmware/hardware-tests/main/feedback_test.c": "1f873c8c8b03b7ae1c9b721f5687e1a192164cc1b31d9f93624412d541e8a2d5",
+    "firmware/hardware-tests/main/fuel_gauge_test.c": "68855e92c39c62f9cc565e2cd0bfb9c07f3c410dd15b170ea9b2f34cba98c52e",
+    "firmware/hardware-tests/main/hardware_tests.h": "5802c8cc85c376b8a2303f175f6fb45cf436423f42a0d96c76ebd989a5370ff7",
+    "firmware/hardware-tests/main/i2c_bus.c": "90ce15ae5998eea1880ddf27df2f1a2d61da2ba39b62b3128c6b5138517550db",
+    "firmware/hardware-tests/main/i2c_bus.h": "e849c08305955c13a7ec929ed5922dcdc8f8ee78914bce30280942f1d8911ac6",
+    "firmware/hardware-tests/main/microphone_test.c": "32ddaa23cbe0bbf0e0176a9e4af32d7500682e3a2c13808c5e30ef58cb9e09df",
+    "firmware/hardware-tests/main/sos_test.c": "21e184e8e80cb73189c2d4238876b3224a82439f7a28360d09bf84190b5318ce"
+  },
+  "image_sha256": {
+    "bootloader/bootloader.bin": "5b1686209b8784f1ccd6548dec210a476cca41111b7cad356aa94b3d1e7a510c",
+    "partition_table/partition-table.bin": "7f00b6c042a89b15b0cac534f82ed988caf29278ff5700b0c511eb1b5bb7c820",
+    "safety_tag_hardware_tests.bin": "dc6756bd7c5f7120dcc4cafd6833b1f03de02c4dfb61d8e642ec8c7203933fa0",
+    "flash_args": "e09404b0c591a5078284e9787b5c86b775854769fea5d030f593038e6a6c2079"
+  }
+}

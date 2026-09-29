@@ -1,0 +1,28 @@
+ERC report (2026-09-29T21:44:02, Encoding UTF8)
+Report includes: Errors, Warnings, Exclusions
+
+***** Sheet /
+
+***** Sheet /Mcu Ble/
+
+***** Sheet /Microphone/
+
+***** Sheet /Accelerometer/
+
+***** Sheet /Battery Charging/
+
+***** Sheet /Power Regulation/
+
+***** Sheet /Battery Monitoring/
+
+***** Sheet /Sos Feedback/
+
+***** Sheet /Programming Protection/
+
+ ** ERC messages: 0  Errors 0  Warnings 0
+
+ ** Ignored checks:
+    - Global label only appears once in the schematic
+    - Four connection points are joined together
+    - SPICE model issue
+    - Assigned footprint doesn't match footprint filters

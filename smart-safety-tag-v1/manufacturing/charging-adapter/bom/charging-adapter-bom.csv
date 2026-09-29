@@ -1,0 +1,13 @@
+References,Quantity,Manufacturer,Manufacturer Part Number,Value / Description,Package / PCB Footprint,Assembly,Manufacturer Source
+C1,1,TDK,C1608X7R1E105K080AE,1uF 25V X7R,Safety:C_0603_1608Metric,PCB placement,https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C1608X7R1E105K080AE
+C2,1,TDK,C1608X7R2A332K080AA,3.3nF 100V X7R,Safety:C_0603_1608Metric,PCB placement,https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C1608X7R2A332K080AA
+C3,1,TDK,C1608X7R1C105K080AC,1uF 16V X7R,Safety:C_0603_1608Metric,PCB placement,https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C1608X7R1C105K080AC
+D1 D2,2,Texas Instruments,TPD1E10B06DYAR,TPD1E10B06DYAR,Safety:D_SOD-523,PCB placement,https://www.ti.com/lit/ds/symlink/tpd1e10b06.pdf
+J1,1,GCT,USB4125-GF-A,USB-C 5V input,Safety:USB_C_Receptacle_GCT_USB4125-xx-x_6P_TopMnt_Horizontal,PCB placement,https://gct.co/connector/usb4125
+P1,1,Mill-Max,0900-1-15-20-75-14-11-0,TAG +5V,Safety:PogoPin_MillMax_0900-1,PCB placement,https://www.mill-max.com/sites/default/files/external/catalog/2021-02/023-028.pdf
+P2,1,Mill-Max,0900-1-15-20-75-14-11-0,TAG GND,Safety:PogoPin_MillMax_0900-1,PCB placement,https://www.mill-max.com/sites/default/files/external/catalog/2021-02/023-028.pdf
+R1 R2,2,Yageo,RC0603FR-075K1L,5.1k 1%,Safety:R_0603_1608Metric,PCB placement,https://www.yageogroup.com/component-documentation/download/specsheet/RC0603FR-075K1L
+R3,1,Yageo,RC0603FR-07200KL,200k 1%,Safety:R_0603_1608Metric,PCB placement,https://www.yageogroup.com/component-documentation/download/specsheet/RC0603FR-07200KL
+R4,1,Yageo,RC0603FR-07100KL,100k 1%,Safety:R_0603_1608Metric,PCB placement,https://www.yageogroup.com/component-documentation/download/specsheet/RC0603FR-07100KL
+R5,1,Yageo,RC0603FR-072K8L,2.8k 1%,Safety:R_0603_1608Metric,PCB placement,https://www.yageogroup.com/component-documentation/download/specsheet/RC0603FR-072K8L
+U1,1,Texas Instruments,TPS259530DSGR,TPS259530DSGR,Safety:Texas_DSG0008A_WSON-8-1EP_2x2mm_P0.5mm_EP0.9x1.6mm,PCB placement,https://www.ti.com/lit/ds/symlink/tps2595.pdf
