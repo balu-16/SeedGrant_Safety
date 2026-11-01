@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.10.1)  29 OCT 2026 23:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.10.1)  1 NOV 2026 12:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -18,7 +18,7 @@ Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
 \@IEEEtrantmpcountC=\count278
 \@IEEEtrantmptoksA=\toks17
 LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 503.
-(/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+(/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 -- Using 8.5in x 11in (letter) paper.
@@ -103,36 +103,36 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
 \IEEEPARstartletwidth=\dimen173
 \c@IEEEbiography=\count290
 \@IEEEtranrubishbin=\box54
-) (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/generic/iftex/ifpdf.sty
+) (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/generic/iftex/ifpdf.sty
 Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
- (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
+ (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2024/12/12 v1.0g TeX engine tests
-)) (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+)) (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.sty
 Package: xkeyval 2025/11/04 v2.10 package option processing (HA)
- (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+ (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex
 \XKV@toks=\toks18
 \XKV@tempa@toks=\toks19
 \XKV@tempb@toks=\toks20
- (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/generic/xkeyval/keyval.tex))
+ (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/generic/xkeyval/keyval.tex))
 \XKV@depth=\count291
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
-)){/tmp/safety-tag-tex/.TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/home/balarakeshg16/Documents/Projects/SeedGrant_Naveen/journal/ieee/template/assets/t1-times.map}{/home/balarakeshg16/Documents/Projects/SeedGrant_Naveen/journal/ieee/template/assets/t1-formata.map}{/home/balarakeshg16/Documents/Projects/SeedGrant_Naveen/journal/ieee/template/assets/t1-giovannistd.map}
+)){/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/home/balarakeshg16/Documents/Projects/SeedGrant_Naveen/journal/ieee/template/assets/t1-times.map}{/home/balarakeshg16/Documents/Projects/SeedGrant_Naveen/journal/ieee/template/assets/t1-formata.map}{/home/balarakeshg16/Documents/Projects/SeedGrant_Naveen/journal/ieee/template/assets/t1-giovannistd.map}
 \@draftversionrule=\dimen174
- (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/graphics/color.sty
+ (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2026-05-17 v1.3f Standard LaTeX Color (DPC)
- (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
+ (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 149.
- (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def
+ (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
-) (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (/home/balarakeshg16/Documents/Projects/SeedGrant_Naveen/journal/ieee/template/assets/spotcolor.sty
+) (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (/home/balarakeshg16/Documents/Projects/SeedGrant_Naveen/journal/ieee/template/assets/spotcolor.sty
 Package: spotcolor 2006/11/15 v1.2 Package for adding Spot Color support to pdfLaTeX.
- (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
+ (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2026-05-17 v1.4h Standard LaTeX Graphics (DPC,SPQR)
- (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
+ (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
-) (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+) (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 106.
@@ -157,21 +157,21 @@ Package color Info: Redefining color black on input line 287.
 LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
 Package: cite 2015/02/27  v 5.5
-) (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+) (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2026/05/19 v2.18d AMS math features
 \@mathmargin=\skip55
 
 For additional information on amsmath, use the `?' option.
-(/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
+(/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2024/11/17 v2.01 AMS text
- (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
+ (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks22
 \ex@=\dimen177
-)) (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
+)) (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen178
-) (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
+) (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
 \inf@bad=\count296
@@ -221,20 +221,20 @@ LaTeX Info: Redefining \Relbar on input line 970.
 \mathdisplay@stack=\toks26
 LaTeX Info: Redefining \[ on input line 2965.
 LaTeX Info: Redefining \] on input line 2966.
-) (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty
+) (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
- (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+ (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
+)) (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2026-05-17 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
 \Gin@req@height=\dimen186
 \Gin@req@width=\dimen187
-) (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
+) (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \heavyrulewidth=\dimen188
 \lightrulewidth=\dimen189
@@ -253,57 +253,57 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@thisruleclass=\count310
 \@lastruleclass=\count311
 \@thisrulewidth=\dimen256
-) (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/url/url.sty
+) (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-) (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
+) (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2026-06-17 v7.01r Hypertext links for LaTeX
- (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+ (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-) (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+) (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-) (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+) (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
- (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+ (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
-) (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+) (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
- (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+ (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-)) (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty
+)) (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-) (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
+) (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2026-01-29 v2.58 Cross-referencing by name of section
- (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
+ (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-) (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+) (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
- (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+ (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
 \c@section@level=\count312
-) (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+) (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count313
-) (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty
+) (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 )
 \@linkdim=\dimen257
 \Hy@linkcounter=\count314
 \Hy@pagecounter=\count315
- (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
+ (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2026-06-17 v7.01r Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
-) (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
+) (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
 \Hy@SavedSpaceFactor=\count316
- (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
+ (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2026-06-17 v7.01r Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
@@ -319,9 +319,9 @@ Package hyperref Info: Bookmarks OFF on input line 4472.
 \c@Hy@tempcnt=\count317
 LaTeX Info: Redefining \url on input line 4805.
 \XeTeXLinkMargin=\dimen258
- (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
+ (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
- (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+ (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
 \Fld@menulength=\count318
@@ -339,19 +339,19 @@ Package hyperref Info: PDF/A mode OFF on input line 6121.
 \c@Hfootnote=\count321
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
- (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def
+ (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2026-06-17 v7.01r Hyperref driver for pdfTeX
 \Fld@listcount=\count322
 \c@bookmark@seq@number=\count323
- (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+ (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
- (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+ (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
 )
 \Hy@SectionHShift=\skip58
-) (./template_compat.tex) (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def
+) (./template_compat.tex) (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def
 File: l3backend-pdftex.def 2026-09-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count324
 ) (build/main.aux)
@@ -427,14 +427,14 @@ LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `black'
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `black'
 (Font)                  OT1/cmtt/m/n --> OT1/pcr/b/n on input line 10.
 LaTeX Font Info:    Trying to load font information for T1+ptm on input line 10.
-(/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/psnfss/t1ptm.fd
+(/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
 LaTeX Font Info:    Trying to load font information for T1+times on input line 10.
- (/home/balarakeshg16/Documents/Projects/SeedGrant_Naveen/journal/ieee/template/assets/t1times.fd) (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+ (/home/balarakeshg16/Documents/Projects/SeedGrant_Naveen/journal/ieee/template/assets/t1times.fd) (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
- (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+ (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package hyperref Info: Link coloring OFF on input line 10.
@@ -448,111 +448,105 @@ File: bullet.png Graphic file (type png)
 Package pdftex.def Info: bullet.png  used on input line 21.
 (pdftex.def)             Requested size: 5.0pt x 14.6871pt.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 23.
- (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 23.
- (/tmp/safety-tag-tex/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
+ (/tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Calculating math sizes for size <6.6> on input line 23.
-
-Underfull \hbox (badness 3158) in paragraph at lines 27--28
-[]\T1/times/n/n/10 The Smart Safety Tag repos-i-tory brings to-gether an
- []
-
 <logo.png, id=12, 206.27063pt x 53.44969pt>
 File: logo.png Graphic file (type png)
 <use logo.png>
-Package pdftex.def Info: logo.png  used on input line 37.
+Package pdftex.def Info: logo.png  used on input line 40.
 (pdftex.def)             Requested size: 91.32pt x 23.66309pt.
-[1
+ [1
 
 
  </home/balarakeshg16/Documents/Projects/SeedGrant_Naveen/journal/ieee/template/assets/logo.png> </home/balarakeshg16/Documents/Projects/SeedGrant_Naveen/journal/ieee/template/assets/bullet.png>]
+Underfull \hbox (badness 2547) in paragraph at lines 46--47
+\T1/times/n/n/10 Beyond man-u-ally ac-ti-vated alerts, prior work con-sid-ers
+ []
+
 <figures/architecture.pdf, id=42, 722.7pt x 361.35pt>
 File: figures/architecture.pdf Graphic file (type pdf)
 <use figures/architecture.pdf>
-Package pdftex.def Info: figures/architecture.pdf  used on input line 52.
+Package pdftex.def Info: figures/architecture.pdf  used on input line 54.
 (pdftex.def)             Requested size: 505.12177pt x 252.56282pt.
 <figures/sos_flow.pdf, id=44, 762.85pt x 301.125pt>
 File: figures/sos_flow.pdf Graphic file (type pdf)
 <use figures/sos_flow.pdf>
-Package pdftex.def Info: figures/sos_flow.pdf  used on input line 67.
+Package pdftex.def Info: figures/sos_flow.pdf  used on input line 69.
 (pdftex.def)             Requested size: 505.12177pt x 199.39096pt.
-
-Underfull \hbox (badness 3568) in paragraph at lines 72--73
-\T1/times/n/n/10 The in-ter-face groups on-board-ing, au-then-ti-ca-tion, home,
- []
-
-
-Underfull \hbox (badness 4595) in paragraph at lines 72--73
-\T1/times/n/n/10 track-ing, guardians and pro-file func-tions into sep-a-rate
- []
-
-<notaglinelogo.png, id=45, 169.38281pt x 42.91031pt>
+<notaglinelogo.png, id=46, 169.38281pt x 42.91031pt>
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 78.
+Package pdftex.def Info: notaglinelogo.png  used on input line 82.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
 [2 </home/balarakeshg16/Documents/Projects/SeedGrant_Naveen/journal/ieee/template/assets/notaglinelogo.png>]
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 83.
+Package pdftex.def Info: notaglinelogo.png  used on input line 87.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
  [3 <./figures/architecture.pdf> <./figures/sos_flow.pdf>]
 <figures/power_path.pdf, id=80, 762.85pt x 301.125pt>
 File: figures/power_path.pdf Graphic file (type pdf)
 <use figures/power_path.pdf>
-Package pdftex.def Info: figures/power_path.pdf  used on input line 105.
+Package pdftex.def Info: figures/power_path.pdf  used on input line 108.
 (pdftex.def)             Requested size: 505.12177pt x 199.39096pt.
+
+Underfull \hbox (badness 1931) in paragraph at lines 113--114
+\T1/times/n/n/10 4 MB flash and 2 MB PSRAM [[]13[]]. The LIS2DW12
+ []
+
+
+Underfull \hbox (badness 1789) in paragraph at lines 113--114
+\T1/times/n/n/10 ac-celerom-e-ter and MAX17048 bat-tery gauge share I[] C,
+ []
+
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 116.
+Package pdftex.def Info: notaglinelogo.png  used on input line 121.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
- [4]
-<figures/tag_board.pdf, id=102, 762.85pt x 351.3125pt>
+[4]
+<figures/tag_board.pdf, id=104, 762.85pt x 351.3125pt>
 File: figures/tag_board.pdf Graphic file (type pdf)
 <use figures/tag_board.pdf>
-Package pdftex.def Info: figures/tag_board.pdf  used on input line 144.
+Package pdftex.def Info: figures/tag_board.pdf  used on input line 147.
+(pdftex.def)             Requested size: 505.12177pt x 232.6228pt.
+<figures/adapter_board.pdf, id=106, 762.85pt x 351.3125pt>
+File: figures/adapter_board.pdf Graphic file (type pdf)
+<use figures/adapter_board.pdf>
+Package pdftex.def Info: figures/adapter_board.pdf  used on input line 156.
 (pdftex.def)             Requested size: 505.12177pt x 232.6228pt.
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 151.
+Package pdftex.def Info: notaglinelogo.png  used on input line 164.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
  [5 <./figures/power_path.pdf>]
-<figures/adapter_board.pdf, id=118, 762.85pt x 351.3125pt>
-File: figures/adapter_board.pdf Graphic file (type pdf)
-<use figures/adapter_board.pdf>
-Package pdftex.def Info: figures/adapter_board.pdf  used on input line 153.
-(pdftex.def)             Requested size: 505.12177pt x 232.6228pt.
-
-Underfull \hbox (badness 7081) in paragraph at lines 171--172
+Underfull \hbox (badness 7081) in paragraph at lines 174--175
 []\T1/times/m/n/8 Raw pe-riph-eral tests; cal-i-bra-tion
  []
 
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 189.
+Package pdftex.def Info: notaglinelogo.png  used on input line 197.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
 [6 <./figures/tag_board.pdf>]
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 216.
+Package pdftex.def Info: notaglinelogo.png  used on input line 223.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
  [7 <./figures/adapter_board.pdf>]
-Underfull \hbox (badness 1616) in paragraph at lines 235--236
-\T1/times/n/n/10 DRC re-sults re-port no vi-o-la-tions, un-con-nected items or
- []
-
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 240.
+Package pdftex.def Info: notaglinelogo.png  used on input line 250.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
-[8]
+ [8]
 File: bullet.png Graphic file (type png)
 <use bullet.png>
-Package pdftex.def Info: bullet.png  used on input line 261.
+Package pdftex.def Info: bullet.png  used on input line 268.
 (pdftex.def)             Requested size: 5.0pt x 14.6871pt.
  (build/main.bbl
 LaTeX Font Info:    Calculating math sizes for size <7.61> on input line 24.
@@ -563,7 +557,7 @@ Underfull \hbox (badness 2521) in paragraph at lines 27--28
 
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 43.
+Package pdftex.def Info: notaglinelogo.png  used on input line 58.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
 [9]
 Underfull \hbox (badness 10000) in paragraph at lines 60--61
@@ -608,7 +602,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 84--85
 )
 File: notaglinelogo.png Graphic file (type png)
 <use notaglinelogo.png>
-Package pdftex.def Info: notaglinelogo.png  used on input line 264.
+Package pdftex.def Info: notaglinelogo.png  used on input line 272.
 (pdftex.def)             Requested size: 91.32pt x 23.1352pt.
  [10
 
@@ -620,14 +614,14 @@ L3 programming layer <2026-09-09>
  ) 
 Here is how much of TeX's memory you used:
  11208 strings out of 469040
- 177703 string characters out of 5457102
- 612164 words of memory out of 5000000
+ 179335 string characters out of 5457102
+ 616164 words of memory out of 5000000
  40117 multiletter control sequences out of 15000+600000
  696975 words of font info for 151 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 74i,12n,79p,1234b,634s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</tmp/safety-tag-tex/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></tmp/safety-tag-tex/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></tmp/safety-tag-tex/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></tmp/safety-tag-tex/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/balarakeshg16/Documents/Projects/SeedGrant_Naveen/journal/ieee/template/assets/t1-formata-bold.pfb></home/balarakeshg16/Documents/Projects/SeedGrant_Naveen/journal/ieee/template/assets/t1-formata-condmedium.pfb></home/balarakeshg16/Documents/Projects/SeedGrant_Naveen/journal/ieee/template/assets/t1-formata-medium.pfb></home/balarakeshg16/Documents/Projects/SeedGrant_Naveen/journal/ieee/template/assets/t1-formata-mediumitalic.pfb></home/balarakeshg16/Documents/Projects/SeedGrant_Naveen/journal/ieee/template/assets/t1-formata-regular.pfb></home/balarakeshg16/Documents/Projects/SeedGrant_Naveen/journal/ieee/template/assets/t1-giovannistd-bookitalic.pfb></home/balarakeshg16/Documents/Projects/SeedGrant_Naveen/journal/ieee/template/assets/t1-times-italic.pfb></home/balarakeshg16/Documents/Projects/SeedGrant_Naveen/journal/ieee/template/assets/t1-times.pfb>
-Output written on build/main.pdf (10 pages, 306636 bytes).
+ 74i,12n,79p,1216b,634s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></tmp/safety-tag-revision-IykZxM/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/balarakeshg16/Documents/Projects/SeedGrant_Naveen/journal/ieee/template/assets/t1-formata-bold.pfb></home/balarakeshg16/Documents/Projects/SeedGrant_Naveen/journal/ieee/template/assets/t1-formata-condmedium.pfb></home/balarakeshg16/Documents/Projects/SeedGrant_Naveen/journal/ieee/template/assets/t1-formata-medium.pfb></home/balarakeshg16/Documents/Projects/SeedGrant_Naveen/journal/ieee/template/assets/t1-formata-mediumitalic.pfb></home/balarakeshg16/Documents/Projects/SeedGrant_Naveen/journal/ieee/template/assets/t1-formata-regular.pfb></home/balarakeshg16/Documents/Projects/SeedGrant_Naveen/journal/ieee/template/assets/t1-giovannistd-bookitalic.pfb></home/balarakeshg16/Documents/Projects/SeedGrant_Naveen/journal/ieee/template/assets/t1-times-italic.pfb></home/balarakeshg16/Documents/Projects/SeedGrant_Naveen/journal/ieee/template/assets/t1-times.pfb>
+Output written on build/main.pdf (10 pages, 305499 bytes).
 PDF statistics:
  340 PDF objects out of 1000 (max. 8388607)
  240 compressed objects within 3 object streams

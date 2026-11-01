@@ -20,16 +20,17 @@
 \citation{peker2022}
 \citation{givehchian2022}
 \citation{barman2021}
+\citation{androidlocation}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-B}}Safety and Security Literature}{2}{subsection.2.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {III}System Architecture}{2}{section.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-A}}In-App Emergency Path}{2}{subsection.3.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-B}}Mobile Client and Service Selection}{2}{subsection.3.2}\protected@file@percent }
-\citation{androidlocation}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-C}}Location and Permissions}{2}{subsection.3.3}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces System overview. Solid lines show software paths in the repository; the dashed wearable-to-phone connection remains planned. The diagram does not establish availability or delivery.}}{3}{figure.1}\protected@file@percent }
 \newlabel{fig:architecture}{{1}{3}{System overview. Solid lines show software paths in the repository; the dashed wearable-to-phone connection remains planned. The diagram does not establish availability or delivery}{figure.1}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces App-originated SOS workflow. Push notifications and real-time events are best effort; the wearable emergency link is not implemented.}}{3}{figure.2}\protected@file@percent }
 \newlabel{fig:sos-flow}{{2}{3}{App-originated SOS workflow. Push notifications and real-time events are best effort; the wearable emergency link is not implemented}{figure.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-C}}Location and Permissions}{3}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-D}}Guardians, Status and Event Delivery}{3}{subsection.3.4}\protected@file@percent }
 \citation{esp32}
 \citation{charger}
 \citation{regulator}
@@ -38,13 +39,12 @@
 \citation{efuse}
 \citation{charger}
 \citation{regulator}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-D}}Guardians, Status and Event Delivery}{4}{subsection.3.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-E}}Records and Access Boundaries}{4}{subsection.3.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {IV}Wearable Design}{4}{section.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-A}}Sensing and Feedback}{4}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-B}}Charging and Power Design}{4}{subsection.4.2}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Designed wearable power path. The cell, temperature interlock and adapter require physical charging and load tests.}}{5}{figure.3}\protected@file@percent }
 \newlabel{fig:power-path}{{3}{5}{Designed wearable power path. The cell, temperature interlock and adapter require physical charging and load tests}{figure.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-B}}Charging and Power Design}{5}{subsection.4.2}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Battery-side runtime estimates under assumed operating currents}}{5}{table.1}\protected@file@percent }
 \newlabel{tab:runtime}{{1}{5}{Battery-side runtime estimates under assumed operating currents}{table.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-C}}Custom PCB and Assembly Organization}{5}{subsection.4.3}\protected@file@percent }
@@ -61,12 +61,13 @@
 \newlabel{tab:components}{{2}{7}{Main PCB subsystems and their current evidence}{table.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-F}}Button Input and Test Firmware}{7}{subsection.4.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {V}Verification Method and Evidence}{7}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-A}}Interpretation of Software Checks}{7}{subsection.5.1}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Available checks and the limits of their evidence}}{8}{table.3}\protected@file@percent }
 \newlabel{tab:evidence}{{3}{8}{Available checks and the limits of their evidence}{table.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-A}}Interpretation of Software Checks}{8}{subsection.5.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-B}}Evidence Provenance and Scope}{8}{subsection.5.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-C}}Proposed Physical Evaluation}{8}{subsection.5.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-D}}Interpreting the CAD and Firmware Evidence}{8}{subsection.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-E}}Interpreting Future Peripheral Measurements}{8}{subsection.5.5}\protected@file@percent }
 \bibstyle{IEEEtran}
 \bibdata{references}
 \bibcite{wearable2025}{1}
@@ -76,15 +77,14 @@
 \bibcite{androidlocation}{5}
 \bibcite{farooq2023}{6}
 \bibcite{roy2024}{7}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-E}}Interpreting Future Peripheral Measurements}{9}{subsection.5.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {VI}Discussion and Limitations}{9}{section.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {VII}Conclusion}{9}{section.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{REFERENCES}{9}{section*.1}\protected@file@percent }
 \bibcite{sonia2024}{8}
 \bibcite{hariprasad2025}{9}
 \bibcite{just2019}{10}
 \bibcite{peker2022}{11}
 \bibcite{givehchian2022}{12}
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Discussion and Limitations}{9}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {VII}Conclusion}{9}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{REFERENCES}{9}{section*.1}\protected@file@percent }
 \bibcite{esp32}{13}
 \bibcite{charger}{14}
 \bibcite{regulator}{15}
