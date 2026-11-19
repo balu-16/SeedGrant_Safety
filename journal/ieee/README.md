@@ -1,19 +1,56 @@
-# Smart Safety Tag journal draft
+# Smart Safety Tag journal
 
-The prose received a further revision on 1 November 2026; see REVISION_2_CHANGELOG.md for its section-by-section changes, author questions, and verification. REVISION_CHANGELOG.md and REVISION.diff document the earlier pass. The supplied 83% report estimates AI writing, not text similarity, and no revised screening score is available.
+The complete journal text is in **[main.tex](main.tex)**. Search for a section name from the table below to find it in that file.
 
-`main.tex`, `references.bib`, `figures/`, and `template_compat.tex` are the manuscript source; `main.pdf` is the compiled draft. `latex_source.zip` is a portable source bundle with the publisher assets at its root. Use pdfLaTeX, BibTeX, then pdfLaTeX twice (or import the ZIP into Overleaf with pdfLaTeX). For this directory, put a TeX distribution on PATH and run `./build.sh`; build files go to `build/`.
+| What you need | Where to find it |
+| --- | --- |
+| Compiled journal | [main.pdf](main.pdf) |
+| Abstract, introduction and related work | [main.tex](main.tex): abstract, Introduction, Related Work |
+| App, backend and emergency flow | [main.tex](main.tex): System Architecture |
+| Wearable, power and PCB design | [main.tex](main.tex): Wearable Design |
+| Tests, evidence and proposed evaluation | [main.tex](main.tex): Verification Method and Evidence |
+| Limitations and conclusion | [main.tex](main.tex): Discussion and Limitations, Conclusion |
+| All tables and captions | [main.tex](main.tex), near the relevant discussion |
+| References | [references.bib](references.bib) |
+| Figures | [images/](images/) |
+| Template, build tools and revision history | [support/](support/) |
+| Portable LaTeX source for sharing or Overleaf | [latex_source.zip](latex_source.zip) |
 
-The template assets and compatibility file come from the supplied IDP_Project IEEE Access manuscript. Its documentation reports that the assets came from a pinned mirror after the direct publisher archive returned HTTP 403; equivalence to the official archive has not been independently verified. `cite.sty` was obtained from CTAN. The toolchain used here was TinyTeX 2026.10, archive SHA-256 `4d519d6236ee6798e3ec0d8e2093d1fda01aeb267aa22c2a5586d76bcfce6566`; the compiler was kept in temporary storage and is not part of the source bundle.
+Comments marked `TODO(author)` in `main.tex` identify questions for the authors. The [latest revision notes](support/REVISION_2_CHANGELOG.md) collect them; the [earlier notes](support/REVISION_CHANGELOG.md) are also retained.
 
-The article is a design-and-implementation draft, not evidence of an integrated hardware trial. The four author names are provisional. Affiliations, corresponding author, author contributions, conflicts, funding and disclosure history require team confirmation. IEEE Access suitability and similarity screening remain for author review. The references are verified publication or manufacturer records, not a comprehensive systematic review.
+## Figures
 
-Evidence checked on 29 October 2026 against repository commit `5598d3f`: `npm test` in `client/` (24 tests passed); `npm run typecheck` in `admin/` (passed); and `PYTHONDONTWRITEBYTECODE=1 timeout 45s .venv/bin/python -m pytest -q -p no:cacheprovider` in `server/` (57 tests passed, with two dependency deprecation warnings). Backend tests use in-memory repositories and mock notification providers; they do not test a live database or real alert delivery. An earlier isolated authentication run timed out before the full suite subsequently passed. Hardware status is taken from `smart-safety-tag-v1/docs/verification.md` and its referenced records, not a new physical test.
+| Journal figure | File |
+| --- | --- |
+| System overview | [architecture.pdf](images/architecture.pdf) |
+| App-originated SOS flow | [sos_flow.pdf](images/sos_flow.pdf) |
+| Wearable power path | [power_path.pdf](images/power_path.pdf) |
+| Tag PCB assembly views | [tag_board.pdf](images/tag_board.pdf) |
+| Charging-adapter views | [adapter_board.pdf](images/adapter_board.pdf) |
 
-The expanded draft is ten pages with five vector figures, including CAD assembly views for both PCBs, and 21 cited references (including 10 research publications). It includes a modeled runtime table and an evidence table. Battery figures are calculated scenarios; the documented tag-to-phone integration and physical measurements remain pending.
+`architecture.png` is a preview of the architecture figure. The five PDF figures above are the ones included in the manuscript.
 
-For the 29 October draft, a local 12-word-sequence comparison with the supplied QubitChat journal sections and patent document found no matches in that manuscript source or disclosure HTML. This narrow comparison is not a plagiarism certification or a substitute for a publisher/institution similarity check.
+## Build the journal
 
-The current draft omits the AI-use disclosure. Before submission, consult IEEE Access’s disclosure policy: https://ieeeaccess.ieee.org/authors/submission-guidelines/ . Author, affiliation, funding, and conflict details still require confirmation.
+Install a TeX distribution that provides `pdflatex` and `bibtex`, along with Python 3. From the repository root, run:
 
-A 12-word overlap check on the 29 October draft found no matches against the supplied example documents and two accessible cited studies (the BLE traffic-analysis paper and the BLE wearable-security study). This is a narrow diagnostic and cannot certify a plagiarism-screening outcome.
+```sh
+cd journal/ieee
+./support/build.sh
+```
+
+The script runs pdfLaTeX, BibTeX and pdfLaTeX twice in a temporary directory. On success, it updates `main.pdf` and `latex_source.zip`; temporary build files are removed. The previous build files are preserved in [support/previous_build.zip](support/previous_build.zip).
+
+For Overleaf, upload `latex_source.zip` and select pdfLaTeX. The archive places the IEEE template files at its root and figures in `images/` so it can compile independently. To refresh only the archive without rebuilding the PDF, run `python3 support/package_source.py` from `journal/ieee`.
+
+The optional `support/make_figures.py` script regenerates the figures from project CAD exports and requires PyMuPDF. It overwrites the files in `images/`; normal journal builds do not run it.
+
+## Draft and evidence notes
+
+The manuscript is a design-and-implementation draft, not evidence of an integrated hardware trial. The four author names are provisional. Affiliations, corresponding author, author contributions, conflicts, funding and disclosure history require team confirmation. Consult the [IEEE Access submission guidelines](https://ieeeaccess.ieee.org/authors/submission-guidelines/) before submission.
+
+The saved checks reported 24 passing mobile tests, 57 passing backend tests using in-memory repositories and mock providers, and a passing administrative type check. Hardware status comes from the [verification register](../../smart-safety-tag-v1/docs/verification.md); the wearable emergency link and physical measurements remain pending.
+
+The supplied 83% report estimates AI writing for an earlier draft. It is not a text-similarity score, and no score for the current manuscript is available. Previous limited overlap checks and their limitations are documented in the revision notes.
+
+The IEEE template assets and compatibility file came from the supplied IDP_Project IEEE Access manuscript. Its documentation reports that the assets came from a pinned mirror after the direct publisher archive returned HTTP 403; equivalence to the official archive has not been independently verified. `cite.sty` came from CTAN. The previous build used TinyTeX 2026.10, archive SHA-256 `4d519d6236ee6798e3ec0d8e2093d1fda01aeb267aa22c2a5586d76bcfce6566`.

@@ -1,7 +1,7 @@
 import fitz
 from pathlib import Path
-root=Path(__file__).parent
-out=root/'figures'
+root=Path(__file__).resolve().parent.parent
+out=root/'images'
 D=fitz.open(); p=D.new_page(width=720,height=360)
 def box(x,y,w,h,title,body):
  r=fitz.Rect(x,y,x+w,y+h); p.draw_rect(r,color=(.12,.24,.36),fill=(.95,.97,.98),width=1.1)

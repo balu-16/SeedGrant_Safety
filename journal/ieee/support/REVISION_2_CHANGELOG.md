@@ -25,7 +25,7 @@ The percentages estimate the proportion of original prose sentences without an e
 | Discussion and Limitations | 90% | Reorganized integration, notification, privacy and participant-related limitations around the actual alert path. |
 | Conclusion | 67% | Restated the present evidence and next integration steps. |
 
-The reason for replacing the input capacitor is supported by the [project power budget](../../smart-safety-tag-v1/docs/power-budget.md). The named ignored ERC diagnostic examples are supported by the [verification register](../../smart-safety-tag-v1/docs/verification.md). No new experimental results, measurements or references were added.
+The reason for replacing the input capacitor is supported by the [project power budget](../../../smart-safety-tag-v1/docs/power-budget.md). The named ignored ERC diagnostic examples are supported by the [verification register](../../../smart-safety-tag-v1/docs/verification.md). No new experimental results, measurements or references were added.
 
 ## Author input requested
 
